@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Blockchain_Basics.LessonsPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImageSource="main_background.png">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="40">
+                <Button x:Name="button1" Text = "Урок1" FontSize="Large" Margin="10"
+                        BackgroundColor="White" CornerRadius="30">
+                </Button>
+                <Button x:Name="button2" Text = "Урок2" FontSize="Large" Margin="10"
+                        BackgroundColor="White" CornerRadius="30">
+                </Button>
+                <Button x:Name="button3" Text = "Урок3" FontSize="Large" Margin="10"
+                        BackgroundColor="White" CornerRadius="30">
+                </Button>
+                <Button x:Name="button4" Text = "Урок4" FontSize="Large" Margin="10"
+                        BackgroundColor="White" CornerRadius="30">
+                </Button>
+                <Button x:Name="button5" Text = "Урок5" FontSize="Large" Margin="10"
+                        BackgroundColor="White" CornerRadius="30">
+                </Button>
+                <Button x:Name="button6" Text = "Урок6" FontSize="Large" Margin="10"
+                        BackgroundColor="White" CornerRadius="30">
+                </Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
