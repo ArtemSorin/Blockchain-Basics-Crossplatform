@@ -5,8 +5,11 @@
              NavigationPage.HasNavigationBar="False"
              BackgroundImageSource="main_background.png">
     <ContentPage.Content>
-        <StackLayout Margin="30">
-            <Grid HorizontalOptions = "Center">
+        <StackLayout>
+            <Label Text="Game center" FontSize="40" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                   TextColor="White" FontAttributes="Bold" Margin="40">
+            </Label>
+            <Grid HorizontalOptions="Center" VerticalOptions="Center">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="160" />
                     <ColumnDefinition Width="160" />

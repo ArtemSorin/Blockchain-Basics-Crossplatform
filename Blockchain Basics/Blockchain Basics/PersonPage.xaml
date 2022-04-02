@@ -5,7 +5,10 @@
              NavigationPage.HasNavigationBar="False"
              BackgroundImageSource="main_background.png">
     <ContentPage.Content>
-        <StackLayout Margin="20">
+        <StackLayout>
+            <Label Text ="Привет" FontSize="40" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                   TextColor="White" FontAttributes="Bold" Margin="30">
+            </Label>
             <Grid HorizontalOptions = "Center">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="160" />
@@ -29,9 +32,9 @@
                 </ImageButton>
             </Grid>
             <Label Text="Прогресс изучения" TextColor="White" HorizontalTextAlignment="Center"
-                    Margin="30" FontSize="Large" FontAttributes="Bold">
+                    Margin="15" FontSize="Large" FontAttributes="Bold">
             </Label>
-            <ProgressBar ProgressColor="Aqua" Progress="0.5">
+            <ProgressBar ProgressColor="Aqua" Progress="0.8" Margin="20">
             </ProgressBar>
         </StackLayout>
     </ContentPage.Content>

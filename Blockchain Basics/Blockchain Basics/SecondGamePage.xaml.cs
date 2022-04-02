@@ -10,14 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace Blockchain_Basics
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class GamesPage : ContentPage
+    public partial class SecondGamePage : ContentPage
     {
-        public GamesPage()
+        public SecondGamePage()
         {
             InitializeComponent();
-
-            button1.Clicked += (sender, e) => Navigation.PushAsync(new FirstGamePage());
-            button2.Clicked += (sender, e) => Navigation.PushAsync(new SecondGamePage());
         }
     }
 }

@@ -25,6 +25,9 @@
                 <Button x:Name="button6" Text = "Урок6" FontSize="Large" Margin="10"
                         BackgroundColor="White" CornerRadius="30">
                 </Button>
+                <Button x:Name="button7" Text = "Урок7" FontSize="Large" Margin="10"
+                        BackgroundColor="White" CornerRadius="30">
+                </Button>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
