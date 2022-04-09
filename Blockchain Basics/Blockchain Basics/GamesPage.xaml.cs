@@ -16,8 +16,9 @@ namespace Blockchain_Basics
         {
             InitializeComponent();
 
-            button1.Clicked += (sender, e) => Navigation.PushAsync(new FirstGamePage());
-            button2.Clicked += (sender, e) => Navigation.PushAsync(new SecondGamePage());
+
+            button_game_1.Clicked += (sender, e) => Navigation.PushAsync(new FirstGamePage());
+            button_game_2.Clicked += (sender, e) => Navigation.PushAsync(new SecondGamePage());
         }
     }
 }

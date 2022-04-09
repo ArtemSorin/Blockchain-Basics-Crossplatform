@@ -6,7 +6,6 @@
     <!-- If you want to override anything you can do that here. -->
     <!-- Underneath are a couple of entries to get you started. -->
 	  <!-- Top status bar area on Android -->
-	  <item name="android:statusBarColor">#6293EA</item>
 	  <!-- Set theme colors from https://aka.ms/material-colors -->
     <!-- colorPrimary is used for the default action bar background -->
     <!--<item name="colorPrimary">#2196F3</item>-->

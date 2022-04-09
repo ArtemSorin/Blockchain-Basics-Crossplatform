@@ -1,26 +1,141 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
-             NavigationPage.HasNavigationBar="False"
              x:Class="Blockchain_Basics.MainPage"
-             BackgroundImageSource="main_background.png">
-    <ContentPage.Content>
-        <StackLayout Margin="50">
-            <Image Source="blockchain.png">
-            </Image>
-            <Label Text="Blockchain Basics" TextColor="White" FontAttributes="Bold" 
-                   FontSize="30" HorizontalTextAlignment="Center">
-            </Label>
-            <Button x:Name="button1" FontSize="Large" BackgroundColor="White" Margin="10"
-                CornerRadius="20" WidthRequest="30" HeightRequest="60" Text="Главная">
-            </Button>
-            <Button x:Name="button2" FontSize="Large" BackgroundColor="White" Margin="10"
-                CornerRadius="20" WidthRequest="30" HeightRequest="60" Text="Уроки">
-            </Button>
-            <Button x:Name="button3" FontSize="Large" BackgroundColor="White" Margin="10"
-                CornerRadius="20" WidthRequest="30" HeightRequest="60" Text="Мини игры">
-            </Button>
+             android:TabbedPage.ToolbarPlacement="Bottom"
+             SelectedTabColor="#383d8e"
+             UnselectedTabColor="Gray"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage Title="Профиль" IconImageSource="user.png">
+        <StackLayout BackgroundColor="#f6f7f9">
+            <ScrollView>
+                <StackLayout>
+                    <Frame BackgroundColor="White" HeightRequest="200">
+                        <ProgressBar Margin="0, 195, 0, 0" ProgressColor="#2c1dec" 
+                             Progress="0.5">
+                        </ProgressBar>
+                    </Frame>
+                    <Label Text="Продолжите обучение" Margin="10, 20, 0, 0"
+                   FontSize="Medium" TextColor="Black" FontAttributes="Bold">
+                    </Label>
+                    <ScrollView Orientation="Horizontal" Margin="10, 20, 0, 0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="270" />
+                                <ColumnDefinition Width="270" />
+                                <ColumnDefinition Width="270" />
+                                <ColumnDefinition Width="270" />
+                                <ColumnDefinition Width="270" />
+                                <ColumnDefinition Width="270" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="200" />
+                            </Grid.RowDefinitions>
+                            <Button ImageSource="ml.png" CornerRadius="40" Grid.Column="0"></Button>
+                            <Button ImageSource="ml.png" CornerRadius="40" Grid.Column="1"></Button>
+                            <Button ImageSource="ml.png" CornerRadius="40" Grid.Column="2"></Button>
+                        </Grid>
+                    </ScrollView>
+                    <Label Margin="10, 20, 0, 0" Text="Пройденные курсы и игры"
+                   FontSize="Medium" TextColor="Black" FontAttributes="Bold">
+                    </Label>
+                    <Grid Margin="10, 20, 0, 20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="150" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70" />
+                        </Grid.RowDefinitions>
+                        <Frame Grid.Column="0" CornerRadius="30">
+                            <StackLayout>
+                                <Image Source="pngwin.png" Margin="0, 0, 80, 0"></Image>
+                                <Label Text="Курсов пройдено:" Margin="40, -50, 0, 20"></Label>
+                                <Label Text="0/6" Margin="40, -25, 0, 20"></Label>
+                            </StackLayout>
+                        </Frame>
+                        <Frame Grid.Column="1" CornerRadius="30">
+                            <StackLayout>
+                                <Image Source="pngwin.png" Margin="0, 0, 80, 0"></Image>
+                                <Label Text="Игр пройдено:" Margin="40, -50, 0, 20"></Label>
+                                <Label Text="0/4" Margin="40, -25, 0, 20"></Label>
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
         </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+    </ContentPage>
+    <ContentPage Title="Уроки" IconImageSource="lesson.png">
+        <StackLayout BackgroundColor="#f6f7f9">
+            <Frame>
+                <Label Text="Раздел уроков" FontSize="Large" 
+                       TextColor="Black" FontAttributes="Bold">
+                </Label>
+            </Frame>
+            <ScrollView Margin="0, 20, 0, 0">
+                <Grid HorizontalOptions="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="170" />
+                        <ColumnDefinition Width="170" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="170" />
+                        <RowDefinition Height="170" />
+                        <RowDefinition Height="170" />
+                    </Grid.RowDefinitions>
+                    <Button x:Name="button_lesson_1" Margin="5"
+                         CornerRadius="10" Grid.Row="0" Grid.Column="0">
+                    </Button>
+                    <ImageButton x:Name="button_lesson_2" Margin="5"
+                        BackgroundColor="White" CornerRadius="10" Grid.Row="0" Grid.Column="1">
+                    </ImageButton>
+                    <ImageButton x:Name="button_lesson_3" Margin="5"
+                        BackgroundColor="White" CornerRadius="10" Grid.Row="1" Grid.Column="0">
+                    </ImageButton>
+                    <ImageButton x:Name="button_lesson_4" Margin="5"
+                        BackgroundColor="White" CornerRadius="10" Grid.Row="1" Grid.Column="1">
+                    </ImageButton>
+                    <ImageButton x:Name="button_lesson_5" Margin="5"
+                        BackgroundColor="White" CornerRadius="10" Grid.Row="2" Grid.Column="0">
+                    </ImageButton>
+                    <ImageButton x:Name="button_lesson_6" Margin="5"
+                        BackgroundColor="White" CornerRadius="10" Grid.Row="2" Grid.Column="1">
+                    </ImageButton>
+                </Grid>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Игры" IconImageSource="games.png">
+        <StackLayout BackgroundColor="#f6f7f9">
+            <Frame>
+                <Label Text="Игровой центр" FontSize="Large" 
+                       TextColor="Black" FontAttributes="Bold">
+                </Label>
+            </Frame>
+            <Grid HorizontalOptions="Center" VerticalOptions="Center" Margin="0, 20, 0, 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="170" />
+                    <ColumnDefinition Width="170" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="170" />
+                    <RowDefinition Height="170" />
+                </Grid.RowDefinitions>
+                <ImageButton x:Name="button_game_1" Grid.Row="0" Grid.Column="0"
+                         BackgroundColor="White" Margin="5" CornerRadius="10">
+                </ImageButton>
+                <ImageButton x:Name="button_game_2" Grid.Row="0" Grid.Column="1"
+                         BackgroundColor="White" Margin="5" CornerRadius="10">
+                </ImageButton>
+                <ImageButton x:Name="button_game_3" Grid.Row="1" Grid.Column="0"
+                         BackgroundColor="White" Margin="5" CornerRadius="10">
+                </ImageButton>
+                <ImageButton x:Name="button_game_4" Grid.Row="1" Grid.Column="1"
+                        BackgroundColor="White" Margin="5" CornerRadius="10">
+                </ImageButton>
+            </Grid>
+        </StackLayout>
+    </ContentPage>
+</TabbedPage>

@@ -1,24 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Blockchain_Basics.FirstGamePage"
-             NavigationPage.HasNavigationBar="False"
-             BackgroundImageSource="main_background.png">
+             x:Class="Blockchain_Basics.FirstGamePage">
     <StackLayout>
-        <Frame BorderColor="Gray" BackgroundColor="White" CornerRadius="20" Margin="30">
-            <Entry x:Name="Entry_t" HorizontalTextAlignment="Center" Margin="50" PlaceholderColor="White">
-            </Entry>
+        <Frame BackgroundColor="White" CornerRadius="20" Margin="30">
+            <StackLayout>
+                <Entry x:Name="Entry_t" HorizontalTextAlignment="Center" Margin="50" PlaceholderColor="White">
+                </Entry>
+                <Label x:Name="textView1" FontSize="Large" Text="" 
+                        HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Margin="10">
+                </Label>
+            </StackLayout>
         </Frame>
-        <Label x:Name="textView1" FontSize="Large" Text="" 
-               HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Margin="20">
-        </Label>
-        <Button x:Name="button" Text="Посчитать хэш" BackgroundColor="White" CornerRadius="20" Margin="30">
+        <Button x:Name="button" Text="Посчитать хэш" BackgroundColor="White" CornerRadius="20" Margin="40, 0, 40, 0">
         </Button>
         <Label x:Name="textView2" FontSize="Large" Text="Количество попыток" 
                HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Margin="10">
         </Label>
-        <Label x:Name="textView3" FontSize="Large" Text="" 
-               HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Margin="10">
+        <Label x:Name="textView3" FontSize="Large" Text=""
+               HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Margin="0">
         </Label>
     </StackLayout>
 </ContentPage>

@@ -134,15 +134,24 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\blockchain.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\blockchain1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\main_background.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\widget_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\games.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lesson.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\blockchain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\coursbackground.png" />
   </ItemGroup>
 </Project>
