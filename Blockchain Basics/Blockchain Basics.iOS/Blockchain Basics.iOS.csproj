@@ -123,6 +123,12 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Xamarin.FFImageLoading.Forms">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
@@ -132,24 +138,6 @@
       <Project>{E2B6EE34-3D8A-49B6-A61E-42E2DE2C06C7}</Project>
       <Name>Blockchain Basics</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\main_background.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\widget_white.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\games.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\lesson.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\user.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\blockchain.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\coursbackground.png" />

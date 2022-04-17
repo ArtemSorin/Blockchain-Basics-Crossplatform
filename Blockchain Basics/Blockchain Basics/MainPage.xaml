@@ -2,17 +2,18 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:svg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              x:Class="Blockchain_Basics.MainPage"
              android:TabbedPage.ToolbarPlacement="Bottom"
-             SelectedTabColor="#383d8e"
+             SelectedTabColor="#1c9af5"
              UnselectedTabColor="Gray"
              NavigationPage.HasNavigationBar="False">
-    <ContentPage Title="Профиль" IconImageSource="user.png">
+    <ContentPage Title="Профиль" IconImageSource="{OnPlatform iOS=apple.svg, Android=user}">
         <StackLayout BackgroundColor="#f6f7f9">
             <ScrollView>
                 <StackLayout>
-                    <Frame BackgroundColor="White" HeightRequest="200">
-                        <ProgressBar Margin="0, 195, 0, 0" ProgressColor="#2c1dec" 
+                    <Frame BackgroundColor="White" HeightRequest="150">
+                        <ProgressBar Margin="0, 145, 0, 0" ProgressColor="Blue" 
                              Progress="0.5">
                         </ProgressBar>
                     </Frame>
@@ -22,19 +23,19 @@
                     <ScrollView Orientation="Horizontal" Margin="10, 20, 0, 0">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="270" />
-                                <ColumnDefinition Width="270" />
-                                <ColumnDefinition Width="270" />
-                                <ColumnDefinition Width="270" />
-                                <ColumnDefinition Width="270" />
-                                <ColumnDefinition Width="270" />
+                                <ColumnDefinition Width="180" />
+                                <ColumnDefinition Width="180" />
+                                <ColumnDefinition Width="180" />
+                                <ColumnDefinition Width="180" />
+                                <ColumnDefinition Width="180" />
+                                <ColumnDefinition Width="180" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="200" />
                             </Grid.RowDefinitions>
-                            <Button ImageSource="ml.png" CornerRadius="40" Grid.Column="0"></Button>
-                            <Button ImageSource="ml.png" CornerRadius="40" Grid.Column="1"></Button>
-                            <Button ImageSource="ml.png" CornerRadius="40" Grid.Column="2"></Button>
+                            <ImageButton Source="lesson1.png" CornerRadius="30" Grid.Column="0"></ImageButton>
+                            <ImageButton CornerRadius="30" Grid.Column="1"></ImageButton>
+                            <ImageButton CornerRadius="30" Grid.Column="2"></ImageButton>
                         </Grid>
                     </ScrollView>
                     <Label Margin="10, 20, 0, 0" Text="Пройденные курсы и игры"
@@ -48,17 +49,27 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="70" />
                         </Grid.RowDefinitions>
-                        <Frame Grid.Column="0" CornerRadius="30">
+                        <Frame Grid.Column="0" CornerRadius="20">
                             <StackLayout>
-                                <Image Source="pngwin.png" Margin="0, 0, 80, 0"></Image>
-                                <Label Text="Курсов пройдено:" Margin="40, -50, 0, 20"></Label>
+                                <svg:SvgCachedImage
+                                        Margin="0, 0, 80, 0"
+                                        Source="check.svg"
+                                        WidthRequest="30"
+                                        HeightRequest="30">
+                                </svg:SvgCachedImage>
+                                <Label Text="Курсов пройдено:" TextColor="Black" FontAttributes="Bold" Margin="40, -50, 0, 20"></Label>
                                 <Label Text="0/6" Margin="40, -25, 0, 20"></Label>
                             </StackLayout>
                         </Frame>
-                        <Frame Grid.Column="1" CornerRadius="30">
+                        <Frame Grid.Column="1" CornerRadius="20">
                             <StackLayout>
-                                <Image Source="pngwin.png" Margin="0, 0, 80, 0"></Image>
-                                <Label Text="Игр пройдено:" Margin="40, -50, 0, 20"></Label>
+                                <svg:SvgCachedImage
+                                        Margin="0, 0, 80, 0"
+                                        Source="check.svg"
+                                        WidthRequest="30"
+                                        HeightRequest="30">
+                                </svg:SvgCachedImage>
+                                <Label Text="Игр пройдено:" TextColor="Black" FontAttributes="Bold" Margin="40, -50, 0, 20"></Label>
                                 <Label Text="0/4" Margin="40, -25, 0, 20"></Label>
                             </StackLayout>
                         </Frame>
@@ -67,7 +78,7 @@
             </ScrollView>
         </StackLayout>
     </ContentPage>
-    <ContentPage Title="Уроки" IconImageSource="lesson.png">
+    <ContentPage Title="Уроки" IconImageSource="{OnPlatform iOS=apple.svg, Android=lessons}">
         <StackLayout BackgroundColor="#f6f7f9">
             <Frame>
                 <Label Text="Раздел уроков" FontSize="Large" 
@@ -107,7 +118,7 @@
             </ScrollView>
         </StackLayout>
     </ContentPage>
-    <ContentPage Title="Игры" IconImageSource="games.png">
+    <ContentPage Title="Игры" IconImageSource="{OnPlatform iOS=apple.svg, Android=games}">
         <StackLayout BackgroundColor="#f6f7f9">
             <Frame>
                 <Label Text="Игровой центр" FontSize="Large" 

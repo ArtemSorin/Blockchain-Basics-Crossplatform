@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using FFImageLoading.Forms.Platform;
+using FFImageLoading.Svg.Forms;
 using Foundation;
 using UIKit;
 
@@ -23,9 +24,12 @@ namespace Blockchain_Basics.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+            CachedImageRenderer.InitImageSourceHandler();
+            var ignore = typeof(SvgCachedImage);
             LoadApplication(new App());
-
             return base.FinishedLaunching(app, options);
         }
     }
+
 }
