@@ -3,6 +3,44 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Blockchain_Basics.SecondGamePage">
     <StackLayout>
-        
+        <StackLayout>
+            <Frame BackgroundColor="#2196F3">
+                <Label Text="Мини-игра 3" HorizontalTextAlignment="Center" Padding="1" TextColor="White"  FontSize="36"/>
+            </Frame>
+        </StackLayout>
+
+        <StackLayout>
+            <Frame BackgroundColor="#FF6FD8" Margin="0, 25, 0, 25" Padding="30" >
+                <Label Text="расставьте блоки в правильном порядке." HorizontalTextAlignment="Center" Padding="2" TextColor="White"  FontSize="20"/>
+            </Frame>
+
+            <Frame BackgroundColor="#5E8AD2">
+                <Label x:Name="current_chain" HorizontalTextAlignment="Center" Padding="2" TextColor="White" HeightRequest="70"  FontSize="20"/>
+            </Frame>
+
+        </StackLayout>
+
+        <Grid HorizontalOptions="Center" Margin="0, 20, 0, 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="120" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70" />
+            </Grid.RowDefinitions>
+
+            <Button x:Name= "button1" BackgroundColor="Blue" Text="Блок 1" Grid.Column="0" CornerRadius="30"></Button>
+            <Button x:Name= "button2" BackgroundColor="Blue" Text="Блок 2" Grid.Column="1" CornerRadius="30"></Button>
+            <Button x:Name= "button3" BackgroundColor="Blue" Text="Блок 3" Grid.Column="2" CornerRadius="30"></Button>
+        </Grid>
+
+
+        <Button x:Name= "resetbutton" BackgroundColor="#FF69B4" Text="Сбросить" VerticalOptions ="CenterAndExpand" HeightRequest="70" WidthRequest="120"
+                 Margin="60, 0, 60, 0" CornerRadius="30"></Button>
+
+        <Button x:Name= "nextlvl_button" Margin="60, 0, 60, 0" CornerRadius="30" BackgroundColor="Green" Text="Следующий уровень!" VerticalOptions ="CenterAndExpand" HeightRequest="70" WidthRequest="120" IsVisible ="false"></Button>
+
     </StackLayout>
+
 </ContentPage>

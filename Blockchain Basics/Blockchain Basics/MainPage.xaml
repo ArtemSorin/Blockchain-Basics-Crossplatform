@@ -23,19 +23,20 @@
                     <ScrollView Orientation="Horizontal" Margin="10, 20, 0, 0">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="180" />
-                                <ColumnDefinition Width="180" />
-                                <ColumnDefinition Width="180" />
-                                <ColumnDefinition Width="180" />
-                                <ColumnDefinition Width="180" />
-                                <ColumnDefinition Width="180" />
+                                <ColumnDefinition Width="140" />
+                                <ColumnDefinition Width="140" />
+                                <ColumnDefinition Width="140" />
+                                <ColumnDefinition Width="140" />
+                                <ColumnDefinition Width="140" />
+                                <ColumnDefinition Width="140" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="200" />
+                                <RowDefinition Height="190" />
                             </Grid.RowDefinitions>
                             <ImageButton Source="lesson1.png" CornerRadius="30" Grid.Column="0"></ImageButton>
-                            <ImageButton CornerRadius="30" Grid.Column="1"></ImageButton>
-                            <ImageButton CornerRadius="30" Grid.Column="2"></ImageButton>
+                            <ImageButton Source="lesson2.png" CornerRadius="30" Grid.Column="1"></ImageButton>
+                            <ImageButton Source="lesson3.png" CornerRadius="30" Grid.Column="2"></ImageButton>
+                            <ImageButton Source="lesson4.png" CornerRadius="30" Grid.Column="3"></ImageButton>
                         </Grid>
                     </ScrollView>
                     <Label Margin="10, 20, 0, 0" Text="Пройденные курсы и игры"
@@ -134,17 +135,17 @@
                     <RowDefinition Height="170" />
                     <RowDefinition Height="170" />
                 </Grid.RowDefinitions>
-                <ImageButton x:Name="button_game_1" Grid.Row="0" Grid.Column="0"
-                         BackgroundColor="White" Margin="5" CornerRadius="10">
+                <ImageButton x:Name="button_game_1" Grid.Row="0" Grid.Column="0" 
+                         Source="game1.png" BackgroundColor="White" Margin="5" CornerRadius="30">
                 </ImageButton>
                 <ImageButton x:Name="button_game_2" Grid.Row="0" Grid.Column="1"
-                         BackgroundColor="White" Margin="5" CornerRadius="10">
+                         Source="game2.png" BackgroundColor="White" Margin="5" CornerRadius="30">
                 </ImageButton>
                 <ImageButton x:Name="button_game_3" Grid.Row="1" Grid.Column="0"
-                         BackgroundColor="White" Margin="5" CornerRadius="10">
+                         Source="game3.png" BackgroundColor="White" Margin="5" CornerRadius="30">
                 </ImageButton>
                 <ImageButton x:Name="button_game_4" Grid.Row="1" Grid.Column="1"
-                        BackgroundColor="White" Margin="5" CornerRadius="10">
+                        BackgroundColor="White" Margin="5" CornerRadius="30">
                 </ImageButton>
             </Grid>
         </StackLayout>
