@@ -27,6 +27,17 @@ namespace Blockchain_Basics
             //стыдно!
             correct_stack[0] = 1; correct_stack[1] = 2; correct_stack[2] = 3;
             //стыдно!
+            RadialGradientBrush radialGradientBrush = new RadialGradientBrush();
+            radialGradientBrush.Radius = 1.5;
+            radialGradientBrush.GradientStops = new GradientStopCollection()
+            {
+                new GradientStop(){ Color = Color.FromHex("#2F9BDF"), Offset = 0 },
+                new GradientStop(){ Color = Color.FromHex("#51F1F2"), Offset = 1 }
+            };
+            button1.Background = radialGradientBrush;
+            button2.Background = radialGradientBrush;
+            button3.Background = radialGradientBrush;
+            resetbutton.Background = radialGradientBrush;
         }
         protected override void OnAppearing()
         {

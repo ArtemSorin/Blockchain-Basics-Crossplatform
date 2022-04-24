@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Blockchain_Basics.ThirdGamePage">
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="Угадай крипту" HorizontalTextAlignment="Center" Margin="0, 0, 75, 0"
+                   FontSize="Medium" FontAttributes="Bold" TextColor="#1c9af5"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <StackLayout Margin="10">
+
+        <Frame BackgroundColor="#5555"
+                   Padding="16"
+                   CornerRadius="50">
+            <Label Text="Что это за логотип?" 
+                       TextColor="White" 
+                       FontSize="Large" 
+                       HorizontalTextAlignment="Center">
+            </Label>
+        </Frame>
+
+        <Frame x:Name="questImageFrame"
+                   BackgroundColor="#ffffff" 
+                   Padding="16" 
+                   CornerRadius="50">
+            <Image x:Name="questImage"
+                       Source="bitcoin1.png">
+            </Image>
+        </Frame>
+
+        <Button x:Name="button1"
+                    FontSize="Large"
+                    Margin="10"
+                    CornerRadius="50"
+                    WidthRequest="30"
+                    HeightRequest="60"
+                    Text="ethereum"
+                    FontAttributes="Bold"
+                    TextColor="White">
+        </Button>
+
+        <Button x:Name="button2"
+                    FontSize="Large"
+                    Margin="10"
+                    CornerRadius="50"
+                    WidthRequest="30"
+                    HeightRequest="60"
+                    Text="не шарю"
+                    FontAttributes="Bold"
+                    TextColor="White">
+        </Button>
+
+        <Button x:Name="button3"
+                    FontSize="Large"
+                    Margin="10"
+                    CornerRadius="50"
+                    WidthRequest="30"
+                    HeightRequest="60"
+                    Text="не шарю"
+                    FontAttributes="Bold"
+                    TextColor="White">
+        </Button>
+
+    </StackLayout>
+
+</ContentPage>

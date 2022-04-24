@@ -140,6 +140,66 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\coursbackground.png" />
+    <BundleResource Include="Resources\lesson3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lesson4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\litecoin1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monero1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\solana1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splash_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\vertcoin1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\answerCheck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bitcoin1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bytecoin1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\check.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\dogecoin1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ethereum1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\game1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\game2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\game3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lesson1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lesson2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\user.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\games.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lessons.svg" />
   </ItemGroup>
 </Project>

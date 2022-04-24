@@ -2,6 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Blockchain_Basics.FirstGamePage">
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="Хэш комбинация" HorizontalTextAlignment="Center" Margin="0, 0, 75, 0"
+                   FontSize="Medium" FontAttributes="Bold" TextColor="#1c9af5"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
     <StackLayout>
         <Frame BackgroundColor="White" CornerRadius="20" Margin="30">
             <StackLayout>
@@ -12,7 +18,8 @@
                 </Label>
             </StackLayout>
         </Frame>
-        <Button x:Name="button" Text="Посчитать хэш" BackgroundColor="White" CornerRadius="20" Margin="40, 0, 40, 0">
+        <Button x:Name="button" Text="Посчитать хэш" CornerRadius="20" Margin="40, 0, 40, 0"
+                 TextColor="White" FontAttributes="Bold">
         </Button>
         <Label x:Name="textView2" FontSize="Large" Text="Количество попыток" 
                HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Margin="10">

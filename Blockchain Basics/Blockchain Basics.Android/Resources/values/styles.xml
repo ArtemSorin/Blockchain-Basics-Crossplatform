@@ -18,6 +18,7 @@
     <!-- Underneath are a couple of entries to get you started. -->"
 	  <!-- Top status bar area on Android -->
 	  <item name="android:statusBarColor">#000000</item>
+	  <item name="android:colorPrimary">#ffffff</item>
 	  <!-- Set theme colors from https://aka.ms/material-colors -->
     <!-- colorPrimary is used for the default action bar background -->
     <!--<item name="colorPrimary">#2196F3</item>-->
