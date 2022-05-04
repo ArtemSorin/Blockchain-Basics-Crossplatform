@@ -90,9 +90,19 @@ namespace Blockchain_Basics
             current_chain.Text = block_chain;
             stack_counter = 0;
             current_chain.BackgroundColor = Color.Default;
-            button1.BackgroundColor = Color.Blue;
-            button2.BackgroundColor = Color.Blue;
-            button3.BackgroundColor = Color.Blue;
+            RadialGradientBrush radialGradientBrush = new RadialGradientBrush();
+            radialGradientBrush.Radius = 1.5;
+            radialGradientBrush.GradientStops = new GradientStopCollection()
+            {
+                new GradientStop(){ Color = Color.FromHex("#2F9BDF"), Offset = 0 },
+                new GradientStop(){ Color = Color.FromHex("#51F1F2"), Offset = 1 }
+            };
+            button1.Background = radialGradientBrush;
+            button2.Background = radialGradientBrush;
+            button3.Background = radialGradientBrush;
+            //button1.BackgroundColor = Color.Blue;
+            //button2.BackgroundColor = Color.Blue;
+            //button3.BackgroundColor = Color.Blue;
         }
         //-----------------------
         //нажатие ПЕРВОЙ кнопки
@@ -105,7 +115,15 @@ namespace Blockchain_Basics
                 block_chain = "\n";
             if (button1.BackgroundColor != Color.Red)
             {
-                button1.BackgroundColor = Color.Red;
+                RadialGradientBrush radialGradientBrushSelected = new RadialGradientBrush();
+                radialGradientBrushSelected.Radius = 1.5;
+                radialGradientBrushSelected.GradientStops = new GradientStopCollection()
+                {
+                    new GradientStop(){ Color = Color.FromHex("#FB0309"), Offset = 0 },
+                    new GradientStop(){ Color = Color.FromHex("#E10E53"), Offset = 1 }
+                };
+                button1.Background = radialGradientBrushSelected;
+                //button1.BackgroundColor = Color.Red;
                 block_chain = block_chain + "Блок 1 ➔ ";
                 current_chain.Text = block_chain;
                 stack_of_blocks[stack_counter] = 1;
@@ -127,7 +145,15 @@ namespace Blockchain_Basics
                 block_chain = "\n";
             if (button2.BackgroundColor != Color.Red)
             {
-                button2.BackgroundColor = Color.Red;
+                RadialGradientBrush radialGradientBrushSelected = new RadialGradientBrush();
+                radialGradientBrushSelected.Radius = 1.5;
+                radialGradientBrushSelected.GradientStops = new GradientStopCollection()
+                {
+                    new GradientStop(){ Color = Color.FromHex("#FB0309"), Offset = 0 },
+                    new GradientStop(){ Color = Color.FromHex("#E10E53"), Offset = 1 }
+                };
+                button2.Background = radialGradientBrushSelected;
+                //button2.BackgroundColor = Color.Red;
                 block_chain = block_chain + "Блок 2 ➔ ";
                 current_chain.Text = block_chain;
                 stack_of_blocks[stack_counter] = 2;
@@ -149,7 +175,15 @@ namespace Blockchain_Basics
                 block_chain = "\n";
             if (button3.BackgroundColor != Color.Red)
             {
-                button3.BackgroundColor = Color.Red;
+                RadialGradientBrush radialGradientBrushSelected = new RadialGradientBrush();
+                radialGradientBrushSelected.Radius = 1.5;
+                radialGradientBrushSelected.GradientStops = new GradientStopCollection()
+                {
+                    new GradientStop(){ Color = Color.FromHex("#FB0309"), Offset = 0 },
+                    new GradientStop(){ Color = Color.FromHex("#E10E53"), Offset = 1 }
+                };
+                button3.Background = radialGradientBrushSelected;
+                //button3.BackgroundColor = Color.Red;
                 block_chain = block_chain + "Блок 3 ➔ ";
                 current_chain.Text = block_chain;
                 stack_of_blocks[stack_counter] = 3;
@@ -172,9 +206,19 @@ namespace Blockchain_Basics
             current_chain.Text = block_chain;
             stack_counter = 0;
             current_chain.BackgroundColor = Color.Default;
-            button1.BackgroundColor = Color.Blue;
-            button2.BackgroundColor = Color.Blue;
-            button3.BackgroundColor = Color.Blue;
+            RadialGradientBrush radialGradientBrush = new RadialGradientBrush();
+            radialGradientBrush.Radius = 1.5;
+            radialGradientBrush.GradientStops = new GradientStopCollection()
+            {
+                new GradientStop(){ Color = Color.FromHex("#2F9BDF"), Offset = 0 },
+                new GradientStop(){ Color = Color.FromHex("#51F1F2"), Offset = 1 }
+            };
+            button1.Background = radialGradientBrush;
+            button2.Background = radialGradientBrush;
+            button3.Background = radialGradientBrush;
+            //button1.BackgroundColor = Color.Blue;
+            //button2.BackgroundColor = Color.Blue;
+            //button3.BackgroundColor = Color.Blue;
             nextlvl_button.IsVisible = !nextlvl_button.IsVisible;
             resetbutton.IsVisible = !nextlvl_button.IsVisible;
 

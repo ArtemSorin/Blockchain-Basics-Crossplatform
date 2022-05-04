@@ -19,11 +19,11 @@
                 <Label x:Name="current_chain" HorizontalTextAlignment="Center" Padding="2" TextColor="White" HeightRequest="70"  FontSize="20"/>
             </Frame>
         </StackLayout>
-        <Grid HorizontalOptions="Center" Margin="0, 20, 0, 0">
+        <Grid HorizontalOptions="Center" Margin="0, 50, 0, 0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="120" />
-                <ColumnDefinition Width="120" />
-                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="100" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50" />
@@ -38,6 +38,6 @@
         <Button x:Name= "resetbutton" Text="Сбросить" HeightRequest="50" WidthRequest="100"
                  Margin="60, 20, 60, 0" CornerRadius="30" TextColor="White" FontAttributes="Bold"></Button>
         <Button x:Name= "nextlvl_button" Margin="60, 0, 60, 0" CornerRadius="30" BackgroundColor="Green"
-                Text="Следующий уровень!" VerticalOptions ="CenterAndExpand" HeightRequest="70" WidthRequest="120" IsVisible ="false"></Button>
+                Text="Следующий уровень!" TextColor="White"  VerticalOptions ="CenterAndExpand" HeightRequest="50" WidthRequest="100" IsVisible ="false"></Button>
     </StackLayout>
 </ContentPage>

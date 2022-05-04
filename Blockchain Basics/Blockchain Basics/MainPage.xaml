@@ -97,23 +97,29 @@
                         <RowDefinition Height="170" />
                         <RowDefinition Height="170" />
                     </Grid.RowDefinitions>
-                    <Button x:Name="button_lesson_1" Margin="5"
-                         CornerRadius="10" Grid.Row="0" Grid.Column="0">
-                    </Button>
-                    <ImageButton x:Name="button_lesson_2" Margin="5"
+                    <ImageButton x:Name="button_lesson_1" Margin="5" Source="lessonmini1.png"
+                        BackgroundColor="White" CornerRadius="10" Grid.Row="0" Grid.Column="0">
+                    </ImageButton>
+                    <ImageButton x:Name="button_lesson_2" Margin="5" Source="lessonmini2.png"
                         BackgroundColor="White" CornerRadius="10" Grid.Row="0" Grid.Column="1">
                     </ImageButton>
-                    <ImageButton x:Name="button_lesson_3" Margin="5"
+                    <ImageButton x:Name="button_lesson_3" Margin="5" Source="lessonmini3.png"
                         BackgroundColor="White" CornerRadius="10" Grid.Row="1" Grid.Column="0">
                     </ImageButton>
-                    <ImageButton x:Name="button_lesson_4" Margin="5"
+                    <ImageButton x:Name="button_lesson_4" Margin="5" Source="lessonmini4.png"
                         BackgroundColor="White" CornerRadius="10" Grid.Row="1" Grid.Column="1">
                     </ImageButton>
-                    <ImageButton x:Name="button_lesson_5" Margin="5"
+                    <ImageButton x:Name="button_lesson_5" Margin="5" Source="lessonmini5.png"
                         BackgroundColor="White" CornerRadius="10" Grid.Row="2" Grid.Column="0">
                     </ImageButton>
-                    <ImageButton x:Name="button_lesson_6" Margin="5"
+                    <ImageButton x:Name="button_lesson_6" Margin="5" Source="lessonmini6.png"
                         BackgroundColor="White" CornerRadius="10" Grid.Row="2" Grid.Column="1">
+                    </ImageButton>
+                    <ImageButton x:Name="button_lesson_7" Margin="5" Source="lessonmini7.png"
+                        BackgroundColor="White" CornerRadius="10" Grid.Row="3" Grid.Column="0">
+                    </ImageButton>
+                    <ImageButton x:Name="button_lesson_8" Margin="5" Source="lessonmini8.png"
+                        BackgroundColor="White" CornerRadius="10" Grid.Row="3" Grid.Column="1">
                     </ImageButton>
                 </Grid>
             </ScrollView>
@@ -145,7 +151,7 @@
                          Source="game3.png" BackgroundColor="White" Margin="5" CornerRadius="30">
                 </ImageButton>
                 <ImageButton x:Name="button_game_4" Grid.Row="1" Grid.Column="1"
-                        BackgroundColor="White" Margin="5" CornerRadius="30">
+                         Source="game4.png" BackgroundColor="White" Margin="5" CornerRadius="30">
                 </ImageButton>
             </Grid>
         </StackLayout>
