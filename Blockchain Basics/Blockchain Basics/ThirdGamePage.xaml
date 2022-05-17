@@ -8,60 +8,57 @@
                    FontSize="Medium" FontAttributes="Bold" TextColor="#1c9af5"/>
         </StackLayout>
     </NavigationPage.TitleView>
-    <StackLayout Margin="10">
-
-        <Frame BackgroundColor="#5555"
+    <ScrollView>
+        <StackLayout>
+            <Frame BackgroundColor="White"
                    Padding="16"
-                   CornerRadius="50">
-            <Label Text="Что это за логотип?" 
-                       TextColor="White" 
+                   CornerRadius="50"
+                   Margin="50, 10, 50, 10">
+                <Label Text="Что это за логотип?" 
+                       TextColor="#1c9af5" 
                        FontSize="Large" 
                        HorizontalTextAlignment="Center">
-            </Label>
-        </Frame>
+                </Label>
+            </Frame>
 
-        <Frame x:Name="questImageFrame"
+            <Frame x:Name="questImageFrame"
                    BackgroundColor="#ffffff" 
                    Padding="16" 
+                   WidthRequest="100"
+                   HeightRequest="150"
+                   Margin="30, 0, 30, 0"
                    CornerRadius="50">
-            <Image x:Name="questImage"
+                <Image x:Name="questImage"
                        Source="bitcoin1.png">
-            </Image>
-        </Frame>
+                </Image>
+            </Frame>
 
-        <Button x:Name="button1"
+            <Button x:Name="button1"
                     FontSize="Large"
-                    Margin="10"
+                    Margin="50, 30, 50, 0"
                     CornerRadius="50"
-                    WidthRequest="30"
-                    HeightRequest="60"
                     Text="ethereum"
                     FontAttributes="Bold"
                     TextColor="White">
-        </Button>
+            </Button>
 
-        <Button x:Name="button2"
+            <Button x:Name="button2"
                     FontSize="Large"
-                    Margin="10"
+                    Margin="50, 30, 50, 0"
                     CornerRadius="50"
-                    WidthRequest="30"
-                    HeightRequest="60"
                     Text="не шарю"
                     FontAttributes="Bold"
                     TextColor="White">
-        </Button>
+            </Button>
 
-        <Button x:Name="button3"
+            <Button x:Name="button3"
                     FontSize="Large"
-                    Margin="10"
+                    Margin="50, 30, 50, 0"
                     CornerRadius="50"
-                    WidthRequest="30"
-                    HeightRequest="60"
                     Text="не шарю"
                     FontAttributes="Bold"
                     TextColor="White">
-        </Button>
-
-    </StackLayout>
-
+            </Button>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
