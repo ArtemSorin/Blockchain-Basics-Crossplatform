@@ -9,7 +9,7 @@ using FFImageLoading.Svg.Forms;
 
 namespace Blockchain_Basics.Droid
 {
-    [Activity(Label = "Blockchain_Basics", Icon = "@mipmap/icon", Theme = "@style/MainTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
+    [Activity(Label = "Blockchain_Basics")]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)

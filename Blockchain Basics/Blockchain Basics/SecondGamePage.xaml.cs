@@ -17,6 +17,8 @@ namespace Blockchain_Basics
         public const int nums_blocks = 3;
         public static int[] stack_of_blocks = new int[nums_blocks];
         public static int[] correct_stack = new int[nums_blocks];
+        public static int current_lvl = 0;
+        public static int[,] mas_correct = new int[6, nums_blocks];
 
         public SecondGamePage()
         {
@@ -27,18 +29,15 @@ namespace Blockchain_Basics
             //стыдно!
             correct_stack[0] = 1; correct_stack[1] = 2; correct_stack[2] = 3;
             //стыдно!
-            RadialGradientBrush radialGradientBrush = new RadialGradientBrush();
-            radialGradientBrush.Radius = 1.5;
-            radialGradientBrush.GradientStops = new GradientStopCollection()
-            {
-                new GradientStop(){ Color = Color.FromHex("#2F9BDF"), Offset = 0 },
-                new GradientStop(){ Color = Color.FromHex("#51F1F2"), Offset = 1 }
-            };
-            button1.Background = radialGradientBrush;
-            button2.Background = radialGradientBrush;
-            button3.Background = radialGradientBrush;
-            resetbutton.Background = radialGradientBrush;
+
+            mas_correct[0, 0] = 1; mas_correct[0, 1] = 2; mas_correct[0, 2] = 3; //корректные последовательности для номеров //[уровень, номер блока] = правильный блок
+            mas_correct[1, 0] = 2; mas_correct[1, 1] = 1; mas_correct[1, 2] = 3;
+            mas_correct[2, 0] = 1; mas_correct[2, 1] = 2; mas_correct[2, 2] = 3;
+            mas_correct[3, 0] = 3; mas_correct[3, 1] = 1; mas_correct[3, 2] = 2;
+            mas_correct[4, 0] = 3; mas_correct[4, 1] = 2; mas_correct[4, 2] = 1;
+            mas_correct[5, 0] = 1; mas_correct[5, 1] = 3; mas_correct[5, 2] = 2;
         }
+
         protected override void OnAppearing()
         {
             resetbutton.Clicked += variable_declaration;
@@ -90,19 +89,9 @@ namespace Blockchain_Basics
             current_chain.Text = block_chain;
             stack_counter = 0;
             current_chain.BackgroundColor = Color.Default;
-            RadialGradientBrush radialGradientBrush = new RadialGradientBrush();
-            radialGradientBrush.Radius = 1.5;
-            radialGradientBrush.GradientStops = new GradientStopCollection()
-            {
-                new GradientStop(){ Color = Color.FromHex("#2F9BDF"), Offset = 0 },
-                new GradientStop(){ Color = Color.FromHex("#51F1F2"), Offset = 1 }
-            };
-            button1.Background = radialGradientBrush;
-            button2.Background = radialGradientBrush;
-            button3.Background = radialGradientBrush;
-            //button1.BackgroundColor = Color.Blue;
-            //button2.BackgroundColor = Color.Blue;
-            //button3.BackgroundColor = Color.Blue;
+            button1.BackgroundColor = Color.Blue;
+            button2.BackgroundColor = Color.Blue;
+            button3.BackgroundColor = Color.Blue;
         }
         //-----------------------
         //нажатие ПЕРВОЙ кнопки
@@ -115,15 +104,7 @@ namespace Blockchain_Basics
                 block_chain = "\n";
             if (button1.BackgroundColor != Color.Red)
             {
-                RadialGradientBrush radialGradientBrushSelected = new RadialGradientBrush();
-                radialGradientBrushSelected.Radius = 1.5;
-                radialGradientBrushSelected.GradientStops = new GradientStopCollection()
-                {
-                    new GradientStop(){ Color = Color.FromHex("#FB0309"), Offset = 0 },
-                    new GradientStop(){ Color = Color.FromHex("#E10E53"), Offset = 1 }
-                };
-                button1.Background = radialGradientBrushSelected;
-                //button1.BackgroundColor = Color.Red;
+                button1.BackgroundColor = Color.Red;
                 block_chain = block_chain + "Блок 1 ➔ ";
                 current_chain.Text = block_chain;
                 stack_of_blocks[stack_counter] = 1;
@@ -145,15 +126,7 @@ namespace Blockchain_Basics
                 block_chain = "\n";
             if (button2.BackgroundColor != Color.Red)
             {
-                RadialGradientBrush radialGradientBrushSelected = new RadialGradientBrush();
-                radialGradientBrushSelected.Radius = 1.5;
-                radialGradientBrushSelected.GradientStops = new GradientStopCollection()
-                {
-                    new GradientStop(){ Color = Color.FromHex("#FB0309"), Offset = 0 },
-                    new GradientStop(){ Color = Color.FromHex("#E10E53"), Offset = 1 }
-                };
-                button2.Background = radialGradientBrushSelected;
-                //button2.BackgroundColor = Color.Red;
+                button2.BackgroundColor = Color.Red;
                 block_chain = block_chain + "Блок 2 ➔ ";
                 current_chain.Text = block_chain;
                 stack_of_blocks[stack_counter] = 2;
@@ -175,15 +148,7 @@ namespace Blockchain_Basics
                 block_chain = "\n";
             if (button3.BackgroundColor != Color.Red)
             {
-                RadialGradientBrush radialGradientBrushSelected = new RadialGradientBrush();
-                radialGradientBrushSelected.Radius = 1.5;
-                radialGradientBrushSelected.GradientStops = new GradientStopCollection()
-                {
-                    new GradientStop(){ Color = Color.FromHex("#FB0309"), Offset = 0 },
-                    new GradientStop(){ Color = Color.FromHex("#E10E53"), Offset = 1 }
-                };
-                button3.Background = radialGradientBrushSelected;
-                //button3.BackgroundColor = Color.Red;
+                button3.BackgroundColor = Color.Red;
                 block_chain = block_chain + "Блок 3 ➔ ";
                 current_chain.Text = block_chain;
                 stack_of_blocks[stack_counter] = 3;
@@ -195,43 +160,43 @@ namespace Blockchain_Basics
             }
         }
         //-----------------------
-        //фейковый переход на "следующий" уровень
+        //переход на следующий уровень
         //наверное не меняет переменные
         //на вход получает неведомую фигню
         //-----------------------
         private async void next_lvl(object sender, EventArgs e)
         {
             //обнуляем всё
-            block_chain = "<здесь будет ваша последовательность>";
-            current_chain.Text = block_chain;
-            stack_counter = 0;
-            current_chain.BackgroundColor = Color.Default;
-            RadialGradientBrush radialGradientBrush = new RadialGradientBrush();
-            radialGradientBrush.Radius = 1.5;
-            radialGradientBrush.GradientStops = new GradientStopCollection()
-            {
-                new GradientStop(){ Color = Color.FromHex("#2F9BDF"), Offset = 0 },
-                new GradientStop(){ Color = Color.FromHex("#51F1F2"), Offset = 1 }
-            };
-            button1.Background = radialGradientBrush;
-            button2.Background = radialGradientBrush;
-            button3.Background = radialGradientBrush;
-            //button1.BackgroundColor = Color.Blue;
-            //button2.BackgroundColor = Color.Blue;
-            //button3.BackgroundColor = Color.Blue;
-            nextlvl_button.IsVisible = !nextlvl_button.IsVisible;
-            resetbutton.IsVisible = !nextlvl_button.IsVisible;
+
 
 
             //------
 
             //меняем стек
-            for (int i = 0; i < nums_blocks; i++)
+            current_lvl++;
+            if (current_lvl <= 5)
             {
-                if (correct_stack[i] < nums_blocks)
-                    correct_stack[i]++;
-                else
-                    correct_stack[i] = 1;
+                block_chain = "<здесь будет ваша последовательность>";
+                current_chain.Text = block_chain;
+                stack_counter = 0;
+                current_chain.BackgroundColor = Color.Default;
+                button1.BackgroundColor = Color.Blue;
+                button2.BackgroundColor = Color.Blue;
+                button3.BackgroundColor = Color.Blue;
+                nextlvl_button.IsVisible = !nextlvl_button.IsVisible;
+                resetbutton.IsVisible = !nextlvl_button.IsVisible;
+                for (int i = 0; i < nums_blocks; i++)
+                {
+                    correct_stack[i] = mas_correct[current_lvl, i];
+                }
+            }
+            else
+            {
+                block_chain = "Вы справились со всеми уровнями!\nМолодцы!";
+                current_chain.Text = block_chain;
+                current_chain.BackgroundColor = Color.Default;
+                nextlvl_button.IsVisible = !nextlvl_button.IsVisible;
+
             }
 
         }
