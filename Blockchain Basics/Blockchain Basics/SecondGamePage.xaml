@@ -29,11 +29,11 @@
                 <RowDefinition Height="50" />
             </Grid.RowDefinitions>
             <Button x:Name= "button1" Text="Блок 1" TextColor="White" FontAttributes="Bold"
-                    Grid.Column="0" CornerRadius="30"></Button>
+                    Grid.Column="0" CornerRadius="30" BackgroundColor="#2F9BDF"></Button>
             <Button x:Name= "button2" Text="Блок 2" TextColor="White" FontAttributes="Bold" 
-                    Grid.Column="1" CornerRadius="30"></Button>
+                    Grid.Column="1" CornerRadius="30" BackgroundColor="#2F9BDF"></Button>
             <Button x:Name= "button3" Text="Блок 3" TextColor="White" FontAttributes="Bold"
-                    Grid.Column="2" CornerRadius="30"></Button>
+                    Grid.Column="2" CornerRadius="30" BackgroundColor="#2F9BDF"></Button>
         </Grid>
         <Button x:Name= "resetbutton" Text="Сбросить" HeightRequest="50" WidthRequest="100"
                  Margin="60, 20, 60, 0" CornerRadius="30" TextColor="White" FontAttributes="Bold"></Button>

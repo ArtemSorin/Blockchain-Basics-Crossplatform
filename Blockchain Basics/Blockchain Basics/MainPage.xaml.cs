@@ -1,19 +1,25 @@
 ﻿using Android.Content.Res;
+using Firebase.Auth;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace Blockchain_Basics
 {
     public partial class MainPage : TabbedPage
     {
+        public string WebAPIkey = "AIzaSyB9drN6gEKCY-7buO02rAVH0ZSbACT-hsw";
         public MainPage()
         {
             InitializeComponent();
+
+            GetProfileInformationAndRefreshToken();
 
             LinearGradientBrush linearGradientBrush = new LinearGradientBrush();
             linearGradientBrush.GradientStops = new GradientStopCollection()
@@ -29,10 +35,32 @@ namespace Blockchain_Basics
 
             button_lesson_1.Clicked += (s, e) => Navigation.PushAsync(new FirstLessonPage());
             button_lesson_2.Clicked += (s, e) => Navigation.PushAsync(new SecondLessonPage());
+        }
+        async private void GetProfileInformationAndRefreshToken()
+        {
+            var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIkey));
+            try
+            {
+                //This is the saved firebaseauthentication that was saved during the time of login
+                var savedfirebaseauth = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("MyFirebaseRefreshToken", ""));
+                //Here we are Refreshing the token
+                var RefreshedContent = await authProvider.RefreshAuthAsync(savedfirebaseauth);
+                Preferences.Set("MyFirebaseRefreshToken", JsonConvert.SerializeObject(RefreshedContent));
+                //Now lets grab user information
+                MyUserName.Text = savedfirebaseauth.User.Email;
 
-            //button1.Clicked += (s, e) => Navigation.PushAsync(new PersonPage());
-            //button2.Clicked += (s, e) => Navigation.PushAsync(new LessonsPage());
-            //button3.Clicked += (s, e) => Navigation.PushAsync(new GamesPage());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                await App.Current.MainPage.DisplayAlert("Alert", "Oh no !  Token expired", "OK");
+            }
+
+        }
+        void Logout_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Preferences.Remove("MyFirebaseRefreshToken");
+            App.Current.MainPage = new NavigationPage(new LoginPage());
         }
     }
 }

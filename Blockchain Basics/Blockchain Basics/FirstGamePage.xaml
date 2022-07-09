@@ -19,7 +19,7 @@
             </StackLayout>
         </Frame>
         <Button x:Name="button" Text="Посчитать хэш" CornerRadius="20" Margin="40, 0, 40, 0"
-                 TextColor="White" FontAttributes="Bold">
+                 TextColor="White" FontAttributes="Bold" BackgroundColor="#2F9BDF">
         </Button>
         <Label x:Name="textView2" FontSize="Large" Text="Количество попыток" 
                HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Margin="10">

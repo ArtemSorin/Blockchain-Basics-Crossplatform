@@ -12,10 +12,14 @@
         <StackLayout BackgroundColor="#f6f7f9">
             <ScrollView>
                 <StackLayout>
-                    <Frame BackgroundColor="White" HeightRequest="150">
-                        <ProgressBar Margin="0, 145, 0, 0" ProgressColor="Blue" 
-                             Progress="0.5">
-                        </ProgressBar>
+                    <Frame BackgroundColor="#2F9BDF" CornerRadius="40" Margin="0, -40, -30, 0" HeightRequest="170">
+                        <StackLayout>
+                            <Label Text="Аккаунт:" Margin="150, 40, 50, 0" TextColor="White" FontAttributes="Bold"></Label>
+                            <Label x:Name="MyUserName" Margin="150, 0, 50, 0" TextColor="White"></Label>
+                            <Label Text="Текущий прогресс:" Margin="150, 0, 50, 0" TextColor="White" FontAttributes="Bold"></Label>
+                            <ProgressBar Margin="150, 0, 50, 0" ProgressColor="White" Progress="0.5"> </ProgressBar>
+                            <Button Margin="150, 0, 50, 0" CornerRadius="20" Clicked="Logout_Clicked" BackgroundColor="White" HeightRequest="40" Text="Выйти"></Button>
+                        </StackLayout>
                     </Frame>
                     <Label Text="Продолжите обучение" Margin="10, 20, 0, 0"
                    FontSize="Medium" TextColor="Black" FontAttributes="Bold">
@@ -81,9 +85,9 @@
     </ContentPage>
     <ContentPage Title="Уроки" IconImageSource="{OnPlatform iOS=apple.svg, Android=lessons}">
         <StackLayout BackgroundColor="#f6f7f9">
-            <Frame>
-                <Label Text="Раздел уроков" FontSize="Large" 
-                       TextColor="Black" FontAttributes="Bold">
+            <Frame BackgroundColor="#2F9BDF">
+                <Label Text="Раздел уроков" FontSize="Large"
+                       TextColor="White" FontAttributes="Bold">
                 </Label>
             </Frame>
             <ScrollView Margin="0, 20, 0, 0">
@@ -98,28 +102,28 @@
                         <RowDefinition Height="170" />
                     </Grid.RowDefinitions>
                     <ImageButton x:Name="button_lesson_1" Margin="5" Source="lessonmini1.png"
-                        BackgroundColor="White" CornerRadius="10" Grid.Row="0" Grid.Column="0">
+                        BackgroundColor="White" CornerRadius="30" Grid.Row="0" Grid.Column="0">
                     </ImageButton>
                     <ImageButton x:Name="button_lesson_2" Margin="5" Source="lessonmini2.png"
-                        BackgroundColor="White" CornerRadius="10" Grid.Row="0" Grid.Column="1">
+                        BackgroundColor="White" CornerRadius="30" Grid.Row="0" Grid.Column="1">
                     </ImageButton>
                     <ImageButton x:Name="button_lesson_3" Margin="5" Source="lessonmini3.png"
-                        BackgroundColor="White" CornerRadius="10" Grid.Row="1" Grid.Column="0">
+                        BackgroundColor="White" CornerRadius="30" Grid.Row="1" Grid.Column="0">
                     </ImageButton>
                     <ImageButton x:Name="button_lesson_4" Margin="5" Source="lessonmini4.png"
-                        BackgroundColor="White" CornerRadius="10" Grid.Row="1" Grid.Column="1">
+                        BackgroundColor="White" CornerRadius="30" Grid.Row="1" Grid.Column="1">
                     </ImageButton>
                     <ImageButton x:Name="button_lesson_5" Margin="5" Source="lessonmini5.png"
-                        BackgroundColor="White" CornerRadius="10" Grid.Row="2" Grid.Column="0">
+                        BackgroundColor="White" CornerRadius="30" Grid.Row="2" Grid.Column="0">
                     </ImageButton>
                     <ImageButton x:Name="button_lesson_6" Margin="5" Source="lessonmini6.png"
-                        BackgroundColor="White" CornerRadius="10" Grid.Row="2" Grid.Column="1">
+                        BackgroundColor="White" CornerRadius="30" Grid.Row="2" Grid.Column="1">
                     </ImageButton>
                     <ImageButton x:Name="button_lesson_7" Margin="5" Source="lessonmini7.png"
-                        BackgroundColor="White" CornerRadius="10" Grid.Row="3" Grid.Column="0">
+                        BackgroundColor="White" CornerRadius="30" Grid.Row="3" Grid.Column="0">
                     </ImageButton>
                     <ImageButton x:Name="button_lesson_8" Margin="5" Source="lessonmini8.png"
-                        BackgroundColor="White" CornerRadius="10" Grid.Row="3" Grid.Column="1">
+                        BackgroundColor="White" CornerRadius="30" Grid.Row="3" Grid.Column="1">
                     </ImageButton>
                 </Grid>
             </ScrollView>
@@ -127,9 +131,9 @@
     </ContentPage>
     <ContentPage Title="Игры" IconImageSource="{OnPlatform iOS=apple.svg, Android=games}">
         <StackLayout BackgroundColor="#f6f7f9">
-            <Frame>
+            <Frame BackgroundColor="#2F9BDF">
                 <Label Text="Игровой центр" FontSize="Large" 
-                       TextColor="Black" FontAttributes="Bold">
+                       TextColor="White" FontAttributes="Bold">
                 </Label>
             </Frame>
             <Grid HorizontalOptions="Center" VerticalOptions="Center" Margin="0, 20, 0, 0">

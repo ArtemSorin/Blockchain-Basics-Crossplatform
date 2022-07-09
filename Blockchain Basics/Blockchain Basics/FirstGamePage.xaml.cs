@@ -19,16 +19,6 @@ namespace Blockchain_Basics
 
             int count = 0;
 
-            RadialGradientBrush radialGradientBrush = new RadialGradientBrush();
-            radialGradientBrush.Radius = 1.5;
-            radialGradientBrush.GradientStops = new GradientStopCollection()
-            {
-                new GradientStop(){ Color = Color.FromHex("#2F9BDF"), Offset = 0 },
-                new GradientStop(){ Color = Color.FromHex("#51F1F2"), Offset = 1 }
-            };
-
-            button.Background = radialGradientBrush;
-
             string GetHashString(string s)
             {
                 byte[] bytes = Encoding.Unicode.GetBytes(s);
