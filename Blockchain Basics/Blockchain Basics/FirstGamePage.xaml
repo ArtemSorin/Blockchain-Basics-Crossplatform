@@ -5,7 +5,7 @@
     <NavigationPage.TitleView>
         <StackLayout>
             <Label Text="Хэш комбинация" HorizontalTextAlignment="Center" Margin="0, 0, 75, 0"
-                   FontSize="Medium" FontAttributes="Bold" TextColor="#1c9af5"/>
+                   FontSize="Medium" FontAttributes="Bold" TextColor="White"/>
         </StackLayout>
     </NavigationPage.TitleView>
     <StackLayout>

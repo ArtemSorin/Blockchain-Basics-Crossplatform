@@ -4,8 +4,8 @@
              x:Class="Blockchain_Basics.App">
     <Application.Resources>
         <Style TargetType="NavigationPage">
-            <Setter Property="BarBackgroundColor" Value="White"/>
-            <Setter Property="BarTextColor" Value="#1c9af5"/>
+            <Setter Property="BarBackgroundColor" Value="#2F9BDF"/>
+            <Setter Property="BarTextColor" Value="#ffffff"/>
         </Style>
     </Application.Resources>
 </Application>
