@@ -1,13 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Blockchain_Basics.SecondLessonPage">
-    
-    <ContentPage.Content>
+             x:Class="Blockchain_Basics.SecondLessonPage"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" >
+    <NavigationPage.TitleView>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Виды криптовалют" HorizontalTextAlignment="Center" Margin="0, 0, 75, 0"
+                   FontSize="Medium" FontAttributes="Bold" TextColor="White"/>
         </StackLayout>
-    </ContentPage.Content>
+    </NavigationPage.TitleView>
+    <ScrollView>
+        <StackLayout Margin="20">
+            <Label Text="В предыдущей теме мы рассказывали о том, что такое блокчейн в целом. Теперь же пришло время узнать, что такое криптовалюты, какие они бывают и откуда вообще появились."></Label>
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Криптовалюта " TextColor="#1c9af5" FontAttributes="Bold" />
+                        <Span Text="— это виртуальные деньги, которые в отличие от привычных средств не имеют физического представления, их нельзя увидеть и потрогать." />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <forms:AnimationView
+                x:Name="animationView"
+                Animation="bitcointouch.json"
+                AutoPlay="True"
+                HeightRequest="200"/>
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Первой криптовалютой в мире стал Bitcoin, представленный в 2009 году, но за год до этого в сети был впервые опубликован файл с подробным описанием протокола и принципа работы электронной платёжной системы на базе "/>
+                        <Span Text="одноранговой сети." FontAttributes="Italic" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Одноранговая сеть " TextColor="#1c9af5" FontAttributes="Bold" />
+                        <Span Text="- это бессерверная сетевая технология, которая позволяет нескольким сетевым устройствам совместно использовать ресурсы и взаимодействовать друг с другом." />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label Text="В качестве платёжного средства биткоин был впервые использован в 2009 году – американец Ласло Ханеч купил 2 пиццы, заплатив 10 000 биткоинов."></Label>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

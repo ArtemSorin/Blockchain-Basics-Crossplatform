@@ -26,18 +26,16 @@ namespace Blockchain_Basics
             block_chain = "<здесь будет ваша последовательность>";
             current_chain.Text = block_chain;
             stack_counter = 0;
-            //стыдно!
-            correct_stack[0] = 1; correct_stack[1] = 2; correct_stack[2] = 3;
-            //стыдно!
 
-            mas_correct[0, 0] = 1; mas_correct[0, 1] = 2; mas_correct[0, 2] = 3; //корректные последовательности для номеров //[уровень, номер блока] = правильный блок
+            correct_stack[0] = 1; correct_stack[1] = 2; correct_stack[2] = 3;
+
+            mas_correct[0, 0] = 1; mas_correct[0, 1] = 2; mas_correct[0, 2] = 3;
             mas_correct[1, 0] = 2; mas_correct[1, 1] = 1; mas_correct[1, 2] = 3;
             mas_correct[2, 0] = 1; mas_correct[2, 1] = 2; mas_correct[2, 2] = 3;
             mas_correct[3, 0] = 3; mas_correct[3, 1] = 1; mas_correct[3, 2] = 2;
             mas_correct[4, 0] = 3; mas_correct[4, 1] = 2; mas_correct[4, 2] = 1;
             mas_correct[5, 0] = 1; mas_correct[5, 1] = 3; mas_correct[5, 2] = 2;
         }
-
         protected override void OnAppearing()
         {
             resetbutton.Clicked += variable_declaration;
@@ -46,11 +44,6 @@ namespace Blockchain_Basics
             button3.Clicked += Button3_Clicked;
             nextlvl_button.Clicked += next_lvl;
         }
-        //-----------------------
-        //проверка стака на корректность
-        //меняет переменные
-        //на вход ничего не получает
-        //-----------------------
         private void stackcheck()
         {
             bool res = true;
@@ -78,12 +71,7 @@ namespace Blockchain_Basics
             stack_counter++;
         }
 
-        //-----------------------
-        //обнуление переменных (aka restart)
-        //меняет переменные
-        //на вход ничего не получает
-        //-----------------------
-        private async void variable_declaration(object sender, EventArgs e)
+        private void variable_declaration(object sender, EventArgs e)
         {
             block_chain = "<здесь будет ваша последовательность>";
             current_chain.Text = block_chain;
@@ -93,12 +81,8 @@ namespace Blockchain_Basics
             button2.BackgroundColor = Color.Blue;
             button3.BackgroundColor = Color.Blue;
         }
-        //-----------------------
-        //нажатие ПЕРВОЙ кнопки
-        //наверное не меняет переменные
-        //на вход получает неведомую фигню
-        //-----------------------
-        private async void Button1_Clicked(object sender, EventArgs e)
+
+        private void Button1_Clicked(object sender, EventArgs e)
         {
             if (stack_counter == 0)
                 block_chain = "\n";
@@ -115,12 +99,7 @@ namespace Blockchain_Basics
                 stackcheck();
             }
         }
-        //-----------------------
-        //нажатие ВТОРОЙ кнопки
-        //наверное не меняет переменные
-        //на вход получает неведомую фигню
-        //-----------------------
-        private async void Button2_Clicked(object sender, EventArgs e)
+        private void Button2_Clicked(object sender, EventArgs e)
         {
             if (stack_counter == 0)
                 block_chain = "\n";
@@ -137,12 +116,7 @@ namespace Blockchain_Basics
                 stackcheck();
             }
         }
-        //-----------------------
-        //нажатие ТРЕТЬЕЙ кнопки
-        //наверное не меняет переменные
-        //на вход получает неведомую фигню
-        //-----------------------
-        private async void Button3_Clicked(object sender, EventArgs e)
+        private void Button3_Clicked(object sender, EventArgs e)
         {
             if (stack_counter == 0)
                 block_chain = "\n";
@@ -159,20 +133,8 @@ namespace Blockchain_Basics
                 stackcheck();
             }
         }
-        //-----------------------
-        //переход на следующий уровень
-        //наверное не меняет переменные
-        //на вход получает неведомую фигню
-        //-----------------------
-        private async void next_lvl(object sender, EventArgs e)
+        private void next_lvl(object sender, EventArgs e)
         {
-            //обнуляем всё
-
-
-
-            //------
-
-            //меняем стек
             current_lvl++;
             if (current_lvl <= 5)
             {

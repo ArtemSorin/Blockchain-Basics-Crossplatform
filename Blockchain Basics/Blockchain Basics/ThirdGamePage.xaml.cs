@@ -20,7 +20,7 @@ namespace Blockchain_Basics
             public string var3;
             public int answer;
         }
-        public List<question> initialQuestLite() // инициализация списка легких вопросов
+        public List<question> initialQuestLite()
         {
             List<question> questions = new List<question>();
             questions.Add(new question() { image = "bitcoin1.png", var1 = "bitcoin", var2 = "bytecoin", var3 = "litecoin", answer = 1 });
@@ -34,29 +34,22 @@ namespace Blockchain_Basics
 
             return questions;
         }
-        int answerUpdate(
-            ref List<question> questionsList, // ссылка на список с вопросами
-            int oldQuest, // индекс старого вопроса
-            int oldAnswer, // ответ на старый вопрос
-            ref int countExcelentQuestionAnswers // ссылка на счетчик правильных ответов
-            ) // возвращает индекс нового вопроса или -1, если вопросы закончились. Удаляет старый вопрос. Проверяет старый вопрос на правильность ответа.
+        int answerUpdate(ref List<question> questionsList, int oldQuest, int oldAnswer, ref int countExcelentQuestionAnswers)
         {
-            // проверка ответа на вопрос
+
             if (oldAnswer == questionsList[oldQuest].answer)
             {
                 countExcelentQuestionAnswers++;
             }
-            // удаление старого вопроса
+
             questionsList.RemoveAt(oldQuest);
 
             Random rnd = new Random();
 
             if (questionsList.Count != 0)
             {
-                // рандомный выбор индекса нового вопроса
                 int randQuestIndex = rnd.Next(0, questionsList.Count);
 
-                // установка view вопроса
                 questImage.Source = questionsList[randQuestIndex].image;
                 button1.Text = questionsList[randQuestIndex].var1;
                 button2.Text = questionsList[randQuestIndex].var2;
@@ -69,12 +62,7 @@ namespace Blockchain_Basics
                 return -1;
             }
         }
-
-        void showRes( // показ результата и последующие действия
-            int countExcelentQuestionAnswers, // счетчик правильных ответов
-            int allCount, // сколько всего есть вопросов
-            int buttonP // что сейчас делать? 1 - ничего 2 - рестарт 3 - выход
-            )
+        async void showRes(int countExcelentQuestionAnswers, int allCount, int buttonP)
         {
             questImage.Source = "answerCheck.png";
             button1.Text = $"верно {countExcelentQuestionAnswers} из {allCount}";
@@ -89,9 +77,9 @@ namespace Blockchain_Basics
             }
             else if (buttonP == 3)
             {
-                //----------------------------------------------------------------------------------
-                // здесь выход с этого активити
-                //----------------------------------------------------------------------------------
+                MainPage pageB = new MainPage();
+                await Navigation.PushAsync(pageB);
+                pageB.Calculate_lvl();
             }
         }
         public ThirdGamePage()
@@ -110,23 +98,17 @@ namespace Blockchain_Basics
             button2.Background = radialGradientBrush;
             button3.Background = radialGradientBrush;
 
-            // счетчик правильных ответов
             int countExcelentQuestionAnswers = 0;
 
-            // инициализация легких вопросов и помещение в множество
             List<question> questionsList = initialQuestLite();
 
-            //общее число вопросов
             int countAllQuestions = questionsList.Count;
 
 
             Random rnd = new Random();
 
-
-            // рандомный выбор первого вопроса
             int randQuestIndex = rnd.Next(0, questionsList.Count);
 
-            // установка view первого вопроса
             questImage.Source = questionsList[randQuestIndex].image;
             button1.Text = questionsList[randQuestIndex].var1;
             button2.Text = questionsList[randQuestIndex].var2;
@@ -134,7 +116,6 @@ namespace Blockchain_Basics
 
             int curQuestIndex = randQuestIndex;
 
-            // обработка кликов 
             button1.Clicked += (sender, e) =>
             {
                 if (curQuestIndex == -1)

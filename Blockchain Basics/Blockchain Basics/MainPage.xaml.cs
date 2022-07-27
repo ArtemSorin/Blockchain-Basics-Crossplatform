@@ -15,6 +15,8 @@ namespace Blockchain_Basics
     public partial class MainPage : TabbedPage
     {
         public string WebAPIkey = "AIzaSyB9drN6gEKCY-7buO02rAVH0ZSbACT-hsw";
+        public double value = 0.0f;
+        public void Calculate_lvl() { value += 0.2f; }
         public MainPage()
         {
             InitializeComponent();
@@ -61,6 +63,22 @@ namespace Blockchain_Basics
         {
             Preferences.Remove("MyFirebaseRefreshToken");
             App.Current.MainPage = new NavigationPage(new LoginPage());
+        }
+        protected override void OnAppearing()
+        {
+            object name = "";
+            if (App.Current.Properties.TryGetValue("named", out name))
+            {
+                progressbar.Progress = (double)name;
+            }
+            base.OnAppearing();
+        }
+        private void OnClick(object sender, EventArgs e)
+        {
+            progressbar.Progress = value;
+            value = progressbar.Progress;
+
+            App.Current.Properties["named"] = value;
         }
     }
 }

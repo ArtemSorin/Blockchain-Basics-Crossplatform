@@ -8,24 +8,60 @@
              SelectedTabColor="#1c9af5"
              UnselectedTabColor="Gray"
              NavigationPage.HasNavigationBar="False">
-    <ContentPage Title="Профиль" IconImageSource="{OnPlatform iOS=apple.svg, Android=user}">
+    <ContentPage Title="Профиль" IconImageSource="{OnPlatform iOS=user.svg, Android=user}">
         <StackLayout BackgroundColor="#f6f7f9">
             <ScrollView>
                 <StackLayout>
-                    <Frame BackgroundColor="#2F9BDF" CornerRadius="40" Margin="0, -40, -30, 0" HeightRequest="170">
+                    <Frame BackgroundColor="#2F9BDF" CornerRadius="100" Margin="0, -90, -90, 0" HeightRequest="220">
                         <StackLayout>
-                            <Label Text="Аккаунт:" Margin="150, 40, 50, 0" TextColor="White" FontAttributes="Bold"></Label>
-                            <Label x:Name="MyUserName" Margin="150, 0, 50, 0" TextColor="White"></Label>
-                            <Label Text="Текущий прогресс:" Margin="150, 0, 50, 0" TextColor="White" FontAttributes="Bold"></Label>
-                            <ProgressBar Margin="150, 0, 50, 0" ProgressColor="White" Progress="0.5"> </ProgressBar>
-                            <Button Margin="150, 0, 50, 0" CornerRadius="20" Clicked="Logout_Clicked" BackgroundColor="White" HeightRequest="40" Text="Выйти"></Button>
+                            <Grid  Margin="0, 85, 80, 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Path Fill="#2F9BDF" Stroke="#5dbbf5" StrokeThickness="10">
+                                    <Path.Data>
+                                        <EllipseGeometry Center="75,60" RadiusX="50" RadiusY="50" />
+                                    </Path.Data>
+                                </Path>
+                                <StackLayout Grid.Column="0">
+                                    <Button  Margin="35, 20, 35, 0" HeightRequest="80" WidthRequest="80" CornerRadius="100"></Button>
+                                </StackLayout>
+                                <Grid Grid.Column="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="40" />
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Аккаунт:" TextColor="White" FontAttributes="Bold" Grid.Row="0"></Label>
+                                    <Label x:Name="MyUserName" TextColor="White" Grid.Row="1"></Label>
+                                    <Label Text="Текущий прогресс:"  TextColor="White" FontAttributes="Bold" Grid.Row="2"></Label>
+                                    <ProgressBar x:Name="progressbar" ProgressColor="White" Grid.Row="3"></ProgressBar>
+                                    <Grid  Grid.Row="4">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Button CornerRadius="20" Clicked="Logout_Clicked" BackgroundColor="White" HeightRequest="40" Text="Выйти" Grid.Column="0"></Button>
+                                        <Button CornerRadius="20" Clicked="OnClick" BackgroundColor="White" Text="Обновить" Grid.Column="1"></Button>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
                         </StackLayout>
                     </Frame>
                     <Label Text="Продолжите обучение" Margin="10, 20, 0, 0"
                    FontSize="Medium" TextColor="Black" FontAttributes="Bold">
                     </Label>
                     <ScrollView Orientation="Horizontal" Margin="10, 20, 0, 0">
-                        <Grid>
+                        <Grid HeightRequest="200">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="140" />
                                 <ColumnDefinition Width="140" />
@@ -37,10 +73,18 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="190" />
                             </Grid.RowDefinitions>
-                            <ImageButton Source="lesson1.png" CornerRadius="30" Grid.Column="0"></ImageButton>
-                            <ImageButton Source="lesson2.png" CornerRadius="30" Grid.Column="1"></ImageButton>
-                            <ImageButton Source="lesson3.png" CornerRadius="30" Grid.Column="2"></ImageButton>
-                            <ImageButton Source="lesson4.png" CornerRadius="30" Grid.Column="3"></ImageButton>
+                            <Frame CornerRadius="30" Grid.Column="0">
+                                <ImageButton Source="lesson1.png" CornerRadius="30" Margin="-15"></ImageButton>
+                            </Frame>
+                            <Frame CornerRadius="30" Grid.Column="1">
+                                <ImageButton Source="lesson2.png" CornerRadius="30" Margin="-15"></ImageButton>
+                            </Frame>
+                            <Frame CornerRadius="30" Grid.Column="2">
+                                <ImageButton Source="lesson3.png" CornerRadius="30" Margin="-15"></ImageButton>
+                            </Frame>
+                            <Frame CornerRadius="30" Grid.Column="3">
+                                <ImageButton Source="lesson4.png" CornerRadius="30" Margin="-15"></ImageButton>
+                            </Frame>
                         </Grid>
                     </ScrollView>
                     <Label Margin="10, 20, 0, 0" Text="Пройденные курсы и игры"
@@ -63,7 +107,7 @@
                                         HeightRequest="30">
                                 </svg:SvgCachedImage>
                                 <Label Text="Курсов пройдено:" TextColor="Black" FontAttributes="Bold" Margin="40, -50, 0, 20"></Label>
-                                <Label Text="0/6" Margin="40, -25, 0, 20"></Label>
+                                <Label x:Name="label_courses" Text="0/6" Margin="40, -25, 0, 20"></Label>
                             </StackLayout>
                         </Frame>
                         <Frame Grid.Column="1" CornerRadius="20">
@@ -75,7 +119,7 @@
                                         HeightRequest="30">
                                 </svg:SvgCachedImage>
                                 <Label Text="Игр пройдено:" TextColor="Black" FontAttributes="Bold" Margin="40, -50, 0, 20"></Label>
-                                <Label Text="0/4" Margin="40, -25, 0, 20"></Label>
+                                <Label x:Name="label_games" Text="0/4" Margin="40, -25, 0, 20"></Label>
                             </StackLayout>
                         </Frame>
                     </Grid>
@@ -83,7 +127,7 @@
             </ScrollView>
         </StackLayout>
     </ContentPage>
-    <ContentPage Title="Уроки" IconImageSource="{OnPlatform iOS=apple.svg, Android=lessons}">
+    <ContentPage Title="Уроки" IconImageSource="{OnPlatform iOS=lessons.svg, Android=lessons}">
         <StackLayout BackgroundColor="#f6f7f9">
             <Frame BackgroundColor="#2F9BDF">
                 <Label Text="Раздел уроков" FontSize="Large"
@@ -91,12 +135,13 @@
                 </Label>
             </Frame>
             <ScrollView Margin="0, 20, 0, 0">
-                <Grid HorizontalOptions="Center">
+                <Grid HorizontalOptions="Center" HeightRequest="725">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="170" />
                         <ColumnDefinition Width="170" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="170" />
                         <RowDefinition Height="170" />
                         <RowDefinition Height="170" />
                         <RowDefinition Height="170" />
@@ -129,14 +174,14 @@
             </ScrollView>
         </StackLayout>
     </ContentPage>
-    <ContentPage Title="Игры" IconImageSource="{OnPlatform iOS=apple.svg, Android=games}">
+    <ContentPage Title="Игры" IconImageSource="{OnPlatform iOS=games.svg, Android=games}">
         <StackLayout BackgroundColor="#f6f7f9">
             <Frame BackgroundColor="#2F9BDF">
                 <Label Text="Игровой центр" FontSize="Large" 
                        TextColor="White" FontAttributes="Bold">
                 </Label>
             </Frame>
-            <Grid HorizontalOptions="Center" VerticalOptions="Center" Margin="0, 20, 0, 0">
+            <Grid HorizontalOptions="Center" HeightRequest="725" Margin="0, 20, 0, 0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="170" />
                     <ColumnDefinition Width="170" />
