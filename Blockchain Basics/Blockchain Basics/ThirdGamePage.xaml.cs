@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,9 @@ namespace Blockchain_Basics
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ThirdGamePage : ContentPage
     {
+        public SQLiteConnection conn;
+        public User regmodel;
+
         public struct question
         {
             public string image;
@@ -62,7 +66,7 @@ namespace Blockchain_Basics
                 return -1;
             }
         }
-        async void showRes(int countExcelentQuestionAnswers, int allCount, int buttonP)
+        async void showRes(int countExcelentQuestionAnswers, int allCount, int buttonP, int ID)
         {
             questImage.Source = "answerCheck.png";
             button1.Text = $"верно {countExcelentQuestionAnswers} из {allCount}";
@@ -77,12 +81,13 @@ namespace Blockchain_Basics
             }
             else if (buttonP == 3)
             {
-                MainPage pageB = new MainPage();
-                await Navigation.PushAsync(pageB);
-                pageB.Calculate_lvl();
+                var data = App.Database.GetItem(ID);
+                data.UserGamesProgress++;
+                App.Database.SaveItem(data);
+                await Navigation.PopAsync();
             }
         }
-        public ThirdGamePage()
+        public ThirdGamePage(int ID)
         {
             InitializeComponent();
 
@@ -120,14 +125,14 @@ namespace Blockchain_Basics
             {
                 if (curQuestIndex == -1)
                 {
-                    showRes(countExcelentQuestionAnswers, countAllQuestions, 1);
+                    showRes(countExcelentQuestionAnswers, countAllQuestions, 1, ID);
                 }
                 else
                 {
                     curQuestIndex = answerUpdate(ref questionsList, curQuestIndex, 1, ref countExcelentQuestionAnswers);
                     if (curQuestIndex == -1)
                     {
-                        showRes(countExcelentQuestionAnswers, countAllQuestions, 1);
+                        showRes(countExcelentQuestionAnswers, countAllQuestions, 1, ID);
                     }
                 }
 
@@ -137,14 +142,14 @@ namespace Blockchain_Basics
             {
                 if (curQuestIndex == -1)
                 {
-                    showRes(countExcelentQuestionAnswers, countAllQuestions, 2);
+                    showRes(countExcelentQuestionAnswers, countAllQuestions, 2, ID);
                 }
                 else
                 {
                     curQuestIndex = answerUpdate(ref questionsList, curQuestIndex, 2, ref countExcelentQuestionAnswers);
                     if (curQuestIndex == -1)
                     {
-                        showRes(countExcelentQuestionAnswers, countAllQuestions, 1);
+                        showRes(countExcelentQuestionAnswers, countAllQuestions, 1, ID);
                     }
                 }
 
@@ -154,14 +159,14 @@ namespace Blockchain_Basics
             {
                 if (curQuestIndex == -1)
                 {
-                    showRes(countExcelentQuestionAnswers, countAllQuestions, 3);
+                    showRes(countExcelentQuestionAnswers, countAllQuestions, 3, ID);
                 }
                 else
                 {
                     curQuestIndex = answerUpdate(ref questionsList, curQuestIndex, 3, ref countExcelentQuestionAnswers);
                     if (curQuestIndex == -1)
                     {
-                        showRes(countExcelentQuestionAnswers, countAllQuestions, 1);
+                        showRes(countExcelentQuestionAnswers, countAllQuestions, 1, ID);
                     }
                 }
 

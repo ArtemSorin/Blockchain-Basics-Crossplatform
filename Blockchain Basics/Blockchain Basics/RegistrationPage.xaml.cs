@@ -1,4 +1,4 @@
-﻿using Firebase.Auth;
+﻿using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,24 +13,21 @@ namespace Blockchain_Basics
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegistrationPage : ContentPage
     {
-        public string WebAPIkey = "AIzaSyB9drN6gEKCY-7buO02rAVH0ZSbACT-hsw";
         public RegistrationPage()
         {
             InitializeComponent();
         }
-        async void signupbutton_Clicked(System.Object sender, System.EventArgs e)
+        private void Signed_Clicked(object sender, EventArgs e)
         {
-            try
+            var user = (User)BindingContext;
             {
-                var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIkey));
-                var auth = await authProvider.CreateUserWithEmailAndPasswordAsync(UserNewEmail.Text, UserNewPassword.Text);
-                string gettoken = auth.FirebaseToken;
-                await App.Current.MainPage.DisplayAlert("Уведомление", "Регистрация прошла успешно", "Ok");
+                user.UserProgress = 0.0f;
+                user.UserLessonsProgress = 0;
+                user.UserGamesProgress = 0;
+                user.UserSelectedLessons = "00000000";
+                App.Database.SaveItem(user);
             }
-            catch (Exception ex)
-            {
-                await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK");
-            }
+            DisplayAlert("Уведомление", "Ркгистрация прошла успешно", "Ок");
         }
     }
 }

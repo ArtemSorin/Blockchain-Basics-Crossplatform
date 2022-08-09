@@ -1,6 +1,4 @@
-﻿using Firebase.Auth;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,32 +6,51 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SQLite;
 
 namespace Blockchain_Basics
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
-        public string WebAPIkey = "AIzaSyB9drN6gEKCY-7buO02rAVH0ZSbACT-hsw";
         public LoginPage()
         {
             InitializeComponent();
-            button_registr.Clicked += (sender, e) => Navigation.PushAsync(new RegistrationPage());
+
+            button_sing.Clicked += CreateFriend;
+            button_into.Clicked += SignIn;
         }
-        async void loginbutton_Clicked(System.Object sender, System.EventArgs e)
+        private async void CreateFriend(object sender, EventArgs e)
         {
-            var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIkey));
-            try
+            User friend = new User();
+            RegistrationPage friendPage = new RegistrationPage();
+            friendPage.BindingContext = friend;
+            await Navigation.PushAsync(friendPage);
+        }
+        private async void SignIn(object sender, EventArgs e)
+        {
+            var data = App.Database.GetItems();
+
+            bool flag = false;
+            int ID = 0;
+
+            foreach (var item in data)
             {
-                var auth = await authProvider.SignInWithEmailAndPasswordAsync(UserLoginEmail.Text, UserLoginPassword.Text);
-                var content = await auth.GetFreshAuthAsync();
-                var serializedcontnet = JsonConvert.SerializeObject(content);
-                Preferences.Set("MyFirebaseRefreshToken", serializedcontnet);
-                await Navigation.PushAsync(new MainPage());
+                if (item.UserName == UserLoginEmail.Text && item.UserPassword == UserLoginPassword.Text)
+                {
+                    flag = true;
+                    ID = item.id;
+                }
             }
-            catch (Exception)
+
+            if(flag)
             {
-                await App.Current.MainPage.DisplayAlert("Уведомление", "Неправильное имя пользователя или пароль", "OK");
+                await Navigation.PushAsync(new MainPage(ID));
+            }
+
+            else
+            {
+                await DisplayAlert("Уведомление", "Неправильный логин или пароль", "Ок");
             }
         }
     }

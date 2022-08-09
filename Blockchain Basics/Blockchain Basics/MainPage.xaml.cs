@@ -1,12 +1,12 @@
 ﻿using Android.Content.Res;
-using Firebase.Auth;
-using Newtonsoft.Json;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -14,14 +14,9 @@ namespace Blockchain_Basics
 {
     public partial class MainPage : TabbedPage
     {
-        public string WebAPIkey = "AIzaSyB9drN6gEKCY-7buO02rAVH0ZSbACT-hsw";
-        public double value = 0.0f;
-        public void Calculate_lvl() { value += 0.2f; }
-        public MainPage()
+        public MainPage(int ID)
         {
             InitializeComponent();
-
-            GetProfileInformationAndRefreshToken();
 
             LinearGradientBrush linearGradientBrush = new LinearGradientBrush();
             linearGradientBrush.GradientStops = new GradientStopCollection()
@@ -30,55 +25,150 @@ namespace Blockchain_Basics
                 new GradientStop(){ Color = Color.FromHex("#51F1F2"), Offset = 1 }
             };
 
-            button_game_1.Clicked += (sender, e) => Navigation.PushAsync(new FirstGamePage());
-            button_game_2.Clicked += (sender, e) => Navigation.PushAsync(new SecondGamePage());
-            button_game_3.Clicked += (sender, e) => Navigation.PushAsync(new ThirdGamePage());
+            var data = App.Database.GetItem(ID);
+
+            MyUserName.Text = data.UserName;
+            progressbar.Progress = data.UserProgress;
+            label_courses.Text = $"{data.UserLessonsProgress}/6";
+            label_games.Text = $"{data.UserGamesProgress}/4";
+
+            Frame[] mas_frame = new Frame[]
+            {
+                frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8
+            };
+
+            Button[] mas_btn_add = new Button[]
+            {
+                add1, add2, add3, add4, add5, add6, add7, add8
+            };
+
+            bool[] mas_bools = new bool[]
+            {
+                false, false, false, false, false, false, false, false
+            };
+
+            int pos = 0;
+
+            for (int i = 0; i < 8; i++)
+            {
+                if (data.UserSelectedLessons[i] == '1')
+                {
+                    emptylabel.IsVisible = false;
+                    mas_frame[i].IsVisible = true;
+                    stacbtn.Children.Add(mas_frame[i], pos, 0);
+
+                    mas_btn_add[i].BackgroundColor = Color.LightGray;
+                    mas_btn_add[i].Text = "Добавлено";
+                    mas_bools[i] = true;
+
+                    pos++;
+                }
+            }
+
+            if (pos == 0)
+            {
+                emptylabel.IsVisible = true;
+            }
+
+            ICommand refreshCommand = new Command(() =>
+            {
+                MyUserName.Text = data.UserName;
+                progressbar.Progress = data.UserProgress;
+                label_courses.Text = $"{data.UserLessonsProgress}/6";
+                label_games.Text = $"{data.UserGamesProgress}/4";
+                refreshView.IsRefreshing = false;
+            });
+
+            refreshView.Command = refreshCommand;
+
+            add1.Clicked += (s, e) => btn_add_click(add1, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools);
+            add2.Clicked += (s, e) => btn_add_click(add2, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools);
+            add3.Clicked += (s, e) => btn_add_click(add3, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools);
+            add4.Clicked += (s, e) => btn_add_click(add4, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools);
+            add5.Clicked += (s, e) => btn_add_click(add5, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools);
+            add6.Clicked += (s, e) => btn_add_click(add6, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools);
+            add7.Clicked += (s, e) => btn_add_click(add7, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools);
+            add8.Clicked += (s, e) => btn_add_click(add8, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools);
+
+            button_game_1.Clicked += (sender, e) => Navigation.PushAsync(new FirstGamePage(ID));
+            button_game_2.Clicked += (sender, e) => Navigation.PushAsync(new SecondGamePage(ID));
+            button_game_3.Clicked += (sender, e) => Navigation.PushAsync(new ThirdGamePage(ID));
             button_game_4.Clicked += (sender, e) => Navigation.PushAsync(new FourthGamePage());
 
-            button_lesson_1.Clicked += (s, e) => Navigation.PushAsync(new FirstLessonPage());
-            button_lesson_2.Clicked += (s, e) => Navigation.PushAsync(new SecondLessonPage());
+            outbtn.Clicked += (sender, e) => Navigation.PopAsync();
         }
-        async private void GetProfileInformationAndRefreshToken()
+        private void btn_add_click(Button add, Button[] mas_btn, Frame[] mas_frame, ref int pos, int ID, ref bool[] stacpos)
         {
-            var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIkey));
-            try
-            {
-                //This is the saved firebaseauthentication that was saved during the time of login
-                var savedfirebaseauth = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("MyFirebaseRefreshToken", ""));
-                //Here we are Refreshing the token
-                var RefreshedContent = await authProvider.RefreshAuthAsync(savedfirebaseauth);
-                Preferences.Set("MyFirebaseRefreshToken", JsonConvert.SerializeObject(RefreshedContent));
-                //Now lets grab user information
-                MyUserName.Text = savedfirebaseauth.User.Email;
+            var data = App.Database.GetItem(ID);
 
-            }
-            catch (Exception ex)
+            for (int i = 0; i < 8; i++)
             {
-                Console.WriteLine(ex.Message);
-                await App.Current.MainPage.DisplayAlert("Alert", "Oh no !  Token expired", "OK");
+                if (!stacpos[i] && add == mas_btn[i])
+                {
+                    emptylabel.IsVisible = false;
+                    mas_frame[i].IsVisible = true;
+                    stacbtn.Children.Add(mas_frame[i], pos, 0);
+
+                    char[] charStr = data.UserSelectedLessons.ToCharArray();
+                    charStr[i] = '1';
+                    string drb = new string(charStr);
+
+                    data.UserSelectedLessons = drb;
+
+                    add.BackgroundColor = Color.LightGray;
+                    add.Text = "Добавлено";
+                    pos++;
+
+                    stacpos[i] = true;
+
+                    break;
+                }
+                else if (stacpos[i] && add == mas_btn[i])
+                {
+                    mas_frame[i].IsVisible = false;
+                    stacbtn.Children.Remove(mas_frame[i]);
+
+                    for (int j = i; j < 7; j++)
+                    {
+                        if (mas_frame[j + 1].IsVisible == true)
+                        {
+                            stacbtn.Children.Add(mas_frame[j + 1], j, 0);
+                        }
+                    }
+
+                    char[] charStr = data.UserSelectedLessons.ToCharArray();
+                    charStr[i] = '0';
+                    string drb = new string(charStr);
+
+                    data.UserSelectedLessons = drb;
+
+                    add.BackgroundColor = Color.FromHex("#2F9BDF");
+                    add.Text = "Добавить";
+
+                    pos--;
+                    stacpos[i] = false;
+
+                    break;
+                }
+            }
+            int posselect = 0;
+            for (int i = 0; i < 8; i++)
+            {
+                if (data.UserSelectedLessons[i] == '1')
+                {
+                    emptylabel.IsVisible = false;
+                    mas_frame[i].IsVisible = true;
+                    stacbtn.Children.Add(mas_frame[i], posselect, 0);
+
+                    mas_btn[i].BackgroundColor = Color.LightGray;
+                    mas_btn[i].Text = "Добавлено";
+                    stacpos[i] = true;
+
+                    posselect++;
+                }
             }
 
-        }
-        void Logout_Clicked(System.Object sender, System.EventArgs e)
-        {
-            Preferences.Remove("MyFirebaseRefreshToken");
-            App.Current.MainPage = new NavigationPage(new LoginPage());
-        }
-        protected override void OnAppearing()
-        {
-            object name = "";
-            if (App.Current.Properties.TryGetValue("named", out name))
-            {
-                progressbar.Progress = (double)name;
-            }
-            base.OnAppearing();
-        }
-        private void OnClick(object sender, EventArgs e)
-        {
-            progressbar.Progress = value;
-            value = progressbar.Progress;
-
-            App.Current.Properties["named"] = value;
+            App.Database.SaveItem(data);
         }
     }
 }

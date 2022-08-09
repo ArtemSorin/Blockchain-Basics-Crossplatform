@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -13,7 +14,9 @@ namespace Blockchain_Basics
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FirstGamePage : ContentPage
     {
-        public FirstGamePage()
+        public SQLiteConnection conn;
+        public User regmodel;
+        public FirstGamePage(int ID)
         {
             InitializeComponent();
 

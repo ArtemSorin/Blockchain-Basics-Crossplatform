@@ -3,13 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
              xmlns:svg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:progressBar="clr-namespace:Syncfusion.XForms.ProgressBar;assembly=Syncfusion.SfProgressBar.XForms"
              x:Class="Blockchain_Basics.MainPage"
              android:TabbedPage.ToolbarPlacement="Bottom"
              SelectedTabColor="#1c9af5"
              UnselectedTabColor="Gray"
              NavigationPage.HasNavigationBar="False">
     <ContentPage Title="Профиль" IconImageSource="{OnPlatform iOS=user.svg, Android=user}">
-        <StackLayout BackgroundColor="#f6f7f9">
+        <RefreshView x:Name="refreshView" BackgroundColor="#f6f7f9" IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand}">
             <ScrollView>
                 <StackLayout>
                     <Frame BackgroundColor="#2F9BDF" CornerRadius="100" Margin="0, -90, -90, 0" HeightRequest="220">
@@ -50,8 +51,8 @@
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
-                                        <Button CornerRadius="20" Clicked="Logout_Clicked" BackgroundColor="White" HeightRequest="40" Text="Выйти" Grid.Column="0"></Button>
-                                        <Button CornerRadius="20" Clicked="OnClick" BackgroundColor="White" Text="Обновить" Grid.Column="1"></Button>
+                                        <Button x:Name="outbtn" CornerRadius="20" BackgroundColor="White" HeightRequest="40" Text="Выйти" Grid.Column="0"></Button>
+                                        <Button x:Name="refresh" CornerRadius="20" BackgroundColor="White" Text="Обновить" Grid.Column="1"></Button>
                                     </Grid>
                                 </Grid>
                             </Grid>
@@ -61,7 +62,7 @@
                    FontSize="Medium" TextColor="Black" FontAttributes="Bold">
                     </Label>
                     <ScrollView Orientation="Horizontal" Margin="10, 20, 0, 0">
-                        <Grid HeightRequest="200">
+                        <Grid x:Name="stacbtn" HeightRequest="200">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="140" />
                                 <ColumnDefinition Width="140" />
@@ -73,17 +74,31 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="190" />
                             </Grid.RowDefinitions>
-                            <Frame CornerRadius="30" Grid.Column="0">
+                            <Label x:Name="emptylabel" HorizontalOptions="Center" VerticalOptions="Center" Text="Здесь появлются добавленные курсы"
+                                   IsVisible="False" Grid.Column="1" Margin="-15, 0, 0, 0"></Label>
+                            <Frame x:Name="frame1" CornerRadius="30" IsVisible="False" >
                                 <ImageButton Source="lesson1.png" CornerRadius="30" Margin="-15"></ImageButton>
                             </Frame>
-                            <Frame CornerRadius="30" Grid.Column="1">
+                            <Frame x:Name="frame2" CornerRadius="30" IsVisible="False">
                                 <ImageButton Source="lesson2.png" CornerRadius="30" Margin="-15"></ImageButton>
                             </Frame>
-                            <Frame CornerRadius="30" Grid.Column="2">
+                            <Frame x:Name="frame3" CornerRadius="30" IsVisible="False">
                                 <ImageButton Source="lesson3.png" CornerRadius="30" Margin="-15"></ImageButton>
                             </Frame>
-                            <Frame CornerRadius="30" Grid.Column="3">
+                            <Frame x:Name="frame4" CornerRadius="30" IsVisible="False">
                                 <ImageButton Source="lesson4.png" CornerRadius="30" Margin="-15"></ImageButton>
+                            </Frame>
+                            <Frame x:Name="frame5" CornerRadius="30" IsVisible="False">
+                                <ImageButton Source="lesson5.png" CornerRadius="30" Margin="-15"></ImageButton>
+                            </Frame>
+                            <Frame x:Name="frame6" CornerRadius="30" IsVisible="False">
+                                <ImageButton Source="lesson6.png" CornerRadius="30" Margin="-15"></ImageButton>
+                            </Frame>
+                            <Frame x:Name="frame7" CornerRadius="30" IsVisible="False">
+                                <ImageButton Source="lesson7.png" CornerRadius="30" Margin="-15"></ImageButton>
+                            </Frame>
+                            <Frame x:Name="frame8" CornerRadius="30" IsVisible="False">
+                                <ImageButton Source="lesson8.png" CornerRadius="30" Margin="-15"></ImageButton>
                             </Frame>
                         </Grid>
                     </ScrollView>
@@ -125,7 +140,7 @@
                     </Grid>
                 </StackLayout>
             </ScrollView>
-        </StackLayout>
+        </RefreshView>
     </ContentPage>
     <ContentPage Title="Уроки" IconImageSource="{OnPlatform iOS=lessons.svg, Android=lessons}">
         <StackLayout BackgroundColor="#f6f7f9">
@@ -134,43 +149,225 @@
                        TextColor="White" FontAttributes="Bold">
                 </Label>
             </Frame>
-            <ScrollView Margin="0, 20, 0, 0">
-                <Grid HorizontalOptions="Center" HeightRequest="725">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="170" />
-                        <ColumnDefinition Width="170" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="170" />
-                        <RowDefinition Height="170" />
-                        <RowDefinition Height="170" />
-                        <RowDefinition Height="170" />
-                    </Grid.RowDefinitions>
-                    <ImageButton x:Name="button_lesson_1" Margin="5" Source="lessonmini1.png"
-                        BackgroundColor="White" CornerRadius="30" Grid.Row="0" Grid.Column="0">
-                    </ImageButton>
-                    <ImageButton x:Name="button_lesson_2" Margin="5" Source="lessonmini2.png"
-                        BackgroundColor="White" CornerRadius="30" Grid.Row="0" Grid.Column="1">
-                    </ImageButton>
-                    <ImageButton x:Name="button_lesson_3" Margin="5" Source="lessonmini3.png"
-                        BackgroundColor="White" CornerRadius="30" Grid.Row="1" Grid.Column="0">
-                    </ImageButton>
-                    <ImageButton x:Name="button_lesson_4" Margin="5" Source="lessonmini4.png"
-                        BackgroundColor="White" CornerRadius="30" Grid.Row="1" Grid.Column="1">
-                    </ImageButton>
-                    <ImageButton x:Name="button_lesson_5" Margin="5" Source="lessonmini5.png"
-                        BackgroundColor="White" CornerRadius="30" Grid.Row="2" Grid.Column="0">
-                    </ImageButton>
-                    <ImageButton x:Name="button_lesson_6" Margin="5" Source="lessonmini6.png"
-                        BackgroundColor="White" CornerRadius="30" Grid.Row="2" Grid.Column="1">
-                    </ImageButton>
-                    <ImageButton x:Name="button_lesson_7" Margin="5" Source="lessonmini7.png"
-                        BackgroundColor="White" CornerRadius="30" Grid.Row="3" Grid.Column="0">
-                    </ImageButton>
-                    <ImageButton x:Name="button_lesson_8" Margin="5" Source="lessonmini8.png"
-                        BackgroundColor="White" CornerRadius="30" Grid.Row="3" Grid.Column="1">
-                    </ImageButton>
-                </Grid>
+            <ScrollView>
+                <StackLayout Margin="20">
+                    <Frame HeightRequest="180" Margin="5, 20, 5, 0" CornerRadius="20">
+                        <StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Что такое блокчейн?" TextColor="Black" FontAttributes="Bold" FontSize="Large" Grid.Column="0" Grid.Row="0"></Label>
+                                    <Label Text="Введение в основы блокчейн технологии" Grid.Column="0" Grid.Row="1"></Label>
+                                    <Button x:Name="add1" Text="Добавить" Grid.Column="0" Grid.Row="2" FontAttributes="Bold" CornerRadius="50"
+                                        BackgroundColor="#2F9BDF" TextColor="White"></Button>
+                                </Grid>
+                                <Image Source="lessonmini1.png" Grid.Column="1"></Image>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                    <Frame HeightRequest="180" Margin="5, 20, 5, 0" CornerRadius="20">
+                        <StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Виды криптовалют" TextColor="Black" FontAttributes="Bold" FontSize="Large" Grid.Column="0" Grid.Row="0"></Label>
+                                    <Label Text="Виды и классификации криптовалют" Grid.Column="0" Grid.Row="1"></Label>
+                                    <Button x:Name="add2" Text="Добавить" Grid.Column="0" Grid.Row="2" FontAttributes="Bold" CornerRadius="50"
+                                        BackgroundColor="#2F9BDF" TextColor="White"></Button>
+                                </Grid>
+                                <Image Source="lessonmini2.png" Grid.Column="1"></Image>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                    <Frame HeightRequest="180" Margin="5, 20, 5, 0" CornerRadius="20">
+                        <StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Хэширование" TextColor="Black" FontAttributes="Bold" FontSize="Large" Grid.Column="0" Grid.Row="0"></Label>
+                                    <Label Text="Хэш-функции и алгоритмы хэширования" Grid.Column="0" Grid.Row="1"></Label>
+                                    <Button x:Name="add3" Text="Добавить" Grid.Column="0" Grid.Row="2" FontAttributes="Bold" CornerRadius="50"
+                                        BackgroundColor="#2F9BDF" TextColor="White"></Button>
+                                </Grid>
+                                <Image Source="lessonmini3.png" Margin="5" Grid.Column="1"></Image>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                    <Frame HeightRequest="180" Margin="5, 20, 5, 0" CornerRadius="20">
+                        <StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Транзакции" TextColor="Black" FontAttributes="Bold" FontSize="Large" Grid.Column="0" Grid.Row="0"></Label>
+                                    <Label Text="Хэш-функции и алгоритмы хэширования" Grid.Column="0" Grid.Row="1"></Label>
+                                    <Button x:Name="add4" Text="Добавить" Grid.Column="0" Grid.Row="2" FontAttributes="Bold" CornerRadius="50"
+                                        BackgroundColor="#2F9BDF" TextColor="White"></Button>
+                                </Grid>
+                                <Image Source="lessonmini4.png" Margin="5" Grid.Column="1"></Image>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                    <Frame HeightRequest="180" Margin="5, 20, 5, 0" CornerRadius="20">
+                        <StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Смарт контракты" TextColor="Black" FontAttributes="Bold" FontSize="Large" Grid.Column="0" Grid.Row="0"></Label>
+                                    <Label Text="Хэш-функции и алгоритмы хэширования" Grid.Column="0" Grid.Row="1"></Label>
+                                    <Button x:Name="add5" Text="Добавить" Grid.Column="0" Grid.Row="2" FontAttributes="Bold" CornerRadius="50"
+                                        BackgroundColor="#2F9BDF" TextColor="White"></Button>
+                                </Grid>
+                                <Image Source="lessonmini5.png" Margin="5" Grid.Column="1"></Image>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                    <Frame HeightRequest="180" Margin="5, 20, 5, 0" CornerRadius="20">
+                        <StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Майнинг" TextColor="Black" FontAttributes="Bold" FontSize="Large" Grid.Column="0" Grid.Row="0"></Label>
+                                    <Label Text="Хэш-функции и алгоритмы хэширования" Grid.Column="0" Grid.Row="1"></Label>
+                                    <Button x:Name="add6" Text="Добавить" Grid.Column="0" Grid.Row="2" FontAttributes="Bold" CornerRadius="50"
+                                        BackgroundColor="#2F9BDF" TextColor="White"></Button>
+                                </Grid>
+                                <Image Source="lessonmini6.png" Margin="5" Grid.Column="1"></Image>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                    <Frame HeightRequest="180" Margin="5, 20, 5, 0" CornerRadius="20">
+                        <StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Text="NFT Токен" TextColor="Black" FontAttributes="Bold" FontSize="Large" Grid.Column="0" Grid.Row="0"></Label>
+                                    <Label Text="Хэш-функции и алгоритмы хэширования" Grid.Column="0" Grid.Row="1"></Label>
+                                    <Button x:Name="add7" Text="Добавить" Grid.Column="0" Grid.Row="2" FontAttributes="Bold" CornerRadius="50"
+                                        BackgroundColor="#2F9BDF" TextColor="White"></Button>
+                                </Grid>
+                                <Image Source="lessonmini7.png" Margin="5" Grid.Column="1"></Image>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                    <Frame HeightRequest="180" Margin="5, 20, 5, 5" CornerRadius="20">
+                        <StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Крипто кошелёк" TextColor="Black" FontAttributes="Bold" FontSize="Large" Grid.Column="0" Grid.Row="0"></Label>
+                                    <Label Text="Хэш-функции и алгоритмы хэширования" Grid.Column="0" Grid.Row="1"></Label>
+                                    <Button x:Name="add8" Text="Добавить" Grid.Column="0" Grid.Row="2" FontAttributes="Bold" CornerRadius="50"
+                                        BackgroundColor="#2F9BDF" TextColor="White"></Button>
+                                </Grid>
+                                <Image Source="lessonmini8.png" Margin="5" Grid.Column="1"></Image>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
             </ScrollView>
         </StackLayout>
     </ContentPage>

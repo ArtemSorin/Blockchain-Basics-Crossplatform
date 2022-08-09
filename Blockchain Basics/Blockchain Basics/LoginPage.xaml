@@ -4,46 +4,48 @@
              x:Class="Blockchain_Basics.LoginPage"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <ScrollView>
-            <Grid BackgroundColor="#2F9BDF" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout>
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="20" Padding="20,0,20,0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
-                <StackLayout Grid.Row="0" HorizontalOptions="Center">
-                    <Label Text="Blockchain Basics" HorizontalOptions="Center" Margin="0,70" HeightRequest="50"
-                           TextColor="White" FontSize="Large" FontAttributes="Bold"></Label>
+                <Path Grid.Row="0" Margin="-20,0" Data="m132.34,154.23002l209.00002,0l0,0.66666c-66.50001,28 -156.50001,72.87853 -209.00002,96.76573l0,-97.43239z"
+                      Stroke="#2F9BDF" Fill="#2F9BDF" HeightRequest="220" Aspect="Fill" ></Path>
+                <Image  Grid.Row="0" Margin="-18,-20,0,0" Source="xamarinlogo.png" Aspect="AspectFit" HeightRequest="180" WidthRequest="150" VerticalOptions="Start" HorizontalOptions="Start" ></Image>
+                <Label Grid.Row="1"  Text="Welcome Back!" Margin="0,-50,0,0" FontSize="24" FontAttributes="Bold" TextColor="#2F9BDF" HorizontalOptions="CenterAndExpand"></Label>
+                <Label Grid.Row="2" Margin="0,-15,0,0" Text="Login in to account" TextColor="#2F9BDF"  HorizontalOptions="CenterAndExpand"></Label>
+                <Entry x:Name="UserLoginEmail" Grid.Row="3" Placeholder="Username" Text="{Binding UserName}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
+                <Entry x:Name="UserLoginPassword" Grid.Row="4" Placeholder="Password" Text="{Binding UserPassword}" IsPassword="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
+                <Button x:Name="button_into" Grid.Row="5" Text="Войти" TextColor="White" BackgroundColor="#2F9BDF" CornerRadius="20"></Button>
+                <Button x:Name="button_sing" Grid.Row="6" Text="Зарегистрироваться" TextColor="White" BackgroundColor="#2F9BDF" CornerRadius="20"></Button>
+                <Label Grid.Row="7" Text="or signin with" HorizontalOptions="CenterAndExpand"></Label>
+                <StackLayout Grid.Row="8" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="40">
+                    <Image Source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo626DNKJxdHM-VNRD0m7x_8Jim-r9kRalJQ" WidthRequest="30"
+                               HeightRequest="30" Aspect="AspectFit"></Image>
+                    <Image Source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnLfAn36-LTYNHjioWgvu-0KUTIDDrW5lX_g" WidthRequest="30"
+                               HeightRequest="30" Aspect="AspectFit"></Image>
+                    <Image Source="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-icon-png-transparent-background-osteopathy-16.png" WidthRequest="30"
+                               HeightRequest="30" Aspect="AspectFit"></Image>
+                    <Image Source="https://cdn-icons-png.flaticon.com/512/174/174857.png" WidthRequest="30"
+                               HeightRequest="30" Aspect="AspectFit"></Image>
                 </StackLayout>
-                <Frame Grid.Row="1" Margin="0,0,0,-40" BorderColor="White" CornerRadius="50" HasShadow="True" HeightRequest="700">
-                    <Grid Padding="20,50,20,0" HorizontalOptions="FillAndExpand" RowSpacing="20" VerticalOptions="FillAndExpand">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Label Grid.Row="0" FontAttributes="Bold" FontSize="24" HorizontalOptions="CenterAndExpand" Text="Привет!" TextColor="#2F9BDF" />
-                        <Label Grid.Row="1" Margin="0,-15,0,0" HorizontalOptions="CenterAndExpand" Text="Зарегистрируйся, чтобы начать" TextColor="#2F9BDF" />
-                        <Entry x:Name="UserLoginEmail" Grid.Row="2" Margin="0,20,0,0" HorizontalOptions="FillAndExpand" Placeholder="Username" Text="{Binding UserName}" VerticalOptions="FillAndExpand" />
-                        <Entry x:Name="UserLoginPassword" Grid.Row="3" HorizontalOptions="FillAndExpand" IsPassword="True" Placeholder="Password" Text="{Binding UserPassword}" VerticalOptions="FillAndExpand" />
-                        <Button x:Name="button_into" Grid.Row="4" Clicked="loginbutton_Clicked" CornerRadius="20" BackgroundColor="#2F9BDF" TextColor="White" Text="Войти" />
-                        <Button x:Name="button_registr" Grid.Row="5" CornerRadius="20" Text="Регистрация" BackgroundColor="#2F9BDF" TextColor="White"/>
-                        <StackLayout Grid.Row="7" HorizontalOptions="CenterAndExpand" Orientation="Horizontal" Spacing="40">
-                            <Image Aspect="AspectFit" HeightRequest="30" Source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo626DNKJxdHM-VNRD0m7x_8Jim-r9kRalJQ" WidthRequest="30" />
-                            <Image Aspect="AspectFit" HeightRequest="30" Source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnLfAn36-LTYNHjioWgvu-0KUTIDDrW5lX_g" WidthRequest="30" />
-                            <Image Aspect="AspectFit" HeightRequest="30" Source="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-icon-png-transparent-background-osteopathy-16.png" WidthRequest="30" />
-                            <Image Aspect="AspectFit" HeightRequest="30" Source="https://cdn-icons-png.flaticon.com/512/174/174857.png" WidthRequest="30" />
-                        </StackLayout>
-                        <Label Grid.Row="8" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Text="Forget Password" />
-                        <Label Grid.Row="9" Margin="0,-10,0,0" HorizontalOptions="CenterAndExpand" Text="Don't have an account? Sign up here" />
-                    </Grid>
-                </Frame>
+
+                <Label Grid.Row="9" Text="Forget Password" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"></Label>
+                <Label Grid.Row="10" Margin="0,-10,0,0" Text="Don't have an account? Sign up here" HorizontalOptions="CenterAndExpand"></Label>
+                <Path Grid.Row="11" Margin="-20,0" Data="m333.5114,204.27502l115.48359,-59l-0.00813,123.08816c-101.06176,0.76114 -113.03789,-0.51177 -246.99185,-0.49297l131.51639,-63.59519z"
+                      Stroke="#2F9BDF" Fill="#2F9BDF" HeightRequest="143" Aspect="Fill" ></Path>
             </Grid>
-        </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

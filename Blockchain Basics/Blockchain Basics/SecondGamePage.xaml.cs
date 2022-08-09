@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,14 @@ namespace Blockchain_Basics
         public static int current_lvl = 0;
         public static int[,] mas_correct = new int[6, nums_blocks];
 
-        public SecondGamePage()
+        public SQLiteConnection conn;
+        public User regmodel;
+        int IDone;
+
+        public SecondGamePage(int ID)
         {
             InitializeComponent();
+
             block_chain = "<здесь будет ваша последовательность>";
             current_chain.Text = block_chain;
             stack_counter = 0;
@@ -35,6 +41,8 @@ namespace Blockchain_Basics
             mas_correct[3, 0] = 3; mas_correct[3, 1] = 1; mas_correct[3, 2] = 2;
             mas_correct[4, 0] = 3; mas_correct[4, 1] = 2; mas_correct[4, 2] = 1;
             mas_correct[5, 0] = 1; mas_correct[5, 1] = 3; mas_correct[5, 2] = 2;
+
+            IDone = ID;
         }
         protected override void OnAppearing()
         {
@@ -133,7 +141,7 @@ namespace Blockchain_Basics
                 stackcheck();
             }
         }
-        private void next_lvl(object sender, EventArgs e)
+        private async void next_lvl(object sender, EventArgs e)
         {
             current_lvl++;
             if (current_lvl <= 5)
@@ -158,10 +166,8 @@ namespace Blockchain_Basics
                 current_chain.Text = block_chain;
                 current_chain.BackgroundColor = Color.Default;
                 nextlvl_button.IsVisible = !nextlvl_button.IsVisible;
-
             }
 
         }
-
     }
 }
