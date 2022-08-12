@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v12.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -114,7 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Blockchain Basics\Blockchain Basics.csproj">
-      <Project>{E2B6EE34-3D8A-49B6-A61E-42E2DE2C06C7}</Project>
+      <Project>{6A39FEF7-4C36-41FC-9E18-B33583937A2B}</Project>
       <Name>Blockchain Basics</Name>
     </ProjectReference>
   </ItemGroup>
