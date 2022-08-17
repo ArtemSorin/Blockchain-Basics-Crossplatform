@@ -82,26 +82,35 @@ namespace Blockchain_Basics
             else if (buttonP == 3)
             {
                 var data = App.Database.GetItem(ID);
-                data.UserGamesProgress++;
-                App.Database.SaveItem(data);
-                await Navigation.PopAsync();
+
+                if (!data.Game_third)
+                {
+                    data.Game_third = true;
+
+                    data.UserProgress += 0.05;
+
+                    App.Database.SaveItem(data);
+                    await Navigation.PopAsync();
+                }
+
+                if(!data.Game_thitd_achievement)
+                {
+                    data.Game_thitd_achievement = true;
+
+                    if (countExcelentQuestionAnswers == 8)
+                    {
+                        char[] charStr = data.UserAchievements.ToCharArray();
+                        charStr[0] = '1';
+                        string drb = new string(charStr);
+
+                        data.UserSelectedLessons = drb;
+                    }
+                }
             }
         }
         public ThirdGamePage(int ID)
         {
             InitializeComponent();
-
-            RadialGradientBrush radialGradientBrush = new RadialGradientBrush();
-            radialGradientBrush.Radius = 1.5;
-            radialGradientBrush.GradientStops = new GradientStopCollection()
-            {
-                new GradientStop(){ Color = Color.FromHex("#2F9BDF"), Offset = 0 },
-                new GradientStop(){ Color = Color.FromHex("#51F1F2"), Offset = 1 }
-            };
-
-            button1.Background = radialGradientBrush;
-            button2.Background = radialGradientBrush;
-            button3.Background = radialGradientBrush;
 
             int countExcelentQuestionAnswers = 0;
 

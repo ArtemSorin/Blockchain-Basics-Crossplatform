@@ -25,9 +25,11 @@ namespace Blockchain_Basics
                 user.UserLessonsProgress = 0;
                 user.UserGamesProgress = 0;
                 user.UserSelectedLessons = "00000000";
+                user.UserProfile = "ava1.png";
+                user.UserAchievements = "000000";
                 App.Database.SaveItem(user);
             }
-            DisplayAlert("Уведомление", "Ркгистрация прошла успешно", "Ок");
+            DisplayAlert("Уведомление", "Регистрация прошла успешно", "Ок");
         }
     }
 }

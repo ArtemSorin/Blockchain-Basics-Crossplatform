@@ -141,7 +141,7 @@ namespace Blockchain_Basics
                 stackcheck();
             }
         }
-        private async void next_lvl(object sender, EventArgs e)
+        private void next_lvl(object sender, EventArgs e)
         {
             current_lvl++;
             if (current_lvl <= 5)

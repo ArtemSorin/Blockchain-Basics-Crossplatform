@@ -22,10 +22,10 @@ namespace Blockchain_Basics
         }
         private async void CreateFriend(object sender, EventArgs e)
         {
-            User friend = new User();
-            RegistrationPage friendPage = new RegistrationPage();
-            friendPage.BindingContext = friend;
-            await Navigation.PushAsync(friendPage);
+            User user = new User();
+            RegistrationPage userpage = new RegistrationPage();
+            userpage.BindingContext = user;
+            await Navigation.PushAsync(userpage);
         }
         private async void SignIn(object sender, EventArgs e)
         {

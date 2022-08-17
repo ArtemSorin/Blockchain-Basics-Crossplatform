@@ -130,10 +130,10 @@
       <Version>1.8.116</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.Buttons">
-      <Version>20.2.0.40</Version>
+      <Version>20.2.0.43</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfProgressBar">
-      <Version>20.2.0.40</Version>
+      <Version>20.2.0.43</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading.Forms">
       <Version>2.4.11.982</Version>
@@ -150,15 +150,32 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Blockchain Basics\Blockchain Basics.csproj">
-      <Project>{E2B6EE34-3D8A-49B6-A61E-42E2DE2C06C7}</Project>
+      <Project>{6A39FEF7-4C36-41FC-9E18-B33583937A2B}</Project>
       <Name>Blockchain Basics</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\lessonmini1.png" />
+    <BundleResource Include="Resources\lessonmini2.png" />
+    <BundleResource Include="Resources\lessonmini3.png" />
+    <BundleResource Include="Resources\lessonmini4.png" />
+    <BundleResource Include="Resources\lessonmini5.png" />
+    <BundleResource Include="Resources\lessonmini6.png" />
+    <BundleResource Include="Resources\lessonmini7.png" />
+    <BundleResource Include="Resources\lessonmini8.png" />
+    <BundleResource Include="Resources\check.png" />
+    <BundleResource Include="Resources\game4.png" />
+    <BundleResource Include="Resources\lesson1.png" />
+    <BundleResource Include="Resources\lesson2.png" />
     <BundleResource Include="Resources\lesson3.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\lesson4.png" />
+    <BundleResource Include="Resources\lesson5.png" />
+    <BundleResource Include="Resources\lesson6.png" />
+    <BundleResource Include="Resources\lesson7.png" />
+    <BundleResource Include="Resources\lesson8.png" />
+    <BundleResource Include="Resources\ava1.png" />
+    <BundleResource Include="Resources\ava2.png" />
+    <BundleResource Include="Resources\ava3.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\litecoin1.png" />
@@ -185,9 +202,6 @@
     <BundleResource Include="Resources\bytecoin1.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\check.svg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\dogecoin1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -201,12 +215,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\game3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\lesson1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\lesson2.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\lessons.svg" />

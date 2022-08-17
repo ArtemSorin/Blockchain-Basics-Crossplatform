@@ -1,5 +1,4 @@
-﻿using Android.Content.Res;
-using SQLite;
+﻿using SQLite;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,19 +17,13 @@ namespace Blockchain_Basics
         {
             InitializeComponent();
 
-            LinearGradientBrush linearGradientBrush = new LinearGradientBrush();
-            linearGradientBrush.GradientStops = new GradientStopCollection()
-            {
-                new GradientStop(){ Color = Color.FromHex("#2F9BDF"), Offset = 0 },
-                new GradientStop(){ Color = Color.FromHex("#51F1F2"), Offset = 1 }
-            };
-
             var data = App.Database.GetItem(ID);
 
             MyUserName.Text = data.UserName;
             progressbar.Progress = data.UserProgress;
             label_courses.Text = $"{data.UserLessonsProgress}/6";
             label_games.Text = $"{data.UserGamesProgress}/4";
+            profile.ImageSource = data.UserProfile;
 
             Frame[] mas_frame = new Frame[]
             {
@@ -72,30 +65,39 @@ namespace Blockchain_Basics
 
             ICommand refreshCommand = new Command(() =>
             {
-                MyUserName.Text = data.UserName;
-                progressbar.Progress = data.UserProgress;
-                label_courses.Text = $"{data.UserLessonsProgress}/6";
-                label_games.Text = $"{data.UserGamesProgress}/4";
+                var data1 = App.Database.GetItem(ID);
+
+                MyUserName.Text = data1.UserName;
+                progressbar.Progress = data1.UserProgress;
+                label_courses.Text = $"{data1.UserLessonsProgress}/6";
+                label_games.Text = $"{data1.UserGamesProgress}/4";
+                profile.ImageSource = data1.UserProfile;
                 refreshView.IsRefreshing = false;
             });
 
             refreshView.Command = refreshCommand;
 
-            add1.Clicked += (s, e) => btn_add_click(add1, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools);
-            add2.Clicked += (s, e) => btn_add_click(add2, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools);
-            add3.Clicked += (s, e) => btn_add_click(add3, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools);
-            add4.Clicked += (s, e) => btn_add_click(add4, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools);
-            add5.Clicked += (s, e) => btn_add_click(add5, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools);
-            add6.Clicked += (s, e) => btn_add_click(add6, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools);
-            add7.Clicked += (s, e) => btn_add_click(add7, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools);
-            add8.Clicked += (s, e) => btn_add_click(add8, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools);
+            add1.Clicked += (s, e) => { animation_add(add1); btn_add_click(add1, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools); };
+            add2.Clicked += (s, e) => { animation_add(add2); btn_add_click(add2, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools); };
+            add3.Clicked += (s, e) => { animation_add(add3); btn_add_click(add3, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools); };
+            add4.Clicked += (s, e) => { animation_add(add4); btn_add_click(add4, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools); };
+            add5.Clicked += (s, e) => { animation_add(add5); btn_add_click(add5, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools); };
+            add6.Clicked += (s, e) => { animation_add(add6); btn_add_click(add6, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools); };
+            add7.Clicked += (s, e) => { animation_add(add7); btn_add_click(add7, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools); };
+            add8.Clicked += (s, e) => { animation_add(add8); btn_add_click(add8, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools); };
 
-            button_game_1.Clicked += (sender, e) => Navigation.PushAsync(new FirstGamePage(ID));
-            button_game_2.Clicked += (sender, e) => Navigation.PushAsync(new SecondGamePage(ID));
-            button_game_3.Clicked += (sender, e) => Navigation.PushAsync(new ThirdGamePage(ID));
-            button_game_4.Clicked += (sender, e) => Navigation.PushAsync(new FourthGamePage());
+            button_game_1.Clicked += (sender, e) => { Navigation.PushAsync(new FirstGamePage(ID)); };
+            button_game_2.Clicked += (sender, e) => { Navigation.PushAsync(new SecondGamePage(ID)); };
+            button_game_3.Clicked += (sender, e) => { Navigation.PushAsync(new ThirdGamePage(ID)); };
+            button_game_4.Clicked += (sender, e) => { Navigation.PushAsync(new FourthGamePage()); };
 
             outbtn.Clicked += (sender, e) => Navigation.PopAsync();
+            refresh.Clicked += (sender, e) => Navigation.PushAsync(new AccountPage(ID));
+        }
+        private async void animation_add(Button btn)
+        {
+            await btn.ScaleTo(1.2, 170, easing: Easing.Linear);
+            await btn.ScaleTo(1, 170, easing: Easing.Linear);
         }
         private void btn_add_click(Button add, Button[] mas_btn, Frame[] mas_frame, ref int pos, int ID, ref bool[] stacpos)
         {

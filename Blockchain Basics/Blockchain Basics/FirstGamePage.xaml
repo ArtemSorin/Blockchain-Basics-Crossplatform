@@ -1,13 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Blockchain_Basics.FirstGamePage">
-    <NavigationPage.TitleView>
-        <StackLayout>
-            <Label Text="Хэш комбинация" HorizontalTextAlignment="Center" Margin="0, 0, 75, 0"
-                   FontSize="Medium" FontAttributes="Bold" TextColor="White"/>
-        </StackLayout>
-    </NavigationPage.TitleView>
+             x:Class="Blockchain_Basics.FirstGamePage"
+             Title="Хэш - комбинация">
     <StackLayout>
         <Frame BackgroundColor="White" CornerRadius="20" Margin="30">
             <StackLayout>
