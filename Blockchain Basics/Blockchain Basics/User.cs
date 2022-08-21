@@ -18,6 +18,7 @@ namespace Blockchain_Basics
         public string UserSelectedLessons { get; set; }
         public string UserProfile { get; set; }
         public string UserAchievements { get; set; }
+        public int UserPrimogames { get; set; }
         public bool Game_thitd_achievement { get; set; }
         public bool Game_third { get; set; }
     }

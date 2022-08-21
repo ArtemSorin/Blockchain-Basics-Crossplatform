@@ -176,6 +176,11 @@
     <BundleResource Include="Resources\ava1.png" />
     <BundleResource Include="Resources\ava2.png" />
     <BundleResource Include="Resources\ava3.png" />
+    <BundleResource Include="Resources\ava4.png" />
+    <BundleResource Include="Resources\ava5.png" />
+    <BundleResource Include="Resources\ava6.png" />
+    <BundleResource Include="Resources\ava7.png" />
+    <BundleResource Include="Resources\ava8.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\litecoin1.png" />

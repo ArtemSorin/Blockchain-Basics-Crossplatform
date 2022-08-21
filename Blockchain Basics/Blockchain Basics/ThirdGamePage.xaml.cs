@@ -87,7 +87,9 @@ namespace Blockchain_Basics
                 {
                     data.Game_third = true;
 
-                    data.UserProgress += 0.05;
+                    data.UserProgress += 0.55;
+                    data.UserGamesProgress++;
+                    data.UserPrimogames += 100;
 
                     App.Database.SaveItem(data);
                     await Navigation.PopAsync();

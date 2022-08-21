@@ -29,7 +29,7 @@
                                     </Path.Data>
                                 </Path>
                                 <StackLayout Grid.Column="0">
-                                    <Button x:Name="profile" Margin="35, 20, 35, 0" HeightRequest="80" WidthRequest="80" CornerRadius="100"></Button>
+                                    <ImageButton x:Name="profile" BackgroundColor="#2F9BDF" Margin="35, 20, 35, 0" HeightRequest="80" WidthRequest="80" CornerRadius="100"></ImageButton>
                                 </StackLayout>
                                 <Grid Grid.Column="1">
                                     <Grid.ColumnDefinitions>
@@ -44,9 +44,9 @@
                                     </Grid.RowDefinitions>
                                     <Label Text="Аккаунт:" TextColor="White" FontAttributes="Bold" Grid.Row="0"></Label>
                                     <Label x:Name="MyUserName" TextColor="White" Grid.Row="1"></Label>
-                                    <Label Text="Текущий прогресс:"  TextColor="White" FontAttributes="Bold" Grid.Row="2"></Label>
+                                    <Label x:Name="progress" Text="Текущий прогресс:"  TextColor="White" FontAttributes="Bold" Grid.Row="2"></Label>
                                     <ProgressBar x:Name="progressbar" ProgressColor="White" Grid.Row="3"></ProgressBar>
-                                    <Grid  Grid.Row="4">
+                                    <Grid Grid.Row="4">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="*" />

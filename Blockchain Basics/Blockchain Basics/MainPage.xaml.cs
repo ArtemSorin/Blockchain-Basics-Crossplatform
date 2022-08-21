@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,8 @@ namespace Blockchain_Basics
             progressbar.Progress = data.UserProgress;
             label_courses.Text = $"{data.UserLessonsProgress}/6";
             label_games.Text = $"{data.UserGamesProgress}/4";
-            profile.ImageSource = data.UserProfile;
+            profile.Source = data.UserProfile;
+            progress.Text = $"Текущий прогресс: {data.UserProgress * 100}%";
 
             Frame[] mas_frame = new Frame[]
             {
@@ -71,7 +73,8 @@ namespace Blockchain_Basics
                 progressbar.Progress = data1.UserProgress;
                 label_courses.Text = $"{data1.UserLessonsProgress}/6";
                 label_games.Text = $"{data1.UserGamesProgress}/4";
-                profile.ImageSource = data1.UserProfile;
+                profile.Source = data1.UserProfile;
+                progress.Text = $"Текущий прогресс: {data1.UserProgress * 100}%";
                 refreshView.IsRefreshing = false;
             });
 
