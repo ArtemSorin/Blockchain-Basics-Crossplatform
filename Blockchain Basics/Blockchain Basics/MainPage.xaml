@@ -2,20 +2,18 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
-             xmlns:svg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
-             xmlns:progressBar="clr-namespace:Syncfusion.XForms.ProgressBar;assembly=Syncfusion.SfProgressBar.XForms"
              x:Class="Blockchain_Basics.MainPage"
              android:TabbedPage.ToolbarPlacement="Bottom"
              SelectedTabColor="#1c9af5"
              UnselectedTabColor="Gray"
              NavigationPage.HasNavigationBar="False">
-    <ContentPage Title="Профиль" IconImageSource="{OnPlatform iOS=user.svg, Android=user}">
+    <ContentPage Title="Профиль" IconImageSource="{OnPlatform iOS=user.png, Android=user}">
         <RefreshView x:Name="refreshView" BackgroundColor="#f6f7f9" IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand}">
             <ScrollView>
-                <StackLayout>
+                <StackLayout BackgroundColor="#f6f7f9">
                     <Frame BackgroundColor="#2F9BDF" CornerRadius="100" Margin="0, -90, -90, 0" HeightRequest="220">
                         <StackLayout>
-                            <Grid  Margin="0, 85, 80, 0">
+                            <Grid Margin="0, 85, 80, 0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="*" />
@@ -51,8 +49,8 @@
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
-                                        <Button x:Name="outbtn" CornerRadius="20" BackgroundColor="White" HeightRequest="40" Text="Выйти" Grid.Column="0"></Button>
-                                        <Button x:Name="refresh" CornerRadius="20" BackgroundColor="White" Text="Профиль" Grid.Column="1"></Button>
+                                        <Button x:Name="outbtn" CornerRadius="20" BackgroundColor="White" TextColor="Black" HeightRequest="40" Text="Выйти" Grid.Column="0"></Button>
+                                        <Button x:Name="refresh" CornerRadius="20" BackgroundColor="White" TextColor="Black" Text="Профиль" Grid.Column="1"></Button>
                                     </Grid>
                                 </Grid>
                             </Grid>
@@ -61,8 +59,8 @@
                     <Label Text="Продолжите обучение" Margin="10, 20, 0, 0"
                    FontSize="Medium" TextColor="Black" FontAttributes="Bold">
                     </Label>
-                    <ScrollView Orientation="Horizontal" Margin="10, 20, 0, 0">
-                        <Grid x:Name="stacbtn" HeightRequest="200">
+                    <ScrollView Orientation="Horizontal" Margin="0, 10, 0, 0">
+                        <Grid x:Name="stacbtn" HeightRequest="200" Margin="10, 10, 0, 0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="140" />
                                 <ColumnDefinition Width="140" />
@@ -233,7 +231,7 @@
                                         <RowDefinition Height="*" />
                                         <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
-                                    <Label Text="Хэширование" TextColor="Black" FontAttributes="Bold" FontSize="Large" Grid.Column="0" Grid.Row="0"></Label>
+                                    <Label Text="Хэш функции" TextColor="Black" FontAttributes="Bold" FontSize="Large" Grid.Column="0" Grid.Row="0"></Label>
                                     <Label Text="Хэш-функции и алгоритмы хэширования" Grid.Column="0" Grid.Row="1"></Label>
                                     <Button x:Name="add3" Text="Добавить" Grid.Column="0" Grid.Row="2" FontAttributes="Bold" CornerRadius="30"
                                         BackgroundColor="#2F9BDF" TextColor="White"></Button>

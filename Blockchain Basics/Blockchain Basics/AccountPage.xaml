@@ -7,7 +7,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Frame HeightRequest="150" BackgroundColor="#2F9BDF" Margin="0, -50, 0, 0" CornerRadius="50">
+                <Frame HeightRequest="160" BackgroundColor="#2F9BDF" Margin="0, -50, 0, 0" CornerRadius="50">
                     <Grid Margin="0, 30, 0, 0" >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -18,19 +18,21 @@
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
-                            <ImageButton x:Name="profile" Grid.Row="0" BackgroundColor="#2F9BDF" CornerRadius="100" HorizontalOptions="Center"
+                            <ImageButton x:Name="profile" Grid.Row="0" BackgroundColor="#2F9BDF" CornerRadius="50" HorizontalOptions="Center"
                                 HeightRequest="100" WidthRequest="100" Source="ava1.png"></ImageButton>
-                            <Label x:Name="username" Grid.Row="1" Margin="0, 0, 0, 0" HorizontalOptions="Center"></Label>
+                            <Label x:Name="username" Grid.Row="1" Margin="0, 0, 0, 0" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center"></Label>
                         </Grid>
-                        <Grid Grid.Column="1">
+                        <Grid Grid.Column="1" >
                             <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
                             <Label x:Name="gamelabel" Grid.Row="0" Text="Мини игр пройдено: " FontSize="13" FontAttributes="Bold" TextColor="White"></Label>
                             <Label x:Name="lessonlabel" Grid.Row="1" Text="Уроков пройдено: " FontSize="13" FontAttributes="Bold" TextColor="White"></Label>
-                            <Label x:Name="recordlabel" Grid.Row="2" Text="✦" FontAttributes="Bold" TextColor="White"></Label>
+                            <Label x:Name="recordlabel" Grid.Row="2" Text="Примогемы: ✦" FontAttributes="Bold" TextColor="White"></Label>
+                            <Button x:Name="btn_list" Grid.Row="3" CornerRadius="20" BackgroundColor="White" TextColor="Black" Text="СТАТИСТИКА" HeightRequest="40"></Button>
                         </Grid>
                     </Grid>
                 </Frame>
@@ -47,19 +49,19 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <ImageButton x:Name="im1" Source="ava1.png" Margin="5" HeightRequest="70" WidthRequest="70" CornerRadius="100" Grid.Column="0" Grid.Row="0"></ImageButton>
-                    <ImageButton x:Name="im2" Source="ava2.png" Margin="5" HeightRequest="70" WidthRequest="70" CornerRadius="100" Grid.Column="1" Grid.Row="0"></ImageButton>
-                    <ImageButton x:Name="im3" Source="ava3.png" Margin="5" HeightRequest="70" WidthRequest="70" CornerRadius="100" Grid.Column="2" Grid.Row="0"></ImageButton>
-                    <ImageButton x:Name="im4" Source="ava4.png" Margin="5" HeightRequest="70" WidthRequest="70" CornerRadius="100" Grid.Column="3" Grid.Row="0"></ImageButton>
-                    <ImageButton x:Name="im5" Source="ava5.png" Margin="5" HeightRequest="70" WidthRequest="70" CornerRadius="100" Grid.Column="0" Grid.Row="1"></ImageButton>
-                    <ImageButton x:Name="im6" Source="ava6.png" Margin="5" HeightRequest="70" WidthRequest="70" CornerRadius="100" Grid.Column="1" Grid.Row="1"></ImageButton>
-                    <ImageButton x:Name="im7" Source="ava7.png" Margin="5" HeightRequest="70" WidthRequest="70" CornerRadius="100" Grid.Column="2" Grid.Row="1"></ImageButton>
-                    <ImageButton x:Name="im8" Source="ava8.png" Margin="5" HeightRequest="70" WidthRequest="70" CornerRadius="100" Grid.Column="3" Grid.Row="1"></ImageButton>
+                    <ImageButton x:Name="im1" Source="ava1.png" Margin="5" HeightRequest="70" WidthRequest="70" CornerRadius="50" Grid.Column="0" Grid.Row="0"></ImageButton>
+                    <ImageButton x:Name="im2" Source="ava2.png" Margin="5" HeightRequest="70" WidthRequest="70" CornerRadius="50" Grid.Column="1" Grid.Row="0"></ImageButton>
+                    <ImageButton x:Name="im3" Source="ava3.png" Margin="5" HeightRequest="70" WidthRequest="70" CornerRadius="50" Grid.Column="2" Grid.Row="0"></ImageButton>
+                    <ImageButton x:Name="im4" Source="ava4.png" Margin="5" HeightRequest="70" WidthRequest="70" CornerRadius="50" Grid.Column="3" Grid.Row="0"></ImageButton>
+                    <ImageButton x:Name="im5" Source="ava5.png" Margin="5" HeightRequest="70" WidthRequest="70" CornerRadius="50" Grid.Column="0" Grid.Row="1"></ImageButton>
+                    <ImageButton x:Name="im6" Source="ava6.png" Margin="5" HeightRequest="70" WidthRequest="70" CornerRadius="50" Grid.Column="1" Grid.Row="1"></ImageButton>
+                    <ImageButton x:Name="im7" Source="ava7.png" Margin="5" HeightRequest="70" WidthRequest="70" CornerRadius="50" Grid.Column="2" Grid.Row="1"></ImageButton>
+                    <ImageButton x:Name="im8" Source="ava8.png" Margin="5" HeightRequest="70" WidthRequest="70" CornerRadius="50" Grid.Column="3" Grid.Row="1"></ImageButton>
                 </Grid>
                 <Label Text="Достижения" Margin="10, 20, 0, 0"
                    FontSize="Medium" TextColor="Black" FontAttributes="Bold"></Label>
                 <StackLayout Margin="20">
-                    <Frame CornerRadius="30" HeightRequest="180">
+                    <Frame CornerRadius="30" HeightRequest="220">
                         <StackLayout>
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -94,10 +96,10 @@
                                 </Grid>
                                 <Image Source="lessonmini2.png" Margin="0,0, 0, 0" Grid.Column="1"></Image>
                             </Grid>
-                            <Button x:Name="unloc1" Text="Собрать награды" TextColor="White" Margin="0, 20, 120, 0" CornerRadius="25" BackgroundColor="#2F9BDF"></Button>
+                            <Button x:Name="unloc1" Text="Собрать награды" TextColor="White" VerticalOptions="EndAndExpand" CornerRadius="25" BackgroundColor="#2F9BDF"></Button>
                         </StackLayout>
                     </Frame>
-                    <Frame CornerRadius="30" HeightRequest="200">
+                    <Frame CornerRadius="30" HeightRequest="220">
                             <StackLayout>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -132,7 +134,7 @@
                                     </Grid>
                                     <Image Source="lessonmini6.png" Grid.Column="1"></Image>
                                 </Grid>
-                                <Button x:Name="unloc2" Text="Собрать награды" TextColor="White" Margin="0, 20, 120, 0" VerticalOptions="FillAndExpand" CornerRadius="25" BackgroundColor="#2F9BDF"></Button>
+                                <Button x:Name="unloc2" Text="Собрать награды" TextColor="White" VerticalOptions="EndAndExpand" CornerRadius="25" BackgroundColor="#2F9BDF"></Button>
                             </StackLayout>
                     </Frame>
                 </StackLayout>

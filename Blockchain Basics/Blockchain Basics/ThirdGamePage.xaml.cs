@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using BlockchainBasics;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,8 @@ namespace Blockchain_Basics
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ThirdGamePage : ContentPage
     {
+        UserRepository repos = new UserRepository();
+
         public SQLiteConnection conn;
         public User regmodel;
 
@@ -27,14 +30,18 @@ namespace Blockchain_Basics
         public List<question> initialQuestLite()
         {
             List<question> questions = new List<question>();
-            questions.Add(new question() { image = "bitcoin1.png", var1 = "bitcoin", var2 = "bytecoin", var3 = "litecoin", answer = 1 });
-            questions.Add(new question() { image = "ethereum1.png", var1 = "prismo", var2 = "ripple", var3 = "ethereum", answer = 3 });
-            questions.Add(new question() { image = "litecoin1.png", var1 = "solana", var2 = "litecoin", var3 = "litol-24", answer = 2 });
-            questions.Add(new question() { image = "dogecoin1.png", var1 = "dogecoin", var2 = "muskcoin", var3 = "mooncoin", answer = 1 });
-            questions.Add(new question() { image = "bytecoin1.png", var1 = "bitcoin", var2 = "bytecoin", var3 = "BitShares", answer = 2 });
-            questions.Add(new question() { image = "solana1.png", var1 = "lines", var2 = "ripple", var3 = "solana", answer = 3 });
-            questions.Add(new question() { image = "monero1.png", var1 = "monero", var2 = "moneycoin", var3 = "megahash", answer = 1 });
-            questions.Add(new question() { image = "vertcoin1.png", var1 = "greencoin", var2 = "okcoin", var3 = "vertcoin", answer = 3 });
+            questions.Add(new question() { image = "third_game_avalanche.png", var1 = "Avalanche", var2 = "Bytecoin", var3 = "Litecoin", answer = 1 });
+            questions.Add(new question() { image = "third_game_binance.png", var1 = "Bitcoin", var2 = "Ripple", var3 = "Binance", answer = 3 });
+            questions.Add(new question() { image = "third_game_bitcoin.png", var1 = "Bytecoin", var2 = "Bitcoin", var3 = "Binance", answer = 2 });
+            questions.Add(new question() { image = "third_game_dai.png", var1 = "Dai", var2 = "Muskcoin", var3 = "Dogecoin", answer = 1 });
+            questions.Add(new question() { image = "third_game_dogecoin.png", var1 = "Bitcoin", var2 = "Dogecoin", var3 = "Dai", answer = 2 });
+            questions.Add(new question() { image = "third_game_ethereum.png", var1 = "Lines", var2 = "Ripple", var3 = "Ethereum", answer = 3 });
+            questions.Add(new question() { image = "third_game_litecoin.png", var1 = "Litecoin", var2 = "Moneycoin", var3 = "Lines", answer = 1 });
+            questions.Add(new question() { image = "third_game_solana.png", var1 = "Greencoin", var2 = "Okcoin", var3 = "Solana", answer = 3 });
+            questions.Add(new question() { image = "third_game_stellar.png", var1 = "Solana", var2 = "Stellar", var3 = "Okcoin", answer = 2 });
+            questions.Add(new question() { image = "third_game_tether.png", var1 = "Tether", var2 = "Lines", var3 = "Tron", answer = 1 });
+            questions.Add(new question() { image = "third_game_tron.png", var1 = "Tron", var2 = "Tether", var3 = "Stellar", answer = 1 });
+            questions.Add(new question() { image = "third_game_wrapped.png", var1 = "Bitcoin", var2 = "Bytecoin", var3 = "Wrapped", answer = 3 });
 
             return questions;
         }
@@ -66,7 +73,7 @@ namespace Blockchain_Basics
                 return -1;
             }
         }
-        async void showRes(int countExcelentQuestionAnswers, int allCount, int buttonP, int ID)
+        async void showRes(int countExcelentQuestionAnswers, int allCount, int buttonP, User user)
         {
             questImage.Source = "answerCheck.png";
             button1.Text = $"верно {countExcelentQuestionAnswers} из {allCount}";
@@ -81,36 +88,37 @@ namespace Blockchain_Basics
             }
             else if (buttonP == 3)
             {
-                var data = App.Database.GetItem(ID);
-
-                if (!data.Game_third)
+                if (!user.Game_third)
                 {
-                    data.Game_third = true;
+                    user.Game_third = true;
 
-                    data.UserProgress += 0.55;
-                    data.UserGamesProgress++;
-                    data.UserPrimogames += 100;
+                    user.UserProgress += 0.55;
+                    user.UserGamesProgress++;
+                    user.UserPrimogames += 100;
 
-                    App.Database.SaveItem(data);
-                    await Navigation.PopAsync();
+                    await repos.Update(user);
                 }
 
-                if(!data.Game_thitd_achievement)
+                if(!user.Game_thitd_achievement)
                 {
-                    data.Game_thitd_achievement = true;
+                    user.Game_thitd_achievement = true;
 
-                    if (countExcelentQuestionAnswers == 8)
+                    if (countExcelentQuestionAnswers == 12)
                     {
-                        char[] charStr = data.UserAchievements.ToCharArray();
+                        char[] charStr = user.UserAchievements.ToCharArray();
                         charStr[0] = '1';
                         string drb = new string(charStr);
 
-                        data.UserSelectedLessons = drb;
+                        user.UserAchievements = drb;
+
+                        await repos.Update(user);
                     }
                 }
+
+                await Navigation.PopAsync();
             }
         }
-        public ThirdGamePage(int ID)
+        public ThirdGamePage(User user)
         {
             InitializeComponent();
 
@@ -136,14 +144,14 @@ namespace Blockchain_Basics
             {
                 if (curQuestIndex == -1)
                 {
-                    showRes(countExcelentQuestionAnswers, countAllQuestions, 1, ID);
+                    showRes(countExcelentQuestionAnswers, countAllQuestions, 1, user);
                 }
                 else
                 {
                     curQuestIndex = answerUpdate(ref questionsList, curQuestIndex, 1, ref countExcelentQuestionAnswers);
                     if (curQuestIndex == -1)
                     {
-                        showRes(countExcelentQuestionAnswers, countAllQuestions, 1, ID);
+                        showRes(countExcelentQuestionAnswers, countAllQuestions, 1, user);
                     }
                 }
 
@@ -153,14 +161,14 @@ namespace Blockchain_Basics
             {
                 if (curQuestIndex == -1)
                 {
-                    showRes(countExcelentQuestionAnswers, countAllQuestions, 2, ID);
+                    showRes(countExcelentQuestionAnswers, countAllQuestions, 2, user);
                 }
                 else
                 {
                     curQuestIndex = answerUpdate(ref questionsList, curQuestIndex, 2, ref countExcelentQuestionAnswers);
                     if (curQuestIndex == -1)
                     {
-                        showRes(countExcelentQuestionAnswers, countAllQuestions, 1, ID);
+                        showRes(countExcelentQuestionAnswers, countAllQuestions, 1, user);
                     }
                 }
 
@@ -170,14 +178,14 @@ namespace Blockchain_Basics
             {
                 if (curQuestIndex == -1)
                 {
-                    showRes(countExcelentQuestionAnswers, countAllQuestions, 3, ID);
+                    showRes(countExcelentQuestionAnswers, countAllQuestions, 3, user);
                 }
                 else
                 {
                     curQuestIndex = answerUpdate(ref questionsList, curQuestIndex, 3, ref countExcelentQuestionAnswers);
                     if (curQuestIndex == -1)
                     {
-                        showRes(countExcelentQuestionAnswers, countAllQuestions, 1, ID);
+                        showRes(countExcelentQuestionAnswers, countAllQuestions, 1, user);
                     }
                 }
 

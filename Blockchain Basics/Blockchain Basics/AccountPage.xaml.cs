@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using BlockchainBasics;
 using Xamarin.Forms;
 using static Blockchain_Basics.ThirdGamePage;
 using static Xamarin.Forms.Internals.Profile;
@@ -9,40 +9,55 @@ namespace Blockchain_Basics
 {
     public partial class AccountPage : ContentPage
     {
+        UserRepository repos = new UserRepository();
+
         public struct AButton
         {
             public bool open;
             public ImageButton button;
         }
-        public List<AButton> init(int ID)
+        public struct Achivement
+        {
+            public string state;
+            public Button button;
+            public Label label;
+        }
+        public List<AButton> Init(User user)
         {
             List<AButton> aButtons = new List<AButton>();
 
-            var data = App.Database.GetItem(ID);
-
             aButtons.Add(new AButton() { button = im1, open = true });
-            aButtons.Add(new AButton() { button = im2, open = data.UserProgress > 0.2 ? true : false });
-            aButtons.Add(new AButton() { button = im3, open = data.UserProgress > 0.3 ? true : false });
-            aButtons.Add(new AButton() { button = im4, open = data.UserProgress > 0.4 ? true : false });
-            aButtons.Add(new AButton() { button = im5, open = data.UserProgress > 0.5 ? true : false });
-            aButtons.Add(new AButton() { button = im6, open = data.UserProgress > 0.6 ? true : false });
-            aButtons.Add(new AButton() { button = im7, open = data.UserProgress > 0.7 ? true : false });
-            aButtons.Add(new AButton() { button = im8, open = data.UserProgress > 0.8 ? true : false });
+            aButtons.Add(new AButton() { button = im2, open = user.UserProgress > 0.2 ? true : false });
+            aButtons.Add(new AButton() { button = im3, open = user.UserProgress > 0.3 ? true : false });
+            aButtons.Add(new AButton() { button = im4, open = user.UserProgress > 0.4 ? true : false });
+            aButtons.Add(new AButton() { button = im5, open = user.UserProgress > 0.5 ? true : false });
+            aButtons.Add(new AButton() { button = im6, open = user.UserProgress > 0.6 ? true : false });
+            aButtons.Add(new AButton() { button = im7, open = user.UserProgress > 0.7 ? true : false });
+            aButtons.Add(new AButton() { button = im8, open = user.UserProgress > 0.8 ? true : false });
 
             return aButtons;
         }
-        public AccountPage(int ID)
+        public List<Achivement> initach(User user)
+        {
+            List<Achivement> achivement = new List<Achivement>();
+
+            achivement.Add(new Achivement() { state = user.UserAchievements[0] >= '1' ? "Получено" : lbl1.Text, button = unloc1, label = lbl1 });
+            achivement.Add(new Achivement() { state = user.UserAchievements[1] >= '1' ? "Получено" : lbl2.Text, button = unloc2, label = lbl2 });
+
+            return achivement;
+        }
+        public AccountPage(User user)
         {
             InitializeComponent();
-            var data = App.Database.GetItem(ID);
 
-            profile.Source = data.UserProfile;
+            profile.Source = user.UserProfile;
 
-            username.Text = data.UserName;
+            username.Text = user.UserName;
 
-            List<AButton> aButtons = init(ID);
+            List<AButton> aButtons = Init(user);
+            List<Achivement> achivement = initach(user);
 
-            for(int i = 0; i < 8; i++)
+            for (int i = 0; i < 8; i++)
             {
                 if (!aButtons[i].open)
                 {
@@ -50,31 +65,70 @@ namespace Blockchain_Basics
                 }
             }
 
-            for(int i = 0; i < data.UserAchievements.Length; i++)
+            for(int i = 0; i < 2; i++)
             {
-                if (data.UserAchievements[i] == '1')
+                if (achivement[i].state == "Получено")
                 {
-                    
+                    achivement[i].label.Text = "Получено";
+                    achivement[i].button.BackgroundColor = Color.FromHex("#2F9BDF");
+                    achivement[i].label.TextColor = Color.FromHex("#60af21");
+                    achivement[i].button.IsEnabled = true;
+                }
+                else
+                {
+                    achivement[i].button.BackgroundColor = Color.LightGray;
+                    achivement[i].button.IsEnabled = false;
+                }
+
+                if(user.UserAchievements[i] == '2')
+                {
+                    achivement[i].button.BackgroundColor = Color.FromHex("#60af21");
+                    achivement[i].button.Text = "Награды собраны";
+                    achivement[i].button.IsEnabled = false;
                 }
             }
 
-            gamelabel.Text = $"Мини-игр пройдено: {data.UserGamesProgress}/6";
-            lessonlabel.Text = $"Уроков пройдено: {data.UserLessonsProgress}/6";
-            recordlabel.Text = $"✦ {data.UserPrimogames}";
+            gamelabel.Text = $"Мини-игр пройдено: {user.UserGamesProgress}/6";
+            lessonlabel.Text = $"Уроков пройдено: {user.UserLessonsProgress}/6";
+            recordlabel.Text = $"✦ {user.UserPrimogames}";
 
-            aButtons[0].button.Clicked += (sender, e) => ava_clic(aButtons[0], ID, 0);
-            aButtons[1].button.Clicked += (sender, e) => ava_clic(aButtons[1], ID, 1);
-            aButtons[2].button.Clicked += (sender, e) => ava_clic(aButtons[2], ID, 2);
-            aButtons[3].button.Clicked += (sender, e) => ava_clic(aButtons[3], ID, 3);
-            aButtons[4].button.Clicked += (sender, e) => ava_clic(aButtons[4], ID, 4);
-            aButtons[5].button.Clicked += (sender, e) => ava_clic(aButtons[5], ID, 5);
-            aButtons[6].button.Clicked += (sender, e) => ava_clic(aButtons[6], ID, 6);
-            aButtons[7].button.Clicked += (sender, e) => ava_clic(aButtons[7], ID, 7);
+            achivement[0].button.Clicked += (sender, e) => Btn_clic(0, achivement, user);
+            achivement[1].button.Clicked += (sender, e) => Btn_clic(1, achivement, user);
+
+            aButtons[0].button.Clicked += (sender, e) => Ava_clic(aButtons[0], 0, user);
+            aButtons[1].button.Clicked += (sender, e) => Ava_clic(aButtons[1], 1, user);
+            aButtons[2].button.Clicked += (sender, e) => Ava_clic(aButtons[2], 2, user);
+            aButtons[3].button.Clicked += (sender, e) => Ava_clic(aButtons[3], 3, user);
+            aButtons[4].button.Clicked += (sender, e) => Ava_clic(aButtons[4], 4, user);
+            aButtons[5].button.Clicked += (sender, e) => Ava_clic(aButtons[5], 5, user);
+            aButtons[6].button.Clicked += (sender, e) => Ava_clic(aButtons[6], 6, user);
+            aButtons[7].button.Clicked += (sender, e) => Ava_clic(aButtons[7], 7, user);
+
+            btn_list.Clicked += (sender, e) => Navigation.PushAsync(new TopPage(user));
         }
-        private async void ava_clic(AButton aButton, int ID, int index)
+        private async void Btn_clic(int index, List<Achivement> achivement, User user)
         {
-            var data = App.Database.GetItem(ID);
+            if (user.UserAchievements[0] == '1')
+            {
+                user.UserPrimogames += 20;
+            }
 
+            recordlabel.Text = $"✦ {user.UserPrimogames}";
+
+            char[] charStr = user.UserAchievements.ToCharArray();
+            charStr[0] = '2';
+            string drb = new string(charStr);
+
+            user.UserAchievements = drb;
+
+            await repos.Update(user);
+
+            achivement[0].button.BackgroundColor = Color.FromHex("#60af21");
+            achivement[0].button.Text = "Награды собраны";
+            achivement[0].button.IsEnabled = false;
+        }
+        private async void Ava_clic(AButton aButton, int index, User user)
+        {
             if (!aButton.open)
             {
                 await aButton.button.TranslateTo(-15, 0, 50);
@@ -94,51 +148,49 @@ namespace Blockchain_Basics
                 {
                     case 0:
                         {
-                            data.UserProfile = "ava1.png";
+                            user.UserProfile = "ava1.png";
                             break;
                         }
                     case 1:
                         {
-                            data.UserProfile = "ava2.png";
+                            user.UserProfile = "ava2.png";
                             break;
                         }
                     case 2:
                         {
-                            data.UserProfile = "ava3.png";
+                            user.UserProfile = "ava3.png";
                             break;
                         }
                     case 3:
                         {
-                            data.UserProfile = "ava4.png";
+                            user.UserProfile = "ava4.png";
                             break;
                         }
                     case 4:
                         {
-                            data.UserProfile = "ava5.png";
+                            user.UserProfile = "ava5.png";
                             break;
                         }
                     case 5:
                         {
-                            data.UserProfile = "ava6.png";
+                            user.UserProfile = "ava6.png";
                             break;
                         }
                     case 6:
                         {
-                            data.UserProfile = "ava7.png";
+                            user.UserProfile = "ava7.png";
                             break;
                         }
                     case 7:
                         {
-                            data.UserProfile = "ava8.png";
+                            user.UserProfile = "ava8.png";
                             break;
                         }
                 }
 
-                App.Database.SaveItem(data);
+                profile.Source = user.UserProfile;
 
-                var data1 = App.Database.GetItem(ID);
-
-                profile.Source = data1.UserProfile;
+                await repos.Update(user);
             }
         }
     }

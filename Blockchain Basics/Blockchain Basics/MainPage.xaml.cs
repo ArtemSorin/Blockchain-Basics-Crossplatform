@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using BlockchainBasics;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,18 +15,20 @@ namespace Blockchain_Basics
 {
     public partial class MainPage : TabbedPage
     {
-        public MainPage(int ID)
+        UserRepository repos = new UserRepository();
+
+        public MainPage(User user)
         {
             InitializeComponent();
 
-            var data = App.Database.GetItem(ID);
+            string ID = user.Id;
 
-            MyUserName.Text = data.UserName;
-            progressbar.Progress = data.UserProgress;
-            label_courses.Text = $"{data.UserLessonsProgress}/6";
-            label_games.Text = $"{data.UserGamesProgress}/4";
-            profile.Source = data.UserProfile;
-            progress.Text = $"Текущий прогресс: {data.UserProgress * 100}%";
+            MyUserName.Text = user.UserName;
+            progressbar.Progress = user.UserProgress;
+            label_courses.Text = $"{user.UserLessonsProgress}/6";
+            label_games.Text = $"{user.UserGamesProgress}/4";
+            profile.Source = user.UserProfile;
+            progress.Text = $"Текущий прогресс: {user.UserProgress * 100}%";
 
             Frame[] mas_frame = new Frame[]
             {
@@ -46,7 +49,7 @@ namespace Blockchain_Basics
 
             for (int i = 0; i < 8; i++)
             {
-                if (data.UserSelectedLessons[i] == '1')
+                if (user.UserSelectedLessons[i] == '1')
                 {
                     emptylabel.IsVisible = false;
                     mas_frame[i].IsVisible = true;
@@ -67,45 +70,43 @@ namespace Blockchain_Basics
 
             ICommand refreshCommand = new Command(() =>
             {
-                var data1 = App.Database.GetItem(ID);
+                ID = user.Id;
 
-                MyUserName.Text = data1.UserName;
-                progressbar.Progress = data1.UserProgress;
-                label_courses.Text = $"{data1.UserLessonsProgress}/6";
-                label_games.Text = $"{data1.UserGamesProgress}/4";
-                profile.Source = data1.UserProfile;
-                progress.Text = $"Текущий прогресс: {data1.UserProgress * 100}%";
+                MyUserName.Text = user.UserName;
+                progressbar.Progress = user.UserProgress;
+                label_courses.Text = $"{user.UserLessonsProgress}/6";
+                label_games.Text = $"{user.UserGamesProgress}/4";
+                profile.Source = user.UserProfile;
+                progress.Text = $"Текущий прогресс: {user.UserProgress * 100}%";
                 refreshView.IsRefreshing = false;
             });
 
             refreshView.Command = refreshCommand;
 
-            add1.Clicked += (s, e) => { animation_add(add1); btn_add_click(add1, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools); };
-            add2.Clicked += (s, e) => { animation_add(add2); btn_add_click(add2, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools); };
-            add3.Clicked += (s, e) => { animation_add(add3); btn_add_click(add3, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools); };
-            add4.Clicked += (s, e) => { animation_add(add4); btn_add_click(add4, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools); };
-            add5.Clicked += (s, e) => { animation_add(add5); btn_add_click(add5, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools); };
-            add6.Clicked += (s, e) => { animation_add(add6); btn_add_click(add6, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools); };
-            add7.Clicked += (s, e) => { animation_add(add7); btn_add_click(add7, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools); };
-            add8.Clicked += (s, e) => { animation_add(add8); btn_add_click(add8, mas_btn_add, mas_frame, ref pos, ID, ref mas_bools); };
+            add1.Clicked += (s, e) => { animation_add(add1); btn_add_click(add1, mas_btn_add, mas_frame, pos, user, ID, mas_bools); };
+            add2.Clicked += (s, e) => { animation_add(add2); btn_add_click(add2, mas_btn_add, mas_frame, pos, user, ID, mas_bools); };
+            add3.Clicked += (s, e) => { animation_add(add3); btn_add_click(add3, mas_btn_add, mas_frame, pos, user, ID, mas_bools); };
+            add4.Clicked += (s, e) => { animation_add(add4); btn_add_click(add4, mas_btn_add, mas_frame, pos, user, ID, mas_bools); };
+            add5.Clicked += (s, e) => { animation_add(add5); btn_add_click(add5, mas_btn_add, mas_frame, pos, user, ID, mas_bools); };
+            add6.Clicked += (s, e) => { animation_add(add6); btn_add_click(add6, mas_btn_add, mas_frame, pos, user, ID, mas_bools); };
+            add7.Clicked += (s, e) => { animation_add(add7); btn_add_click(add7, mas_btn_add, mas_frame, pos, user, ID, mas_bools); };
+            add8.Clicked += (s, e) => { animation_add(add8); btn_add_click(add8, mas_btn_add, mas_frame, pos, user, ID, mas_bools); };
 
-            button_game_1.Clicked += (sender, e) => { Navigation.PushAsync(new FirstGamePage(ID)); };
-            button_game_2.Clicked += (sender, e) => { Navigation.PushAsync(new SecondGamePage(ID)); };
-            button_game_3.Clicked += (sender, e) => { Navigation.PushAsync(new ThirdGamePage(ID)); };
+            button_game_1.Clicked += (sender, e) => { Navigation.PushAsync(new FirstGamePage(user)); };
+            button_game_2.Clicked += (sender, e) => { Navigation.PushAsync(new SecondGamePage(user)); };
+            button_game_3.Clicked += (sender, e) => { Navigation.PushAsync(new ThirdGamePage(user)); };
             button_game_4.Clicked += (sender, e) => { Navigation.PushAsync(new FourthGamePage()); };
 
             outbtn.Clicked += (sender, e) => Navigation.PopAsync();
-            refresh.Clicked += (sender, e) => Navigation.PushAsync(new AccountPage(ID));
+            refresh.Clicked += (sender, e) => Navigation.PushAsync(new AccountPage(user));
         }
         private async void animation_add(Button btn)
         {
             await btn.ScaleTo(1.2, 170, easing: Easing.Linear);
             await btn.ScaleTo(1, 170, easing: Easing.Linear);
         }
-        private void btn_add_click(Button add, Button[] mas_btn, Frame[] mas_frame, ref int pos, int ID, ref bool[] stacpos)
+        private async void btn_add_click(Button add, Button[] mas_btn, Frame[] mas_frame, int pos, User user, string ID, bool[] stacpos)
         {
-            var data = App.Database.GetItem(ID);
-
             for (int i = 0; i < 8; i++)
             {
                 if (!stacpos[i] && add == mas_btn[i])
@@ -114,11 +115,11 @@ namespace Blockchain_Basics
                     mas_frame[i].IsVisible = true;
                     stacbtn.Children.Add(mas_frame[i], pos, 0);
 
-                    char[] charStr = data.UserSelectedLessons.ToCharArray();
+                    char[] charStr = user.UserSelectedLessons.ToCharArray();
                     charStr[i] = '1';
                     string drb = new string(charStr);
 
-                    data.UserSelectedLessons = drb;
+                    user.UserSelectedLessons = drb;
 
                     add.BackgroundColor = Color.LightGray;
                     add.Text = "Добавлено";
@@ -141,11 +142,11 @@ namespace Blockchain_Basics
                         }
                     }
 
-                    char[] charStr = data.UserSelectedLessons.ToCharArray();
+                    char[] charStr = user.UserSelectedLessons.ToCharArray();
                     charStr[i] = '0';
                     string drb = new string(charStr);
 
-                    data.UserSelectedLessons = drb;
+                    user.UserSelectedLessons = drb;
 
                     add.BackgroundColor = Color.FromHex("#2F9BDF");
                     add.Text = "Добавить";
@@ -159,7 +160,7 @@ namespace Blockchain_Basics
             int posselect = 0;
             for (int i = 0; i < 8; i++)
             {
-                if (data.UserSelectedLessons[i] == '1')
+                if (user.UserSelectedLessons[i] == '1')
                 {
                     emptylabel.IsVisible = false;
                     mas_frame[i].IsVisible = true;
@@ -173,7 +174,8 @@ namespace Blockchain_Basics
                 }
             }
 
-            App.Database.SaveItem(data);
+            user.Id = ID;
+            await repos.Update(user);
         }
     }
 }

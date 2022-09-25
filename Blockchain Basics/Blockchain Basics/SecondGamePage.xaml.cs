@@ -25,7 +25,7 @@ namespace Blockchain_Basics
         public User regmodel;
         int IDone;
 
-        public SecondGamePage(int ID)
+        public SecondGamePage(User user)
         {
             InitializeComponent();
 
@@ -41,8 +41,6 @@ namespace Blockchain_Basics
             mas_correct[3, 0] = 3; mas_correct[3, 1] = 1; mas_correct[3, 2] = 2;
             mas_correct[4, 0] = 3; mas_correct[4, 1] = 2; mas_correct[4, 2] = 1;
             mas_correct[5, 0] = 1; mas_correct[5, 1] = 3; mas_correct[5, 2] = 2;
-
-            IDone = ID;
         }
         protected override void OnAppearing()
         {
@@ -166,6 +164,7 @@ namespace Blockchain_Basics
                 current_chain.Text = block_chain;
                 current_chain.BackgroundColor = Color.Default;
                 nextlvl_button.IsVisible = !nextlvl_button.IsVisible;
+
             }
 
         }

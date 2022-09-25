@@ -16,7 +16,7 @@ namespace Blockchain_Basics
     {
         public SQLiteConnection conn;
         public User regmodel;
-        public FirstGamePage(int ID)
+        public FirstGamePage(User user)
         {
             InitializeComponent();
 

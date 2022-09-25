@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Blockchain_Basics.TopPage"
+    Title="Топ-5">
+    <ContentPage.Content>
+        <RefreshView x:Name="refreshView" BackgroundColor="#f6f7f9" IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand}">
+            <ScrollView>
+            <StackLayout>
+                <Frame Margin="20, 20, 20 , 0" CornerRadius="20" HeightRequest="40">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <ImageButton x:Name="btn1" CornerRadius="20"
+                                     HeightRequest="40" WidthRequest="40" VerticalOptions="Center" Grid.Column="0" BackgroundColor="Black"></ImageButton>
+                        <Grid Margin="20, 0, 0, 0" Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label x:Name="label_name1" Grid.Row="0" Text="wrw" TextColor="Black" FontAttributes="Bold"></Label>
+                            <Label Margin="-2" x:Name="label_score1" Grid.Row="1" Text="✦"></Label>
+                        </Grid>
+                        <ImageButton x:Name="price1" Grid.Column="2" Margin="-10, -10, 0, -10" HeightRequest="40" WidthRequest="60" HorizontalOptions="End"></ImageButton>
+                    </Grid>
+                </Frame>
+                <Frame Margin="20, 10, 20, 0" CornerRadius="20" HeightRequest="40">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <ImageButton x:Name="btn2" CornerRadius="20"
+                                     HeightRequest="40" WidthRequest="40" VerticalOptions="Center" Grid.Column="0" BackgroundColor="Black"></ImageButton>
+                        <Grid Margin="20, 0, 0, 0" Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label x:Name="label_name2" Grid.Row="0" Text="wrw" TextColor="Black" FontAttributes="Bold"></Label>
+                            <Label Margin="-2" x:Name="label_score2" Grid.Row="1" Text="✦"></Label>
+                        </Grid>
+                        <ImageButton x:Name="price2" Grid.Column="2" Margin="-10, -10, 0, -10" HeightRequest="40" WidthRequest="60" HorizontalOptions="End"></ImageButton>
+                    </Grid>
+                </Frame>
+                <Frame Margin="20, 10, 20, 0" CornerRadius="20" HeightRequest="40">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <ImageButton x:Name="btn3" CornerRadius="20"
+                                     HeightRequest="40" WidthRequest="40" VerticalOptions="Center" Grid.Column="0" BackgroundColor="Black"></ImageButton>
+                        <Grid Margin="20, 0, 0, 0" Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label x:Name="label_name3" Grid.Row="0" Text="wrw" TextColor="Black" FontAttributes="Bold"></Label>
+                            <Label Margin="-2" x:Name="label_score3" Grid.Row="1" Text="✦"></Label>
+                        </Grid>
+                        <ImageButton x:Name="price3" Grid.Column="2" Margin="-10, -10, 0, -10" HeightRequest="40" WidthRequest="60" HorizontalOptions="End"></ImageButton>
+                    </Grid>
+                </Frame>
+                <Frame Margin="20, 10, 20, 0" CornerRadius="20" HeightRequest="40">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <ImageButton x:Name="btn4" CornerRadius="20"
+                                     HeightRequest="40" WidthRequest="40" VerticalOptions="Center" Grid.Column="0" BackgroundColor="Black"></ImageButton>
+                        <Grid Margin="20, 0, 0, 0" Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label x:Name="label_name4" Grid.Row="0" Text="wrw" TextColor="Black" FontAttributes="Bold"></Label>
+                            <Label Margin="-2" x:Name="label_score4" Grid.Row="1" Text="✦"></Label>
+                        </Grid>
+                        <ImageButton x:Name="price4" Grid.Column="2" Margin="-10, -10, 0, -10" HeightRequest="40" WidthRequest="60" HorizontalOptions="End"></ImageButton>
+                    </Grid>
+                </Frame>
+                <Frame Margin="20, 10, 20, 0" CornerRadius="20" HeightRequest="40">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <ImageButton x:Name="btn5" CornerRadius="20"
+                                     HeightRequest="40" WidthRequest="40" VerticalOptions="Center" Grid.Column="0" BackgroundColor="Black"></ImageButton>
+                        <Grid Margin="20, 0, 0, 0" Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label x:Name="label_name5" Grid.Row="0" Text="wrw" TextColor="Black" FontAttributes="Bold"></Label>
+                            <Label Margin="-2" x:Name="label_score5" Grid.Row="1" Text="✦"></Label>
+                        </Grid>
+                        <ImageButton x:Name="price5" Grid.Column="2" Margin="-10, -10, 0, -10" HeightRequest="40" WidthRequest="60" HorizontalOptions="End"></ImageButton>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>
+

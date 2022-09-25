@@ -16,8 +16,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Label Grid.Row="0" FontAttributes="Bold" FontSize="24" HorizontalOptions="CenterAndExpand" Text="Регистрация" TextColor="#2F9BDF" />
-            <Label Grid.Row="1" Margin="0,-15,0,0" HorizontalOptions="CenterAndExpand" Text="Именем пользователя будет email адрес" TextColor="#2F9BDF" />
-            <Entry x:Name="UserNewEmail" Grid.Row="2" Margin="0,20,0,0" HorizontalOptions="FillAndExpand" Placeholder="Email" Text="{Binding UserName}" VerticalOptions="FillAndExpand" />
+            <Entry x:Name="UserNewEmail" Grid.Row="2" Margin="0,20,0,0" HorizontalOptions="FillAndExpand" Placeholder="Username" Text="{Binding UserName}" VerticalOptions="FillAndExpand" />
             <Entry x:Name="UserNewPassword" Grid.Row="3" HorizontalOptions="FillAndExpand" IsPassword="True" Placeholder="Password" Text="{Binding UserPassword}" VerticalOptions="FillAndExpand" />
             <Button Grid.Row="4" BackgroundColor="#2F9BDF" TextColor="White" Clicked="Signed_Clicked" CornerRadius="20" Text="Зарегистрироваться" />
         </Grid>

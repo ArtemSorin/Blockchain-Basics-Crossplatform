@@ -7,6 +7,8 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using SQLite;
+using BlockchainBasics;
+using System.Security.Cryptography;
 
 namespace Blockchain_Basics
 {
@@ -22,35 +24,51 @@ namespace Blockchain_Basics
         }
         private async void CreateFriend(object sender, EventArgs e)
         {
-            User user = new User();
             RegistrationPage userpage = new RegistrationPage();
-            userpage.BindingContext = user;
             await Navigation.PushAsync(userpage);
         }
         private async void SignIn(object sender, EventArgs e)
         {
-            var data = App.Database.GetItems();
+            UserRepository repos = new UserRepository();
+
+            var data = await repos.GetAllUsers();
 
             bool flag = false;
-            int ID = 0;
+            string ID = "0";
 
             foreach (var item in data)
             {
-                if (item.UserName == UserLoginEmail.Text && item.UserPassword == UserLoginPassword.Text)
+                if (item.UserName == UserLoginEmail.Text && item.UserPassword == HashPassword(UserLoginPassword.Text))
                 {
                     flag = true;
-                    ID = item.id;
+                    ID = item.Id;
                 }
             }
 
             if(flag)
             {
-                await Navigation.PushAsync(new MainPage(ID));
+                var user = await repos.GetByIdUser(ID);
+                user.Id = ID;
+
+                await Navigation.PushAsync(new MainPage(user));
             }
 
             else
             {
                 await DisplayAlert("Уведомление", "Неправильный логин или пароль", "Ок");
+            }
+        }
+        private string HashPassword(string password)
+        {
+            using (SHA256 sHA256 = SHA256.Create())
+            {
+                byte[] bytes = Encoding.UTF8.GetBytes(password);
+
+                byte[] hash = sHA256.ComputeHash(bytes);
+
+                string hash_password = BitConverter.ToString(hash).Replace("-", "").ToLower();
+
+                return hash_password;
             }
         }
     }
