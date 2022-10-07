@@ -49,8 +49,8 @@
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
-                                        <Button x:Name="outbtn" CornerRadius="20" BackgroundColor="White" TextColor="Black" HeightRequest="40" Text="Выйти" Grid.Column="0"></Button>
-                                        <Button x:Name="refresh" CornerRadius="20" BackgroundColor="White" TextColor="Black" Text="Профиль" Grid.Column="1"></Button>
+                                        <Button x:Name="outbtn" CornerRadius="20" BackgroundColor="White" FontAttributes="Bold" FontSize="Micro" TextColor="Black" HeightRequest="40" Text="Выйти" Grid.Column="0"></Button>
+                                        <Button x:Name="refresh" CornerRadius="20" BackgroundColor="White" FontAttributes="Bold" FontSize="Micro" TextColor="Black" Text="Профиль" Grid.Column="1"></Button>
                                     </Grid>
                                 </Grid>
                             </Grid>
@@ -395,18 +395,26 @@
                     <RowDefinition Height="170" />
                     <RowDefinition Height="170" />
                 </Grid.RowDefinitions>
-                <ImageButton x:Name="button_game_1" Grid.Row="0" Grid.Column="0" 
-                         Source="game1.png" BackgroundColor="White" Margin="5" CornerRadius="30">
-                </ImageButton>
-                <ImageButton x:Name="button_game_2" Grid.Row="0" Grid.Column="1"
-                         Source="game2.png" BackgroundColor="White" Margin="5" CornerRadius="30">
-                </ImageButton>
-                <ImageButton x:Name="button_game_3" Grid.Row="1" Grid.Column="0"
-                         Source="game3.png" BackgroundColor="White" Margin="5" CornerRadius="30">
-                </ImageButton>
-                <ImageButton x:Name="button_game_4" Grid.Row="1" Grid.Column="1"
-                         Source="game4.png" BackgroundColor="White" Margin="5" CornerRadius="30">
-                </ImageButton>
+                <Frame Margin="5" CornerRadius="30" Grid.Row="0" Grid.Column="0">
+                    <ImageButton x:Name="button_game_1" Grid.Row="0" Grid.Column="0" 
+                         Source="game1.png" BackgroundColor="White" Margin="-20">
+                    </ImageButton>
+                </Frame>
+                <Frame Margin="5" CornerRadius="30" Grid.Row="0" Grid.Column="1">
+                    <ImageButton x:Name="button_game_2" Grid.Row="0" Grid.Column="1"
+                         Source="game2.png" BackgroundColor="White" Margin="-20">
+                    </ImageButton>
+                </Frame>
+                <Frame Margin="5" CornerRadius="30" Grid.Row="1" Grid.Column="0">
+                    <ImageButton x:Name="button_game_3" Grid.Row="1" Grid.Column="0"
+                         Source="game3.png" BackgroundColor="White" Margin="-20">
+                    </ImageButton>
+                </Frame>
+                <Frame Margin="5" CornerRadius="30" Grid.Row="1" Grid.Column="1">
+                    <ImageButton x:Name="button_game_4" Grid.Row="1" Grid.Column="1"
+                         Source="game4.png" BackgroundColor="White" Margin="-20">
+                    </ImageButton>
+                </Frame>
             </Grid>
         </StackLayout>
     </ContentPage>

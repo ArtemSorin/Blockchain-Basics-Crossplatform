@@ -32,7 +32,7 @@
                             <Label x:Name="gamelabel" Grid.Row="0" Text="Мини игр пройдено: " FontSize="13" FontAttributes="Bold" TextColor="White"></Label>
                             <Label x:Name="lessonlabel" Grid.Row="1" Text="Уроков пройдено: " FontSize="13" FontAttributes="Bold" TextColor="White"></Label>
                             <Label x:Name="recordlabel" Grid.Row="2" Text="Примогемы: ✦" FontAttributes="Bold" TextColor="White"></Label>
-                            <Button x:Name="btn_list" Grid.Row="3" CornerRadius="20" BackgroundColor="White" TextColor="Black" Text="СТАТИСТИКА" HeightRequest="40"></Button>
+                            <Button x:Name="btn_list" Grid.Row="3" CornerRadius="20" BackgroundColor="White" TextColor="Black" Text="Топ-5" HeightRequest="40"></Button>
                         </Grid>
                     </Grid>
                 </Frame>

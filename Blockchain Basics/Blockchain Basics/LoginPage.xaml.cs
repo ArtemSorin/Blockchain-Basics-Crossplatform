@@ -50,6 +50,10 @@ namespace Blockchain_Basics
                 var user = await repos.GetByIdUser(ID);
                 user.Id = ID;
 
+                string value = UserLoginEmail.Text;
+
+                App.Current.Properties["name"] = value;
+
                 await Navigation.PushAsync(new MainPage(user));
             }
 

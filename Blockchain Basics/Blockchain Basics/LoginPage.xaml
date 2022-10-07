@@ -30,8 +30,8 @@
                 <Button x:Name="button_into" Grid.Row="5" Text="Войти" TextColor="White" BackgroundColor="#2F9BDF" CornerRadius="20"></Button>
                 <Button x:Name="button_sing" Grid.Row="6" Text="Зарегистрироваться" TextColor="White" BackgroundColor="#2F9BDF" CornerRadius="20"></Button>
                 
-                <Label Grid.Row="9" Text="Forget Password" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"></Label>
-                <Label Grid.Row="10" Margin="0,-10,0,0" Text="Don't have an account? Sign up here" HorizontalOptions="CenterAndExpand"></Label>
+                <Label Grid.Row="9" Text="Забыл пароль" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"></Label>
+                <Label Grid.Row="10" Margin="0,-10,0,0" Text="Нет аккаунта? Зарегистрируйся здесь!" HorizontalOptions="CenterAndExpand"></Label>
                 <Path Grid.Row="11" Margin="-20,0" Data="m333.5114,204.27502l115.48359,-59l-0.00813,123.08816c-101.06176,0.76114 -113.03789,-0.51177 -246.99185,-0.49297l131.51639,-63.59519z"
                       Stroke="#2F9BDF" Fill="#2F9BDF" HeightRequest="143" Aspect="Fill" ></Path>
             </Grid>
