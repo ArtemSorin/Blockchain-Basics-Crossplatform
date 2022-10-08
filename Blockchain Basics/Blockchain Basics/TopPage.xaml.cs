@@ -95,7 +95,13 @@ namespace Blockchain_Basics
                 container[i].ava.Source = data[i].ava;
                 container[i].name.Text = data[i].name;
                 container[i].score.Text = data[i].score.ToString();
+                container[i].price.IsEnabled = false;
+                container[i].price.BackgroundColor = Xamarin.Forms.Color.White;
             }
+
+            container[0].price.Source = "gold_cup.png";
+            container[1].price.Source = "silver_cup.png";
+            container[2].price.Source = "bronze_cup.png";
         }
         private void QuickSort(Data[] data, int start, int end)
         {

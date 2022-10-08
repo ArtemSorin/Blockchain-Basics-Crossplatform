@@ -25,7 +25,7 @@
                             <Label x:Name="label_name1" Grid.Row="0" Text="wrw" TextColor="Black" FontAttributes="Bold"></Label>
                             <Label Margin="-2" x:Name="label_score1" Grid.Row="1" Text="✦"></Label>
                         </Grid>
-                        <ImageButton x:Name="price1" Grid.Column="2" Margin="-10, -10, 0, -10" HeightRequest="40" WidthRequest="60" HorizontalOptions="End"></ImageButton>
+                        <ImageButton x:Name="price1" Grid.Column="2"  HeightRequest="40" WidthRequest="60" HorizontalOptions="End"></ImageButton>
                     </Grid>
                 </Frame>
                 <Frame Margin="20, 10, 20, 0" CornerRadius="20" HeightRequest="40">
@@ -45,7 +45,7 @@
                             <Label x:Name="label_name2" Grid.Row="0" Text="wrw" TextColor="Black" FontAttributes="Bold"></Label>
                             <Label Margin="-2" x:Name="label_score2" Grid.Row="1" Text="✦"></Label>
                         </Grid>
-                        <ImageButton x:Name="price2" Grid.Column="2" Margin="-10, -10, 0, -10" HeightRequest="40" WidthRequest="60" HorizontalOptions="End"></ImageButton>
+                        <ImageButton x:Name="price2" Grid.Column="2" HeightRequest="40" WidthRequest="60" HorizontalOptions="End"></ImageButton>
                     </Grid>
                 </Frame>
                 <Frame Margin="20, 10, 20, 0" CornerRadius="20" HeightRequest="40">
@@ -65,7 +65,7 @@
                             <Label x:Name="label_name3" Grid.Row="0" Text="wrw" TextColor="Black" FontAttributes="Bold"></Label>
                             <Label Margin="-2" x:Name="label_score3" Grid.Row="1" Text="✦"></Label>
                         </Grid>
-                        <ImageButton x:Name="price3" Grid.Column="2" Margin="-10, -10, 0, -10" HeightRequest="40" WidthRequest="60" HorizontalOptions="End"></ImageButton>
+                        <ImageButton x:Name="price3" Grid.Column="2"  HeightRequest="40" WidthRequest="60" HorizontalOptions="End"></ImageButton>
                     </Grid>
                 </Frame>
                 <Frame Margin="20, 10, 20, 0" CornerRadius="20" HeightRequest="40">
@@ -85,7 +85,7 @@
                             <Label x:Name="label_name4" Grid.Row="0" Text="wrw" TextColor="Black" FontAttributes="Bold"></Label>
                             <Label Margin="-2" x:Name="label_score4" Grid.Row="1" Text="✦"></Label>
                         </Grid>
-                        <ImageButton x:Name="price4" Grid.Column="2" Margin="-10, -10, 0, -10" HeightRequest="40" WidthRequest="60" HorizontalOptions="End"></ImageButton>
+                        <ImageButton x:Name="price4" Grid.Column="2"  HeightRequest="40" WidthRequest="60" HorizontalOptions="End"></ImageButton>
                     </Grid>
                 </Frame>
                 <Frame Margin="20, 10, 20, 0" CornerRadius="20" HeightRequest="40">
@@ -105,7 +105,7 @@
                             <Label x:Name="label_name5" Grid.Row="0" Text="wrw" TextColor="Black" FontAttributes="Bold"></Label>
                             <Label Margin="-2" x:Name="label_score5" Grid.Row="1" Text="✦"></Label>
                         </Grid>
-                        <ImageButton x:Name="price5" Grid.Column="2" Margin="-10, -10, 0, -10" HeightRequest="40" WidthRequest="60" HorizontalOptions="End"></ImageButton>
+                        <ImageButton x:Name="price5" Grid.Column="2"  HeightRequest="40" WidthRequest="60" HorizontalOptions="End"></ImageButton>
                     </Grid>
                 </Frame>
             </StackLayout>

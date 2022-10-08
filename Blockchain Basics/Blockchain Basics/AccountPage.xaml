@@ -100,42 +100,80 @@
                         </StackLayout>
                     </Frame>
                     <Frame CornerRadius="30" HeightRequest="220">
-                            <StackLayout>
-                                <Grid>
+                        <StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="100" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Column="0">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="100" />
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
                                     </Grid.RowDefinitions>
-                                    <Grid Grid.Column="0">
+                                    <Label Text="Искуссный майнер" TextColor="Black" FontAttributes="Bold" FontSize="Medium" Grid.Column="0" Grid.Row="0"></Label>
+                                    <Label Text="В игре с майнингом набери в сумме 1000 очков, использовав в сумме не более трех видеокарт" Grid.Column="0" Grid.Row="1"></Label>
+                                    <Grid Grid.Row="2">
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
                                         </Grid.ColumnDefinitions>
                                         <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="*" />
                                         </Grid.RowDefinitions>
-                                        <Label Text="Искуссный майнер" TextColor="Black" FontAttributes="Bold" FontSize="Medium" Grid.Column="0" Grid.Row="0"></Label>
-                                        <Label Text="В игре с майнингом набери в сумме 1000 очков, использовав в сумме не более трех видеокарт" Grid.Column="0" Grid.Row="1"></Label>
-                                        <Grid Grid.Row="2">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto" />
-                                                <ColumnDefinition Width="Auto" />
-                                            </Grid.ColumnDefinitions>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="*" />
-                                            </Grid.RowDefinitions>
-                                            <Label Text="Статус:" Grid.Column="0" FontSize="Small" TextColor="Black" FontAttributes="Bold"></Label>
-                                            <Label x:Name="lbl2" Text="Не получено" Grid.Column="1" FontSize="Small" TextColor="Red" FontAttributes="Bold"></Label>
-                                        </Grid>
+                                        <Label Text="Статус:" Grid.Column="0" FontSize="Small" TextColor="Black" FontAttributes="Bold"></Label>
+                                        <Label x:Name="lbl2" Text="Не получено" Grid.Column="1" FontSize="Small" TextColor="Red" FontAttributes="Bold"></Label>
                                     </Grid>
-                                    <Image Source="lessonmini6.png" Grid.Column="1"></Image>
                                 </Grid>
-                                <Button x:Name="unloc2" Text="Собрать награды" TextColor="White" VerticalOptions="EndAndExpand" CornerRadius="25" BackgroundColor="#2F9BDF"></Button>
-                            </StackLayout>
+                                <Image Source="lessonmini6.png" Grid.Column="1"></Image>
+                            </Grid>
+                            <Button x:Name="unloc2" Text="Собрать награды" TextColor="White" VerticalOptions="EndAndExpand" CornerRadius="25" BackgroundColor="#2F9BDF"></Button>
+                        </StackLayout>
+                    </Frame>
+                    <Frame CornerRadius="30" HeightRequest="220">
+                        <StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="100" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Крипто везунчик" TextColor="Black" FontAttributes="Bold" FontSize="Medium" Grid.Column="0" Grid.Row="0"></Label>
+                                    <Label Text="В игре Крипто казино выйграй с шансом менее 10 со ставкой 500" Grid.Column="0" Grid.Row="1"></Label>
+                                    <Grid Grid.Row="2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Label Text="Статус:" Grid.Column="0" FontSize="Small" TextColor="Black" FontAttributes="Bold"></Label>
+                                        <Label x:Name="lbl3" Text="Не получено" Grid.Column="1" FontSize="Small" TextColor="Red" FontAttributes="Bold"></Label>
+                                    </Grid>
+                                </Grid>
+                                <Image Source="lessonmini6.png" Grid.Column="1"></Image>
+                            </Grid>
+                            <Button x:Name="unloc3" Text="Собрать награды" TextColor="White" VerticalOptions="EndAndExpand" CornerRadius="25" BackgroundColor="#2F9BDF"></Button>
+                        </StackLayout>
                     </Frame>
                 </StackLayout>
             </StackLayout>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Blockchain_Basics.FifthGamePage"
+             Title="Крипто казино">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Frame Margin="10" HeightRequest="100" CornerRadius="10">
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Баланс" Grid.Column="0" TextColor="Black" FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center"></Label>
+                        <Label Text="Коэффициент" Grid.Column="1" TextColor="Black" FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center"></Label>
+                    </Grid>
+                    <Grid Margin="0, 10, 0, 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="balance" Text="" Grid.Column="0" BackgroundColor="#2F9BDF" TextColor="White" CornerRadius="20"></Button>
+                        <Button x:Name="koeff" Text="" Grid.Column="1" BackgroundColor="#2F9BDF" TextColor="White" CornerRadius="20"></Button>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+            <Frame Margin="10" HeightRequest="300" CornerRadius="10">
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Выберите шанс" Grid.Column="0"></Label>
+                        <Label x:Name="selected" Text="Выбрано: " HorizontalOptions="EndAndExpand" Grid.Column="1"></Label>
+                    </Grid>
+                    <Slider Minimum="0" Margin="0, 10, 0, 0" Maximum="80" Value="30" ValueChanged="slider_ValueChanged"
+                        MinimumTrackColor="#2F9BDF" MaximumTrackColor="Gray" ThumbColor="#2F9BDF"></Slider>
+                    <Grid Margin="0, 10, 0, 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Button x:Name="btn1" Grid.Column="0" Grid.Row="0" Text="5" TextColor="White" BackgroundColor="#2F9BDF" CornerRadius="10"></Button>
+                        <Button x:Name="btn2" Grid.Column="1" Grid.Row="0" Text="10" TextColor="White" BackgroundColor="#2F9BDF" CornerRadius="10"></Button>
+                        <Button x:Name="btn3" Grid.Column="2" Grid.Row="0" Text="25" TextColor="White" BackgroundColor="#2F9BDF" CornerRadius="10"></Button>
+                        <Button x:Name="btn4" Grid.Column="3" Grid.Row="0" Text="50" TextColor="White" BackgroundColor="#2F9BDF" CornerRadius="10"></Button>
+                        <Button x:Name="btn5" Grid.Column="0" Grid.Row="1" Text="100" TextColor="White" BackgroundColor="#2F9BDF" CornerRadius="10"></Button>
+                        <Button x:Name="btn6" Grid.Column="1" Grid.Row="1" Text="150" TextColor="White" BackgroundColor="#2F9BDF" CornerRadius="10"></Button>
+                        <Button x:Name="btn7" Grid.Column="2" Grid.Row="1" Text="300" TextColor="White" BackgroundColor="#2F9BDF" CornerRadius="10"></Button>
+                        <Button x:Name="btn8" Grid.Column="3" Grid.Row="1" Text="500" TextColor="White" BackgroundColor="#2F9BDF" CornerRadius="10"></Button>
+                    </Grid>
+                    <Label Text="В случае победы вы получите:" Margin="0, 20, 0, 0" TextColor="Black" FontAttributes="Bold" FontSize="Subtitle" HorizontalOptions="Center"></Label>
+                    <Label x:Name="prise" Text="0.0 ✦" TextColor="Black" FontAttributes="Bold" FontSize="Subtitle" HorizontalOptions="Center"></Label>
+                    <Button x:Name="start_btn" Text="Испытать удачу" BackgroundColor="#2F9BDF" TextColor="White" CornerRadius="20"></Button>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

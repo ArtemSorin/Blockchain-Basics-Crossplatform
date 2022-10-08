@@ -72,7 +72,7 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="190" />
                             </Grid.RowDefinitions>
-                            <Label x:Name="emptylabel" HorizontalOptions="Center" VerticalOptions="Center" Text="Здесь появлются добавленные курсы"
+                            <Label x:Name="emptylabel" HorizontalOptions="Center" VerticalOptions="Center" Text="Здесь появятся добавленные курсы"
                                    IsVisible="False" Grid.Column="1" Margin="-15, 0, 0, 0"></Label>
                             <Frame x:Name="frame1" CornerRadius="30" IsVisible="False" >
                                 <ImageButton Source="lesson1.png" CornerRadius="30" Margin="-15"></ImageButton>
@@ -386,12 +386,13 @@
                        TextColor="White" FontAttributes="Bold">
                 </Label>
             </Frame>
-            <Grid HorizontalOptions="Center" HeightRequest="725" Margin="0, 20, 0, 0">
+            <Grid HorizontalOptions="Center" Margin="0, 20, 0, 0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="170" />
                     <ColumnDefinition Width="170" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="170" />
                     <RowDefinition Height="170" />
                     <RowDefinition Height="170" />
                 </Grid.RowDefinitions>
@@ -413,6 +414,11 @@
                 <Frame Margin="5" CornerRadius="30" Grid.Row="1" Grid.Column="1">
                     <ImageButton x:Name="button_game_4" Grid.Row="1" Grid.Column="1"
                          Source="game4.png" BackgroundColor="White" Margin="-20">
+                    </ImageButton>
+                </Frame>
+                <Frame Margin="5" CornerRadius="30" Grid.Row="2" Grid.Column="0">
+                    <ImageButton x:Name="button_game_5" Grid.Row="1" Grid.Column="1"
+                         Source="game5.png" BackgroundColor="White" Margin="-20">
                     </ImageButton>
                 </Frame>
             </Grid>
