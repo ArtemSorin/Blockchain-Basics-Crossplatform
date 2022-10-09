@@ -3,6 +3,7 @@ using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -48,14 +49,14 @@ namespace Blockchain_Basics
             mas.Add(new BTN() { btn = btn7, flag = false });
             mas.Add(new BTN() { btn = btn8, flag = false });
 
-            mas[0].btn.Clicked += (sender, e) => onClick(0, ref mas, ref k);
-            mas[1].btn.Clicked += (sender, e) => onClick(1, ref mas, ref k);
-            mas[2].btn.Clicked += (sender, e) => onClick(2, ref mas, ref k);
-            mas[3].btn.Clicked += (sender, e) => onClick(3, ref mas, ref k);
-            mas[4].btn.Clicked += (sender, e) => onClick(4, ref mas, ref k);
-            mas[5].btn.Clicked += (sender, e) => onClick(5, ref mas, ref k);
-            mas[6].btn.Clicked += (sender, e) => onClick(6, ref mas, ref k);
-            mas[7].btn.Clicked += (sender, e) => onClick(7, ref mas, ref k);
+            mas[0].btn.Clicked += (sender, e) => onClick(0, mas, user);
+            mas[1].btn.Clicked += (sender, e) => onClick(1, mas, user);
+            mas[2].btn.Clicked += (sender, e) => onClick(2, mas, user);
+            mas[3].btn.Clicked += (sender, e) => onClick(3, mas, user);
+            mas[4].btn.Clicked += (sender, e) => onClick(4, mas, user);
+            mas[5].btn.Clicked += (sender, e) => onClick(5, mas, user);
+            mas[6].btn.Clicked += (sender, e) => onClick(6, mas, user);
+            mas[7].btn.Clicked += (sender, e) => onClick(7, mas, user);
 
             start_btn.Clicked += (sender, e) => onClickStart(reskoef, user);
         }
@@ -73,6 +74,26 @@ namespace Blockchain_Basics
 
                 if(result_of_rand <= 10)
                 {
+                    if (!user.Games_completed[4])
+                    {
+                        user.Games_completed[4] = true;
+
+                        user.UserProgress += 0.55;
+                        user.UserGamesProgress++;
+                        user.UserPrimogames += 100;
+
+                        await repos.Update(user);
+                    }
+
+                    if (!user.Games_achivement[2])
+                    {
+                        user.Games_achivement[2] = true;
+
+                        user.UserAchievements[2] = 1;
+
+                        await repos.Update(user);
+                    }
+
                     user.UserPrimogames += (int)(res * reskoef);
                     await repos.Update(user);
                     await DisplayAlert("Уведомление", $"Успех!\n+{res * reskoef} AT", "ок");
@@ -209,7 +230,7 @@ namespace Blockchain_Basics
 
             balance.Text = $"{user.UserPrimogames} AT";
         }
-        public void onClick(int index, ref List<BTN> mas, ref int k)
+        public async void onClick(int index, List<BTN> mas, User user)
         {
             for (int i = 0; i < 8; i++)
             {

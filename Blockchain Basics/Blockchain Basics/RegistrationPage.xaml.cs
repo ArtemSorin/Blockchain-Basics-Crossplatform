@@ -42,15 +42,22 @@ namespace Blockchain_Basics
             {
                 User user = new User();
 
+                List<bool> bools_achivement = new List<bool>() { false, false, false, false, false };
+                List<bool> bools_completed = new List<bool>() { false, false, false, false, false };
+                List<bool> bools_SelectedLessons = new List<bool>() { false, false, false, false, false, false, false, false };
+                List<int> bools_Achievements = new List<int>() { 0, 0, 0, 0, 0, 0 };
+
                 user.UserName = UserNewEmail.Text;
                 user.UserPassword = HashPassword(UserNewPassword.Text);
                 user.UserProgress = 0.0f;
                 user.UserLessonsProgress = 0;
                 user.UserGamesProgress = 0;
-                user.UserSelectedLessons = "00000000";
+                user.UserSelectedLessons = bools_SelectedLessons;
                 user.UserProfile = "ava1.png";
-                user.UserAchievements = "000000";
+                user.UserAchievements = bools_Achievements;
                 user.UserPrimogames = 0;
+                user.Games_achivement = bools_achivement;
+                user.Games_completed = bools_completed;
 
                 var isSaved = await repos.SaveUser(user);
 

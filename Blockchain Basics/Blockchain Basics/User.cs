@@ -13,11 +13,11 @@ namespace Blockchain_Basics
         public double UserProgress { get; set; }
         public int UserLessonsProgress { get; set; }
         public int UserGamesProgress { get; set; }
-        public string UserSelectedLessons { get; set; }
+        public List<bool> UserSelectedLessons { get; set; }
         public string UserProfile { get; set; }
-        public string UserAchievements { get; set; }
+        public List<int> UserAchievements { get; set; }
         public int UserPrimogames { get; set; }
-        public bool Game_thitd_achievement { get; set; }
-        public bool Game_third { get; set; }
+        public List<bool> Games_achivement { get; set; }
+        public List<bool> Games_completed { get; set; }
     }
 }

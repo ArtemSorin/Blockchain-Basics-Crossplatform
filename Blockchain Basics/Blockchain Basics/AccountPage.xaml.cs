@@ -41,8 +41,9 @@ namespace Blockchain_Basics
         {
             List<Achivement> achivement = new List<Achivement>();
 
-            achivement.Add(new Achivement() { state = user.UserAchievements[0] >= '1' ? "Получено" : lbl1.Text, button = unloc1, label = lbl1 });
-            achivement.Add(new Achivement() { state = user.UserAchievements[1] >= '1' ? "Получено" : lbl2.Text, button = unloc2, label = lbl2 });
+            achivement.Add(new Achivement() { state = user.UserAchievements[0] >= 1 ? "Получено" : lbl1.Text, button = unloc1, label = lbl1 });
+            achivement.Add(new Achivement() { state = user.UserAchievements[1] >= 1 ? "Получено" : lbl2.Text, button = unloc2, label = lbl2 });
+            achivement.Add(new Achivement() { state = user.UserAchievements[2] >= 1 ? "Получено" : lbl3.Text, button = unloc3, label = lbl3 });
 
             return achivement;
         }
@@ -65,7 +66,7 @@ namespace Blockchain_Basics
                 }
             }
 
-            for(int i = 0; i < 2; i++)
+            for(int i = 0; i < 3; i++)
             {
                 if (achivement[i].state == "Получено")
                 {
@@ -80,7 +81,7 @@ namespace Blockchain_Basics
                     achivement[i].button.IsEnabled = false;
                 }
 
-                if(user.UserAchievements[i] == '2')
+                if(user.UserAchievements[i] == 2)
                 {
                     achivement[i].button.BackgroundColor = Color.FromHex("#60af21");
                     achivement[i].button.Text = "Награды собраны";
@@ -94,6 +95,7 @@ namespace Blockchain_Basics
 
             achivement[0].button.Clicked += (sender, e) => Btn_clic(0, achivement, user);
             achivement[1].button.Clicked += (sender, e) => Btn_clic(1, achivement, user);
+            achivement[2].button.Clicked += (sender, e) => Btn_clic(2, achivement, user);
 
             aButtons[0].button.Clicked += (sender, e) => Ava_clic(aButtons[0], 0, user);
             aButtons[1].button.Clicked += (sender, e) => Ava_clic(aButtons[1], 1, user);
@@ -108,24 +110,21 @@ namespace Blockchain_Basics
         }
         private async void Btn_clic(int index, List<Achivement> achivement, User user)
         {
-            if (user.UserAchievements[0] == '1')
+            if (user.UserAchievements[index] == 1)
             {
+                await DisplayAlert("Уведомление", "+20 AT к счёту", "Ок");
                 user.UserPrimogames += 20;
             }
 
             recordlabel.Text = $"✦ {user.UserPrimogames}";
 
-            char[] charStr = user.UserAchievements.ToCharArray();
-            charStr[0] = '2';
-            string drb = new string(charStr);
-
-            user.UserAchievements = drb;
+            user.UserAchievements[index] = 2;
 
             await repos.Update(user);
 
-            achivement[0].button.BackgroundColor = Color.FromHex("#60af21");
-            achivement[0].button.Text = "Награды собраны";
-            achivement[0].button.IsEnabled = false;
+            achivement[index].button.BackgroundColor = Color.FromHex("#60af21");
+            achivement[index].button.Text = "Награды собраны";
+            achivement[index].button.IsEnabled = false;
         }
         private async void Ava_clic(AButton aButton, int index, User user)
         {

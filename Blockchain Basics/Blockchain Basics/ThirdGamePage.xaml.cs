@@ -88,9 +88,9 @@ namespace Blockchain_Basics
             }
             else if (buttonP == 3)
             {
-                if (!user.Game_third)
+                if (!user.Games_completed[2])
                 {
-                    user.Game_third = true;
+                    user.Games_completed[2] = true;
 
                     user.UserProgress += 0.55;
                     user.UserGamesProgress++;
@@ -99,17 +99,13 @@ namespace Blockchain_Basics
                     await repos.Update(user);
                 }
 
-                if(!user.Game_thitd_achievement)
+                if (!user.Games_achivement[0])
                 {
-                    user.Game_thitd_achievement = true;
+                    user.Games_achivement[0] = true;
 
                     if (countExcelentQuestionAnswers == 12)
                     {
-                        char[] charStr = user.UserAchievements.ToCharArray();
-                        charStr[0] = '1';
-                        string drb = new string(charStr);
-
-                        user.UserAchievements = drb;
+                        user.UserAchievements[0] = 1;
 
                         await repos.Update(user);
                     }

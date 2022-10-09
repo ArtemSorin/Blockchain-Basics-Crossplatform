@@ -5,15 +5,54 @@
              Title="Блоки транзакций">
     <StackLayout>
         <StackLayout>
-            <Frame BackgroundColor="White" Padding="30" >
-                <Label Text="Расставьте блоки в правильном порядке" HorizontalTextAlignment="Center"
-                       TextColor="Black" FontAttributes="Bold" FontSize="20"/>
+            <Frame BackgroundColor="White" Padding="16" CornerRadius="25" Margin="50, 10, 50, 10">
+                <Label Text="Расставьте блоки в правильном порядке" TextColor="#1c9af5" FontSize="Large" HorizontalTextAlignment="Center">
+                </Label>
             </Frame>
-            <Frame BackgroundColor="#5E8AD2">
-                <Label x:Name="current_chain" HorizontalTextAlignment="Center" Padding="2" TextColor="White" HeightRequest="70"  FontSize="20"/>
+            <Frame x:Name="blocks" BackgroundColor="#2F9BDF" CornerRadius="15" Margin="15,5,15,10">
+                <Grid HorizontalOptions="Center" Margin="-7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="150" />
+                    </Grid.RowDefinitions>
+                    <Frame Grid.Column="0" CornerRadius="10">
+                        <Label x:Name="block1" BackgroundColor="White" Margin="-10" WidthRequest="100" HeightRequest="180" VerticalOptions="Center" HorizontalOptions="Start"/>
+                    </Frame>
+                    <Frame Grid.Column="1" CornerRadius="10">
+                        <Label x:Name="block2" BackgroundColor="White" Margin="-10" WidthRequest="100" HeightRequest="180" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    </Frame>
+                    <Frame Grid.Column="2" CornerRadius="10">
+                        <Label x:Name="block3" BackgroundColor="White" Margin="-10" WidthRequest="100" HeightRequest="180" VerticalOptions="Center" HorizontalOptions="End"/>
+                    </Frame>
+                </Grid>
+            </Frame>
+            <Frame BackgroundColor="#2F9BDF" Margin="10, 0, 10, 0" CornerRadius="20">
+                <Grid HorizontalOptions="Center" Margin="-7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="150" />
+                    </Grid.RowDefinitions>
+                    <Frame x:Name="lbl1" Grid.Column="0" CornerRadius="10" IsVisible="False">
+                        <Label x:Name="block1_current" BackgroundColor="White" Margin="-10" WidthRequest="100" HeightRequest="180" VerticalOptions="Center" HorizontalOptions="Start"/>
+                    </Frame>
+                    <Frame x:Name="lbl2" Grid.Column="1" CornerRadius="10" IsVisible="False">
+                        <Label x:Name="block2_current" BackgroundColor="White" Margin="-10" WidthRequest="100" HeightRequest="180" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    </Frame>
+                    <Frame x:Name="lbl3" Grid.Column="2" CornerRadius="10" IsVisible="False">
+                        <Label x:Name="block3_current" BackgroundColor="White" Margin="-10" WidthRequest="100" HeightRequest="180" VerticalOptions="Center" HorizontalOptions="End"/>
+                    </Frame>
+                </Grid>
             </Frame>
         </StackLayout>
-        <Grid HorizontalOptions="Center" Margin="0, 50, 0, 0">
+        <Grid HorizontalOptions="Center" Margin="0, 30, 0, 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100" />
                 <ColumnDefinition Width="100" />
@@ -33,5 +72,6 @@
                  Margin="60, 20, 60, 0" CornerRadius="30" TextColor="White" FontAttributes="Bold"></Button>
         <Button x:Name= "nextlvl_button" Margin="60, 0, 60, 0" CornerRadius="30" BackgroundColor="Green"
                 Text="Следующий уровень!" TextColor="White"  VerticalOptions ="CenterAndExpand" HeightRequest="50" WidthRequest="100" IsVisible ="false"></Button>
+        
     </StackLayout>
 </ContentPage>

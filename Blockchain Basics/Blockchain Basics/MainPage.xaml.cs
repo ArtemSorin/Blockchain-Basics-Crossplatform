@@ -49,7 +49,7 @@ namespace Blockchain_Basics
 
             for (int i = 0; i < 8; i++)
             {
-                if (user.UserSelectedLessons[i] == '1')
+                if (user.UserSelectedLessons[i] == true)
                 {
                     emptylabel.IsVisible = false;
                     mas_frame[i].IsVisible = true;
@@ -116,11 +116,7 @@ namespace Blockchain_Basics
                     mas_frame[i].IsVisible = true;
                     stacbtn.Children.Add(mas_frame[i], pos, 0);
 
-                    char[] charStr = user.UserSelectedLessons.ToCharArray();
-                    charStr[i] = '1';
-                    string drb = new string(charStr);
-
-                    user.UserSelectedLessons = drb;
+                    user.UserSelectedLessons[i] = true;
 
                     add.BackgroundColor = Color.LightGray;
                     add.Text = "Добавлено";
@@ -143,11 +139,7 @@ namespace Blockchain_Basics
                         }
                     }
 
-                    char[] charStr = user.UserSelectedLessons.ToCharArray();
-                    charStr[i] = '0';
-                    string drb = new string(charStr);
-
-                    user.UserSelectedLessons = drb;
+                    user.UserSelectedLessons[i] = false;
 
                     add.BackgroundColor = Color.FromHex("#2F9BDF");
                     add.Text = "Добавить";
@@ -161,7 +153,7 @@ namespace Blockchain_Basics
             int posselect = 0;
             for (int i = 0; i < 8; i++)
             {
-                if (user.UserSelectedLessons[i] == '1')
+                if (user.UserSelectedLessons[i] == true)
                 {
                     emptylabel.IsVisible = false;
                     mas_frame[i].IsVisible = true;
