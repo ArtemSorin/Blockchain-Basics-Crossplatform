@@ -253,6 +253,28 @@ namespace Blockchain_Basics
                 button2.IsVisible = false;
                 button3.IsVisible = false;
                 current_lvl = 0;
+
+                if (!user.Games_completed[1])
+                {
+                    user.Games_completed[1] = true;
+
+                    user.UserProgress += 0.55;
+                    user.UserGamesProgress++;
+                    user.UserPrimogames += 100;
+
+                    await repos.Update(user);
+                }
+
+                if (!user.Games_achivement[3])
+                {
+                    user.Games_achivement[3] = true;
+                    
+                    {
+                        user.UserAchievements[3] = 1;
+
+                        await repos.Update(user);
+                    }
+                }
             }
         }
     }

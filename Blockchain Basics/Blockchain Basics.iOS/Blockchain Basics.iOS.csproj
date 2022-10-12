@@ -217,4 +217,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\game5.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\achivement1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\achivement2.png" />
+  </ItemGroup>
 </Project>

@@ -44,6 +44,7 @@ namespace Blockchain_Basics
             achivement.Add(new Achivement() { state = user.UserAchievements[0] >= 1 ? "Получено" : lbl1.Text, button = unloc1, label = lbl1 });
             achivement.Add(new Achivement() { state = user.UserAchievements[1] >= 1 ? "Получено" : lbl2.Text, button = unloc2, label = lbl2 });
             achivement.Add(new Achivement() { state = user.UserAchievements[2] >= 1 ? "Получено" : lbl3.Text, button = unloc3, label = lbl3 });
+            achivement.Add(new Achivement() { state = user.UserAchievements[3] >= 1 ? "Получено" : lbl4.Text, button = unloc4, label = lbl4 });
 
             return achivement;
         }
@@ -66,7 +67,7 @@ namespace Blockchain_Basics
                 }
             }
 
-            for(int i = 0; i < 3; i++)
+            for(int i = 0; i < 4; i++)
             {
                 if (achivement[i].state == "Получено")
                 {
@@ -96,6 +97,7 @@ namespace Blockchain_Basics
             achivement[0].button.Clicked += (sender, e) => Btn_clic(0, achivement, user);
             achivement[1].button.Clicked += (sender, e) => Btn_clic(1, achivement, user);
             achivement[2].button.Clicked += (sender, e) => Btn_clic(2, achivement, user);
+            achivement[3].button.Clicked += (sender, e) => Btn_clic(3, achivement, user);
 
             aButtons[0].button.Clicked += (sender, e) => Ava_clic(aButtons[0], 0, user);
             aButtons[1].button.Clicked += (sender, e) => Ava_clic(aButtons[1], 1, user);

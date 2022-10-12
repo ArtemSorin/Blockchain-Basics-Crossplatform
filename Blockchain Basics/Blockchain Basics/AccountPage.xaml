@@ -169,12 +169,50 @@
                                             <Label x:Name="lbl3" Text="Не получено" Grid.Column="1" FontSize="Small" TextColor="Red" FontAttributes="Bold"></Label>
                                         </Grid>
                                     </Grid>
-                                    <Image Source="lessonmini6.png" Grid.Column="1"></Image>
+                                    <Image Source="achivement1.png" Grid.Column="1"></Image>
                                 </Grid>
                                 <Button x:Name="unloc3" Text="Собрать награды" TextColor="White" VerticalOptions="EndAndExpand" CornerRadius="25" BackgroundColor="#2F9BDF"></Button>
                             </StackLayout>
                         </Frame>
-                    </StackLayout>
+                    <Frame CornerRadius="30" HeightRequest="220">
+                        <StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="100" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Знаток алгоритмов" TextColor="Black" FontAttributes="Bold" FontSize="Medium" Grid.Column="0" Grid.Row="0"></Label>
+                                    <Label Text="В игре с последовательностями транзакций безошибочно составь все цепочки" Grid.Column="0" Grid.Row="1"></Label>
+                                    <Grid Grid.Row="2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Label Text="Статус:" Grid.Column="0" FontSize="Small" TextColor="Black" FontAttributes="Bold"></Label>
+                                        <Label x:Name="lbl4" Text="Не получено" Grid.Column="1" FontSize="Small" TextColor="Red" FontAttributes="Bold"></Label>
+                                    </Grid>
+                                </Grid>
+                                <Image Source="achivement2.png" Grid.Column="1"></Image>
+                            </Grid>
+                            <Button x:Name="unloc4" Text="Собрать награды" TextColor="White" VerticalOptions="EndAndExpand" CornerRadius="25" BackgroundColor="#2F9BDF"></Button>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
