@@ -258,7 +258,7 @@ namespace Blockchain_Basics
                 {
                     user.Games_completed[1] = true;
 
-                    user.UserProgress += 0.55;
+                    user.UserProgress += 0.12;
                     user.UserGamesProgress++;
                     user.UserPrimogames += 100;
 

@@ -39,6 +39,7 @@ namespace BlockchainBasics
                 UserPrimogames = item.Object.UserPrimogames,
                 Games_achivement = item.Object.Games_achivement,
                 Games_completed = item.Object.Games_completed,
+                Qiizes_completed = item.Object.Qiizes_completed,
                 Id = item.Key,
             }).ToList();
         }

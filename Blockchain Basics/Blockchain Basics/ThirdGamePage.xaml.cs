@@ -92,7 +92,7 @@ namespace Blockchain_Basics
                 {
                     user.Games_completed[2] = true;
 
-                    user.UserProgress += 0.55;
+                    user.UserProgress += 0.08;
                     user.UserGamesProgress++;
                     user.UserPrimogames += 100;
 
@@ -101,10 +101,10 @@ namespace Blockchain_Basics
 
                 if (!user.Games_achivement[0])
                 {
-                    user.Games_achivement[0] = true;
-
                     if (countExcelentQuestionAnswers == 12)
                     {
+                        user.Games_achivement[0] = true;
+
                         user.UserAchievements[0] = 1;
 
                         await repos.Update(user);

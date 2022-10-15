@@ -46,6 +46,7 @@ namespace Blockchain_Basics
                 List<bool> bools_completed = new List<bool>() { false, false, false, false, false };
                 List<bool> bools_SelectedLessons = new List<bool>() { false, false, false, false, false, false, false, false };
                 List<int> bools_Achievements = new List<int>() { 0, 0, 0, 0, 0, 0 };
+                List<bool> bools_quizes = new List<bool>() { false, false, false, false, false, false, false, false };
 
                 user.UserName = UserNewEmail.Text;
                 user.UserPassword = HashPassword(UserNewPassword.Text);
@@ -58,6 +59,7 @@ namespace Blockchain_Basics
                 user.UserPrimogames = 0;
                 user.Games_achivement = bools_achivement;
                 user.Games_completed = bools_completed;
+                user.Qiizes_completed = bools_quizes;
 
                 var isSaved = await repos.SaveUser(user);
 

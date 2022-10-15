@@ -19,5 +19,6 @@ namespace Blockchain_Basics
         public int UserPrimogames { get; set; }
         public List<bool> Games_achivement { get; set; }
         public List<bool> Games_completed { get; set; }
+        public List<bool> Qiizes_completed { get; set; }
     }
 }
