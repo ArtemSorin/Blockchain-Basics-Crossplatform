@@ -1,4 +1,5 @@
-﻿using Syncfusion.XForms.Buttons;
+﻿using BlockchainBasics;
+using Syncfusion.XForms.Buttons;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,8 @@ namespace Blockchain_Basics
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FirstQuizPage : ContentPage
     {
+        UserRepository repos = new UserRepository();
+
         public bool local_state = false;
         public short qestions_update = 0;
         public short correct_answers = 0;
@@ -44,7 +47,7 @@ namespace Blockchain_Basics
             check2.StateChanged += RadioButton_StateChanged_Second;
             check3.StateChanged += RadioButton_StateChanged_Third;
 
-            btn_answer.Clicked += (sender, e) => updateQuestion(list);
+            btn_answer.Clicked += (sender, e) => updateQuestion(list, user);
         }
         private void RadioButton_StateChanged_First(object sender, StateChangedEventArgs e)
         {
@@ -79,7 +82,7 @@ namespace Blockchain_Basics
                 local_state = false;
             }
         }
-        private void updateQuestion(List<Question> list)
+        private async void updateQuestion(List<Question> list, User user)
         {
             if (qestions_update != 2)
             {
@@ -102,6 +105,19 @@ namespace Blockchain_Basics
                 check1.IsVisible = false;
                 check2.IsVisible = false;
                 check3.IsVisible = false;
+
+                //if (correct_answers == 3)
+                {
+                    if (!user.Qiizes_completed[0])
+                    {
+                        user.Qiizes_completed[0] = true;
+
+                        user.UserProgress += 0.07;
+                        user.UserPrimogames += 20;
+
+                        await repos.Update(user);
+                    }
+                }
             }
         }
     }

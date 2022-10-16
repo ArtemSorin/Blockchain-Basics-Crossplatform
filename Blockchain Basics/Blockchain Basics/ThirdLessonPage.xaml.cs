@@ -10,6 +10,8 @@ namespace BlockchainBasics
         public ThirdLessonPage(User user)
         {
             InitializeComponent();
+
+            quiz1.Clicked += (sender, e) => Navigation.PushAsync(new ThirdQuizPage());
         }
     }
 }
