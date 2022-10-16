@@ -12,7 +12,7 @@ namespace Blockchain_Basics
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SecondLessonPage : ContentPage
     {
-        public SecondLessonPage()
+        public SecondLessonPage(User user)
         {
             InitializeComponent();
         }

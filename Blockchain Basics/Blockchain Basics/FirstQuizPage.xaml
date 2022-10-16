@@ -17,7 +17,7 @@
                 <syncfusion:SfRadioButton x:Name="check2" Text="" CheckedColor="#2F9BDF"/>
                 <syncfusion:SfRadioButton x:Name="check3" Text="" CheckedColor="#2F9BDF"/>
             </syncfusion:SfRadioGroup>
-            <Button x:Name="btn_answer" TextColor="White" BackgroundColor="#2F9BDF" CornerRadius="20" Text="Ответить"></Button>
+            <Button x:Name="btn_answer" Margin="20" TextColor="White" BackgroundColor="#2F9BDF" CornerRadius="20" Text="Ответить"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
