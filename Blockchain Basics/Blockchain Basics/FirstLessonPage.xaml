@@ -1,5 +1,67 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Blockchain_Basics.FirstLessonPage">
+             x:Class="Blockchain_Basics.FirstLessonPage"
+             Title="Что такое блокчейн?">
+    <ScrollView>
+        <StackLayout Margin="10">
+            <Frame Margin="5, 5, 5, 0" CornerRadius="20">
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Blockchain " ForegroundColor="#2F9BDF" FontAttributes="Bold" />
+                            <Span Text="- это цепочка блоков, которые содержат информацию."  />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Frame>
+            <Grid Margin="5, 0, 5, 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Frame Grid.Column="0" CornerRadius="20">
+                    <StackLayout>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Так как же это работает? " ForegroundColor="#2F9BDF" FontAttributes="Bold" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label Text="Каждый блок из цепочки" ></Label>
+                        <Label Margin="0, -7, 0 ,0" Text="содержит некоторую" ></Label>
+                        <Label Margin="0, -7, 0 ,0" Text="информацию, свой хэш" ></Label>
+                        <Label Margin="0, -7, 0 ,0" Text="и хэш предыдущего блока." ></Label>
+                        <Label Margin="0, -7, 0 ,0" Text="Информация, хранящаяся " ></Label>
+                        <Label Margin="0, -7, 0 ,0" Text="в блоке, зависит от типа " ></Label>
+                        <Label Margin="0, -7, 0 ,0" Text="blockchain." ></Label>
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Column="1"  CornerRadius="20">
+                    <StackLayout Margin="-6, 5, -6, 0">
+                        <Label Margin="0, -7, 0 ,0" Text="Блок так" ></Label>
+                        <Label Margin="0, -7, 0 ,0" Text="же имеет" ></Label>
+                        <Label Margin="0, -7, 0 ,0" Text="свой хэш." ></Label>
+                        <Label Margin="0, -7, 0 ,0" Text="Он иден-" ></Label>
+                        <Label Margin="0, -7, 0 ,0" Text="тифицирует" ></Label>
+                        <Label Margin="0, -7, 0 ,0" Text="его содер-" ></Label>
+                        <Label Margin="0, -7, 0 ,0" Text="жимое." ></Label>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+            <Frame Margin="5, 0, 5, 0" CornerRadius="20">
+                <Image Source="lesson1_material1.png"></Image>
+            </Frame>
+            <Frame Grid.Column="1"  CornerRadius="20">
+                <StackLayout Margin="-6, 5, -6, 0">
+                    <Label Text="Давайте рассмотрим пример: у нас есть цепочка из трех блоков. Как вы видите, каждый блок имеет свой хэш и хэш предыдущего блока. Блок номер 3 указывает на блок номер 2 и блок номер 2 указывает на блок номер 1. Сейчас первый блок немного уникальный, он не может указать на предыдущий блок, потому что он самый первый. Этот блок называется Генезис Блок. Допустим вы подделываете второй блок, и это означает что хэш блока изменится. В последствии это сделает блок 3 и следующие блоки неверными, так как они больше не содержат правильный хэш предыдущего блока. Поэтому изменение одного блока делает все последующие неверными."></Label>
+                </StackLayout>
+            </Frame>
+            <Button x:Name="quiz1" Text="Пройти квиз" Margin="10" TextColor="White" BackgroundColor="#2F9BDF" CornerRadius="20"></Button>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

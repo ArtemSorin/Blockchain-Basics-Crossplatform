@@ -30,7 +30,6 @@ namespace Blockchain_Basics
 
         public SQLiteConnection conn;
         public User regmodel;
-        int IDone;
 
         public SecondGamePage(User user)
         {

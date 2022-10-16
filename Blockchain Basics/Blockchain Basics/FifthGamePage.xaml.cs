@@ -38,8 +38,6 @@ namespace Blockchain_Basics
 
             List<BTN> mas = new List<BTN>();
 
-            int k = 0;
-
             mas.Add(new BTN() { btn = btn1, flag = false });
             mas.Add(new BTN() { btn = btn2, flag = false });
             mas.Add(new BTN() { btn = btn3, flag = false });

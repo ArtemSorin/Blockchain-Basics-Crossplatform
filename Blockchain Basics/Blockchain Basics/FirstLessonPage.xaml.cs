@@ -12,9 +12,10 @@ namespace Blockchain_Basics
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FirstLessonPage : ContentPage
     {
-        public FirstLessonPage()
+        public FirstLessonPage(User user)
         {
             InitializeComponent();
+            quiz1.Clicked += (s, e) => Navigation.PushAsync(new FirstQuizPage(user));
         }
     }
 }

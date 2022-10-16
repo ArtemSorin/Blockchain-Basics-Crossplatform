@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             x:Class="Blockchain_Basics.FirstQuizPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame Margin="20, 20, 20, 0" CornerRadius="20">
+                <Label Text="Quiz 1" TextColor="#2F9BDF" FontSize="Large" HorizontalOptions="Center"></Label>
+            </Frame>
+            <Frame Margin="20, 20, 20, 0" HeightRequest="120" CornerRadius="20">
+                <Label x:Name="label" Text="Однажды записанную в blockchain информацию..." HorizontalOptions="Center"
+                       VerticalOptions="Center" FontAttributes="Bold" TextColor="Black" FontSize="Large"></Label>
+            </Frame>
+            <syncfusion:SfRadioGroup x:Name="radioGroup" Margin="20, 20, 20, 0">
+                <syncfusion:SfRadioButton x:Name="check1" Text="можно менять по своему желанию" CheckedColor="#2F9BDF"/>
+                <syncfusion:SfRadioButton x:Name="check2" Text="" CheckedColor="#2F9BDF"/>
+                <syncfusion:SfRadioButton x:Name="check3" Text="" CheckedColor="#2F9BDF"/>
+            </syncfusion:SfRadioGroup>
+            <Button x:Name="btn_answer" TextColor="White" BackgroundColor="#2F9BDF" CornerRadius="20" Text="Ответить"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

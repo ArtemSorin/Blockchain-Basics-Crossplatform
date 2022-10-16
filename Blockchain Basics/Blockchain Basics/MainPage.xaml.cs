@@ -98,6 +98,8 @@ namespace Blockchain_Basics
             button_game_4.Clicked += (sender, e) => { Navigation.PushAsync(new FourthGamePage()); };
             button_game_5.Clicked += (sender, e) => { Navigation.PushAsync(new FifthGamePage(user)); };
 
+            button_lesson1.Clicked += (sender, e) => { Navigation.PushAsync(new FirstLessonPage(user)); };
+
             outbtn.Clicked += (sender, e) => Navigation.PopAsync();
             refresh.Clicked += (sender, e) => Navigation.PushAsync(new AccountPage(user));
         }

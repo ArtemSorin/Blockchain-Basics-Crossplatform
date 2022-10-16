@@ -75,28 +75,28 @@
                             <Label x:Name="emptylabel" HorizontalOptions="Center" VerticalOptions="Center" Text="Здесь появятся добавленные курсы"
                                    IsVisible="False" Grid.Column="1" Margin="-15, 0, 0, 0"></Label>
                             <Frame x:Name="frame1" CornerRadius="30" IsVisible="False" >
-                                <ImageButton Source="lesson1.png" CornerRadius="30" Margin="-15"></ImageButton>
+                                <ImageButton x:Name="button_lesson1" Source="lesson1.png" CornerRadius="30" Margin="-15"></ImageButton>
                             </Frame>
                             <Frame x:Name="frame2" CornerRadius="30" IsVisible="False">
-                                <ImageButton Source="lesson2.png" CornerRadius="30" Margin="-15"></ImageButton>
+                                <ImageButton x:Name="button_lesson2" Source="lesson2.png" CornerRadius="30" Margin="-15"></ImageButton>
                             </Frame>
                             <Frame x:Name="frame3" CornerRadius="30" IsVisible="False">
-                                <ImageButton Source="lesson3.png" CornerRadius="30" Margin="-15"></ImageButton>
+                                <ImageButton x:Name="button_lesson3" Source="lesson3.png" CornerRadius="30" Margin="-15"></ImageButton>
                             </Frame>
                             <Frame x:Name="frame4" CornerRadius="30" IsVisible="False">
-                                <ImageButton Source="lesson4.png" CornerRadius="30" Margin="-15"></ImageButton>
+                                <ImageButton x:Name="button_lesson4" Source="lesson4.png" CornerRadius="30" Margin="-15"></ImageButton>
                             </Frame>
                             <Frame x:Name="frame5" CornerRadius="30" IsVisible="False">
-                                <ImageButton Source="lesson5.png" CornerRadius="30" Margin="-15"></ImageButton>
+                                <ImageButton x:Name="button_lesson5" Source="lesson5.png" CornerRadius="30" Margin="-15"></ImageButton>
                             </Frame>
                             <Frame x:Name="frame6" CornerRadius="30" IsVisible="False">
-                                <ImageButton Source="lesson6.png" CornerRadius="30" Margin="-15"></ImageButton>
+                                <ImageButton x:Name="button_lesson6" Source="lesson6.png" CornerRadius="30" Margin="-15"></ImageButton>
                             </Frame>
                             <Frame x:Name="frame7" CornerRadius="30" IsVisible="False">
-                                <ImageButton Source="lesson7.png" CornerRadius="30" Margin="-15"></ImageButton>
+                                <ImageButton x:Name="button_lesson7" Source="lesson7.png" CornerRadius="30" Margin="-15"></ImageButton>
                             </Frame>
                             <Frame x:Name="frame8" CornerRadius="30" IsVisible="False">
-                                <ImageButton Source="lesson8.png" CornerRadius="30" Margin="-15"></ImageButton>
+                                <ImageButton x:Name="button_lesson8" Source="lesson8.png" CornerRadius="30" Margin="-15"></ImageButton>
                             </Frame>
                         </Grid>
                     </ScrollView>
