@@ -11,7 +11,7 @@ namespace BlockchainBasics
         {
             InitializeComponent();
 
-            quiz1.Clicked += (sender, e) => Navigation.PushAsync(new ThirdQuizPage());
+            quiz1.Clicked += (sender, e) => Navigation.PushAsync(new ThirdQuizPage(user));
         }
     }
 }

@@ -1,47 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Blockchain_Basics.SecondLessonPage"
-             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" >
-    <NavigationPage.TitleView>
-        <StackLayout>
-            <Label Text="Виды криптовалют" HorizontalTextAlignment="Center" Margin="0, 0, 75, 0"
-                   FontSize="Medium" FontAttributes="Bold" TextColor="White"/>
-        </StackLayout>
-    </NavigationPage.TitleView>
+             x:Class="Blockchain_Basics.SecondLessonPage">
     <ScrollView>
-        <StackLayout Margin="20">
-            <Label Text="В предыдущей теме мы рассказывали о том, что такое блокчейн в целом. Теперь же пришло время узнать, что такое криптовалюты, какие они бывают и откуда вообще появились."></Label>
-            <Label>
-                <Label.FormattedText>
-                    <FormattedString>
-                        <Span Text="Криптовалюта " TextColor="#1c9af5" FontAttributes="Bold" />
-                        <Span Text="— это виртуальные деньги, которые в отличие от привычных средств не имеют физического представления, их нельзя увидеть и потрогать." />
-                    </FormattedString>
-                </Label.FormattedText>
-            </Label>
-            <forms:AnimationView
-                x:Name="animationView"
-                Animation="bitcointouch.json"
-                AutoPlay="True"
-                HeightRequest="200"/>
-            <Label>
-                <Label.FormattedText>
-                    <FormattedString>
-                        <Span Text="Первой криптовалютой в мире стал Bitcoin, представленный в 2009 году, но за год до этого в сети был впервые опубликован файл с подробным описанием протокола и принципа работы электронной платёжной системы на базе "/>
-                        <Span Text="одноранговой сети." FontAttributes="Italic" />
-                    </FormattedString>
-                </Label.FormattedText>
-            </Label>
-            <Label>
-                <Label.FormattedText>
-                    <FormattedString>
-                        <Span Text="Одноранговая сеть " TextColor="#1c9af5" FontAttributes="Bold" />
-                        <Span Text="- это бессерверная сетевая технология, которая позволяет нескольким сетевым устройствам совместно использовать ресурсы и взаимодействовать друг с другом." />
-                    </FormattedString>
-                </Label.FormattedText>
-            </Label>
-            <Label Text="В качестве платёжного средства биткоин был впервые использован в 2009 году – американец Ласло Ханеч купил 2 пиццы, заплатив 10 000 биткоинов."></Label>
+        <StackLayout Margin="10">
+            <Frame Margin="5, 5, 5, 0" CornerRadius="20">
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Криптовалюта " ForegroundColor="#2F9BDF" FontAttributes="Bold" />
+                            <Span Text="– форма электронных денег, которые хранятся не на централизованном счету, а в сети блокчейн. 
+Блокчейном это виртуальная база данных, где фиксируется информация обо всех транзакциях и о том, какая денежная сумма хранится на каждом счету. Эта технология обеспечивает возможности перевода активов между пользователями, и одновременно выступает бесспорной гарантией владения этими активами.
+"  />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Frame>
+            <Grid Margin="5, 0, 5, 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Frame Grid.Column="0" CornerRadius="20">
+                    <StackLayout>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Альткоины " ForegroundColor="#2F9BDF" FontAttributes="Bold" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label Text="Это альтернативные коины – любые криптовалюты со своим блокчейном (кроме биткоина). Некоторые из них похожи на биткоин. Другие ориентированы на внедрение и использование новых инструментов, а также расширение возможностей. 
+При помощи изменения открытого исходного кода ВТС, разработчики альткоинов могут ускорять транзакции, оптимизировать процесс майнинга, создавать различные автоматизированные контракты, формировать базу для работы с криптоприложениями и т.д.
+" ></Label>
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Column="1"  CornerRadius="20">
+                    <StackLayout>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Стейблкоины" ForegroundColor="#2F9BDF" FontAttributes="Bold" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label Text="Цифровые монеты, цена которых привязана к материальным активам – доллару, золоту, нефти и др. Стейблкоины подходят тем, кто намерен перевести свои сбережения в цифровые активы с минимальными рисками." ></Label>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+            <Frame Grid.Column="1"  CornerRadius="20">
+                <StackLayout Margin="-6, 5, -6, 0">
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="DeFi " ForegroundColor="#2F9BDF" FontAttributes="Bold" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Text="Децентрализованные финансовые сервисы (Decentralized Finance) – это не отдельные криптовалюты, а комплексные платформы, которые могут объединять в себе разные виды цифровых активов и их функции. Некоторые специалисты считают, что подобные проекты оживляют сегмент криптовалют. 
+Основная особенность таких сервисов заключается в том, что их пользователи могут предоставлять и получать различные услуги напрямую, без привлечения посредников. При этом все расчеты проводятся в надежной децентрализованной сети. 
+Один из примеров – ETHMakerDAO, протокол децентрализованного кредитования. Основная его задача – стать более удобной и надежной альтернативой банковских услуг. 
+Каждый вид цифровых денег и сервисов может быть полезен для разных задач.
+"></Label>
+                </StackLayout>
+            </Frame>
+            <Button x:Name="quiz1" Text="Пройти квиз" Margin="10" TextColor="White" BackgroundColor="#2F9BDF" CornerRadius="20"></Button>
         </StackLayout>
     </ScrollView>
 </ContentPage>

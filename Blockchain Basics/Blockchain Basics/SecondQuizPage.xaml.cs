@@ -2,12 +2,17 @@
 using Syncfusion.XForms.Buttons;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace Blockchain_Basics
 {
-    public partial class ThirdQuizPage : ContentPage
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class SecondQuizPage : ContentPage
     {
         UserRepository repos = new UserRepository();
 
@@ -22,7 +27,7 @@ namespace Blockchain_Basics
             public string answer3;
             public int correct_answer;
         }
-        public ThirdQuizPage(User user)
+        public SecondQuizPage(User user)
         {
             InitializeComponent();
 
@@ -103,9 +108,9 @@ namespace Blockchain_Basics
 
                 //if (correct_answers == 3)
                 {
-                    if (!user.Qiizes_completed[2])
+                    if (!user.Qiizes_completed[1])
                     {
-                        user.Qiizes_completed[2] = true;
+                        user.Qiizes_completed[1] = true;
 
                         user.UserProgress += 0.07;
                         user.UserPrimogames += 20;
@@ -117,4 +122,3 @@ namespace Blockchain_Basics
         }
     }
 }
-

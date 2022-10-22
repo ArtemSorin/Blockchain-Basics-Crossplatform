@@ -16,15 +16,7 @@
                     </Label.FormattedText>
                 </Label>
             </Frame>
-            <Grid Margin="5, 0, 5, 0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="220" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Frame Grid.Column="0" CornerRadius="20">
+            <Frame Margin="5, 5, 5, 0" CornerRadius="20">
                     <StackLayout>
                         <Label>
                             <Label.FormattedText>
@@ -34,28 +26,21 @@
                             </Label.FormattedText>
                         </Label>
                         <Label Text="Хэш функция берет определенную информацию, например кусок текста или пароль от вашего аккаунта это может быть даже отдельный файл, и преобразует эту информацию в строку определенной длины, и эта строка всегда будет иметь одинаковую длину вне зависимости от того какого размера была входная информация. " ></Label>
-                        <Label Margin="0, -7, 0 ,0" Text="содержит некоторую" ></Label>
-                        <Label Margin="0, -7, 0 ,0" Text="информацию, свой хэш" ></Label>
-                        <Label Margin="0, -7, 0 ,0" Text="и хэш предыдущего блока." ></Label>
-                        <Label Margin="0, -7, 0 ,0" Text="Информация, хранящаяся " ></Label>
-                        <Label Margin="0, -7, 0 ,0" Text="в блоке, зависит от типа " ></Label>
-                        <Label Margin="0, -7, 0 ,0" Text="blockchain." ></Label>
                     </StackLayout>
                 </Frame>
-                <Frame Grid.Column="1"  CornerRadius="20">
-                    <StackLayout Margin="-6, 5, -6, 0">
-                        <Label>
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="Алгоритмы" ForegroundColor="#2F9BDF" FontAttributes="Bold" />
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-                        <Label Text="Существует достаточно много различных хэш алгоритмов. Хэш-функции очень сильно отличаются от обычного шифрования, зашифровав какую-либо информацию через алгоритм, вы в любое время сможете эту информацию расшифровать с помощью парольной фразы.">
-                        </Label>
-                    </StackLayout>
-                </Frame>
-            </Grid>
+            <Frame Margin="5, 5, 5, 0" CornerRadius="20">
+                <StackLayout Margin="-6, 5, -6, 0">
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Алгоритмы" ForegroundColor="#2F9BDF" FontAttributes="Bold" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Text="Существует достаточно много различных хэш алгоритмов. Хэш-функции очень сильно отличаются от обычного шифрования, зашифровав какую-либо информацию через алгоритм, вы в любое время сможете эту информацию расшифровать с помощью парольной фразы.">
+                    </Label>
+                </StackLayout>
+            </Frame>
             <Frame Margin="5, 0, 5, 0" CornerRadius="20">
                 <StackLayout Margin="-6, 5, -6, 0">
                         <Label>
